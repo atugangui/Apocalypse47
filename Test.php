@@ -20,16 +20,17 @@ $advantages = explode("\r", $advantages) ;
       <meta charset="utf-8" />
 </head>
    <body>
+   	<form action="test2.php" method="post">
 
    	<fieldset>
    		<legend>Race</legend>
-	<select id="race" size = "5">
+	<select name="race" size = "5">
 		<?php 
 		foreach($races as $race){
 			$race = explode(",", $race) ;
 			$r = $race[0] ;
 			?>
-			<option><?=$r ?></option>
+			<option value="<?= $r ?>"><?=$r ?></option>
 		<?php }?>
 		</select>
 	</fieldset>
@@ -37,14 +38,14 @@ $advantages = explode("\r", $advantages) ;
    	<fieldset>
    		<legend>Background</legend>
    		<p>Make sure that select a background that is on the same line as your choosen race.</p>
-	<select id="background" size = "5">
+	<select name="background" size = "5">
 		<?php 
 		foreach($bgs as $bg){
 			$bg = explode(",", $bg) ;
 			$background = $bg[0] ;
 			$race = $bg[1] ;
 			?>
-			<option><?=$background ?> , <?=$race?></option>
+			<option value="<?= $background ?>"><?=$background ?> , <?=$race?></option>
 		<?php }?>
 		</select>
 	</fieldset>
@@ -56,7 +57,7 @@ $advantages = explode("\r", $advantages) ;
 
    		<fieldset>
    			<legend>Physical</legend>
-   			<select multiple="multiple" id="physical" size="5">
+   			<select multiple="multiple" name="physical[]" size="5">
    				<?php 
 		foreach($phys_skills as $phys){
 			$phys = explode(",", $phys) ;
@@ -65,14 +66,14 @@ $advantages = explode("\r", $advantages) ;
 			$cost = $phys[2] ;
 			$training = $phys[3] ;
 			?>
-			<option><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
 		<?php }?>
    			</select>
    		</fieldset>
 
    		<fieldset>
    			<legend>Mental</legend>
-   			<select id="mental" size="5">
+   			<select multiple="multiple" name="mental[]" size="5">
    				<?php 
 		foreach($ment_skills as $ment){
 			$ment = explode(",", $ment) ;
@@ -81,14 +82,14 @@ $advantages = explode("\r", $advantages) ;
 			$cost = $ment[2] ;
 			$training = $ment[3] ;
 			?>
-			<option><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
 		<?php }?>
    			</select>
 		</fieldset>
 
 		<fieldset>
 			<legend>Spiritual</legend>
-			<select id="spiritual" size = "5">
+			<select multiple="multiple" name="spiritual[]" size = "5">
 				<?php 
 		foreach($spirit_skills as $spirit){
 			$spirit = explode(",", $spirit) ;
@@ -97,7 +98,7 @@ $advantages = explode("\r", $advantages) ;
 			$cost = $spirit[2] ;
 			$training = $spirit[3] ;
 			?>
-			<option><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
 		<?php }?>
 			</select>
 		</fieldset>
@@ -110,56 +111,56 @@ $advantages = explode("\r", $advantages) ;
 
          <fieldset>
             <legend>Major Advantages</legend>
-            <select id="maj_adv" size="5">
+            <select multiple="multiple" name="maj_adv[]" size="5">
                <?php
                for ($i=18; $i<35; $i++) {
                   $maj_adv = explode(",", $advantages[$i]) ;
                   $advantage = $maj_adv[1] ;
                   $weight = $maj_adv[2] ;
                   ?>
-                  <option><?=$advantage ?> , Weight:<?=$weight ?></option>
+                  <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
                <?php }?>
             </select>
          </fieldset>
 
    		<fieldset>
    			<legend>Minor Advantages</legend>
-   			<select id="min_adv" size="5">
+   			<select multiple="multiple" name="min_adv[]" size="5">
    				<?php
    				for ($i=1; $i<18; $i++) {
    					$min_adv = explode(",", $advantages[$i]) ;
    					$advantage = $min_adv[1] ;
    					$weight = $min_adv[2] ;
    					?>
-   					<option><?=$advantage ?> , Weight:<?=$weight ?></option>
+   					<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
    				<?php }?>
    			</select>
    		</fieldset>
 
          <fieldset>
             <legend>Major Disadvantages</legend>
-            <select id="maj_dis" size="5">
+            <select multiple = "multiple" name="maj_dis[]" size="5">
                <?php
                for ($i=53; $i<64; $i++) {
                   $maj_dis = explode(",", $advantages[$i]) ;
                   $advantage = $maj_dis[1] ;
                   $weight = $maj_dis[2] ;
                   ?>
-                  <option><?=$advantage ?> , Weight:<?=$weight ?></option>
+                  <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
                <?php }?>
             </select>
          </fieldset>
 
    		<fieldset>
    			<legend>Minor Disadvantages</legend>
-   			<select id="min_dis" size="5">
+   			<select multiple="multiple" name="min_dis[]" size="5">
    				<?php
    				for ($i=41; $i<53; $i++) {
    					$min_dis = explode(",", $advantages[$i]) ;
    					$advantage = $min_dis[1] ;
    					$weight = $min_dis[2] ;
    					?>
-   					<option><?=$advantage ?> , Weight:<?=$weight ?></option>
+   					<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
    				<?php }?>
    			</select>
    		</fieldset>
@@ -169,16 +170,18 @@ $advantages = explode("\r", $advantages) ;
       <fieldset>
          <legend>Traits</legend>
          <p>You can pick as many traits as you like</p>
-         <select id="traits" size="5">
+         <select multiple="multiple" name="traits[]" size="5">
             <?php
             for($i=35; $i<41; $i++){
                $traits = explode(",", $advantages[$i]) ;
                $trait = $traits[1] ;
                ?>
-               <option><?=$trait ?></option>
+               <option value="<?= $trait ?>"><?=$trait ?></option>
                <?php }?>
            </select>
       </fieldset>
+    <input type="submit" name="submit"/>
+  </form>
 	
    </body>
    </html>
