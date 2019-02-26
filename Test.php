@@ -1,5 +1,4 @@
 <?php
-
 //Get movie title, year, and rating
 $races = file_get_contents("race_types.csv") ;
 $races = explode("\r", $races) ;
@@ -104,6 +103,20 @@ $advantages = explode("\r", $advantages) ;
    	<fieldset>
    		<legend>Advantages</legend>
 
+         <fieldset>
+            <legend>Major Advantages</legend>
+            <select id="maj_adv" size="5">
+               <?php
+               for ($i=18; $i<35; $i++) {
+                  $maj_adv = explode(",", $advantages[$i]) ;
+                  $advantage = $maj_adv[1] ;
+                  $weight = $maj_adv[2] ;
+                  ?>
+                  <option><?=$advantage ?> , Weight:<?=$weight ?></option>
+               <?php }?>
+            </select>
+         </fieldset>
+
    		<fieldset>
    			<legend>Minor Advantages</legend>
    			<select id="min_adv" size="5">
@@ -118,25 +131,25 @@ $advantages = explode("\r", $advantages) ;
    			</select>
    		</fieldset>
 
-		<fieldset>
-   			<legend>Major Advantages</legend>
-   			<select id="maj_adv" size="5">
-   				<?php
-   				for ($i=18; $i<35; $i++) {
-   					$maj_adv = explode(",", $advantages[$i]) ;
-   					$advantage = $maj_adv[1] ;
-   					$weight = $maj_adv[2] ;
-   					?>
-   					<option><?=$advantage ?> , Weight:<?=$weight ?></option>
-   				<?php }?>
-   			</select>
-   		</fieldset>
+         <fieldset>
+            <legend>Major Disadvantages</legend>
+            <select id="maj_dis" size="5">
+               <?php
+               for ($i=53; $i<64; $i++) {
+                  $maj_dis = explode(",", $advantages[$i]) ;
+                  $advantage = $maj_dis[1] ;
+                  $weight = $maj_dis[2] ;
+                  ?>
+                  <option><?=$advantage ?> , Weight:<?=$weight ?></option>
+               <?php }?>
+            </select>
+         </fieldset>
 
    		<fieldset>
    			<legend>Minor Disadvantages</legend>
    			<select id="min_dis" size="5">
    				<?php
-   				for ($i=43; $i<53; $i++) {
+   				for ($i=41; $i<53; $i++) {
    					$min_dis = explode(",", $advantages[$i]) ;
    					$advantage = $min_dis[1] ;
    					$weight = $min_dis[2] ;
@@ -146,20 +159,19 @@ $advantages = explode("\r", $advantages) ;
    			</select>
    		</fieldset>
 
-   		<!-- <fieldset>
-   			<legend>Major Disadvantages</legend>
-   			<select id="min_adv" size="5">
-   				<?php/*
-   				for ($i=1; $i<18; $i++) {
-   					$min_adv = explode(",", $advantages[$i]) ;
-   					$advantage = $min_adv[1] ;
-   					$weight = $min_adv[2] ;
-   					?>
-   					<option><?=$advantage ?> , Weight:<?=$weight ?></option>
-   				<?php }*/?>
-   			</select>
-   		</fieldset> -->
    	</fieldset>
+
+      <fieldset>
+         <legend>Traits</legend>
+         <select id="traits" size="5">
+            <?php
+            for($i=35; $i<41; $i++){
+               $traits = explode(",", $advantages[$i]) ;
+               $trait = $traits[1] ;
+               ?>
+               <option><?=$trait ?></option>
+               <?php
+      </fieldset>
 	
    </body>
    </html>
