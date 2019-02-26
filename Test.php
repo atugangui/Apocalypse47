@@ -20,7 +20,7 @@ $advantages = explode("\r", $advantages) ;
       <meta charset="utf-8" />
 </head>
    <body>
-   	<form action="test2.php" method="post">
+   	<form action="sqlStatments.php" method="post">
 
    	<fieldset>
    		<legend>Race</legend>
