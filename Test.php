@@ -36,6 +36,7 @@ $advantages = explode("\r", $advantages) ;
 
    	<fieldset>
    		<legend>Background</legend>
+   		<p>Make sure that select a background that is on the same line as your choosen race.</p>
 	<select id="background" size = "5">
 		<?php 
 		foreach($bgs as $bg){
@@ -50,10 +51,12 @@ $advantages = explode("\r", $advantages) ;
 
 <fieldset>
    		<legend>Skills</legend>
+   		<p>You start with ten points in a category of your choice, and twenty points in each of the other two.<br>
+   		Remember to hold down control when picking multiple options</p>
 
    		<fieldset>
    			<legend>Physical</legend>
-   			<select id="physical" size="5">
+   			<select multiple="multiple" id="physical" size="5">
    				<?php 
 		foreach($phys_skills as $phys){
 			$phys = explode(",", $phys) ;
@@ -102,6 +105,8 @@ $advantages = explode("\r", $advantages) ;
 
    	<fieldset>
    		<legend>Advantages</legend>
+   		<p>You may have two major and four minor advantages, or one major and two minor advantages.<br>
+   		Make sure to balance this out by taking disadvantages so the total weight is zero.</p>
 
          <fieldset>
             <legend>Major Advantages</legend>
@@ -163,6 +168,7 @@ $advantages = explode("\r", $advantages) ;
 
       <fieldset>
          <legend>Traits</legend>
+         <p>You can pick as many traits as you like</p>
          <select id="traits" size="5">
             <?php
             for($i=35; $i<41; $i++){
@@ -170,7 +176,8 @@ $advantages = explode("\r", $advantages) ;
                $trait = $traits[1] ;
                ?>
                <option><?=$trait ?></option>
-               <?php
+               <?php }?>
+           </select>
       </fieldset>
 	
    </body>
