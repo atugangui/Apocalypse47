@@ -29,7 +29,7 @@ $traits = explode("\r", $traits) ;
 <!DOCTYPE html>
 <html>
 <head>
-      <title>Test</title>
+      <title>Creator Page</title>
       <meta charset="utf-8" />
 </head>
    <body>
