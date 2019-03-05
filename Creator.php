@@ -17,10 +17,13 @@ $minor_advantages = file_get_contents("minor_advantages.csv") ;
 $minor_advantages = explode("\r", $minor_advantages) ;
 
 $major_disadvantages = file_get_contents("major_disadvantages.csv") ;
-$major_disadvantages = explode("\r", $major_advantages) ;
+$major_disadvantages = explode("\r", $major_disadvantages) ;
 
 $minor_disadvantages = file_get_contents("minor_disadvantages.csv") ;
 $minor_disadvantages = explode("\r", $minor_disadvantages) ;
+
+$traits = file_get_contents("traits.csv") ;
+$traits = explode("\r", $traits) ;
 ?>
 
 <!DOCTYPE html>
@@ -182,8 +185,8 @@ $minor_disadvantages = explode("\r", $minor_disadvantages) ;
          <p>You can pick as many traits as you like</p>
          <select multiple="multiple" name="traits[]" size="5">
             <?php
-            for($i=35; $i<41; $i++){
-               $traits = explode(",", $advantages[$i]) ;
+            foreach ($traits as $trait){
+               $traits = explode(",", $trait) ;
                $trait = $traits[1] ;
                ?>
                <option value="<?= $trait ?>"><?=$trait ?></option>
