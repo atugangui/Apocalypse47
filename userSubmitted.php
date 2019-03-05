@@ -1,17 +1,17 @@
-
 <?php
 include("mysql.php");
 $race = $_REQUEST["race"] ;
 $background = $_REQUEST["background"] ;
-$phys = $_REQUEST["physical"] ;
-$ment = $_REQUEST["mental"] ;
-$spirit = $_REQUEST["spiritual"] ;
-$maj_adv = $_REQUEST["maj_adv"] ;
-$min_adv = $_REQUEST["min_adv"] ;
-$maj_dis = $_REQUEST["maj_dis"] ;
-$min_dis = $_REQUEST["min_dis"] ;
-$traits = $_REQUEST["traits"] ;
+$phys = $_REQUEST["physical[]"] ;
+$ment = $_REQUEST["mental[]"] ;
+$spirit = $_REQUEST["spiritual[]"] ;
+$maj_adv = $_REQUEST["maj_adv[]"] ;
+$min_adv = $_REQUEST["min_adv[]"] ;
+$maj_dis = $_REQUEST["maj_dis[]"] ;
+$min_dis = $_REQUEST["min_dis[]"] ;
+$traits = $_REQUEST["traits[]"] ;
 
+var_dump($phys) ;
 
 ?>
 
@@ -32,7 +32,6 @@ $traits = $_REQUEST["traits"] ;
     <h2>Background:</h2>
     <p><?=background?></p>
     <h2>Physical Skills:</h2>
-    <?php foreach ($phys as $p){ echo $p} ?>
     //<p><?=background?></p>
 
 </body>
