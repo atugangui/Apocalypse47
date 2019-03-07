@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = trim($_POST["username"])";
+        $sql = "SELECT id FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 /* store result */
                 mysqli_stmt_store_result($stmt);
                 
-                if(mysqli_stmt_num_rows($stmt) == 1){
+                if(mysqli_stmt_num_rows($stmt) != 0){
                     $username_err = "This username is already taken.";
                 } else{
                     $username = trim($_POST["username"]);
