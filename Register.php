@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+ // require_once "config.php";
  
 // Define variables and initialize with empty values
 $email = $password = $confirm_password = "";
@@ -65,11 +65,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (email, password, permissions) VALUES (?, ?, 3)";
+        $sql = "INSERT INTO users (email, password, permissions) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_email, $param_password);
+            mysqli_stmt_bind_param($stmt, "ss", $param_email, $param_password, 3);
             
             // Set parameters
             $param_email = $email;
