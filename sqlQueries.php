@@ -13,24 +13,16 @@ $maj_dis = $_REQUEST["maj_dis"] ;
 $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
 
+echo $name ;
+
 try {
-     $stmt= $conn->prepare("INSERT INTO character_table (char_name, race, char_pronouns, background)
-     VALUES(:name, :race, :pronouns, :background)");
-     $stmt->execute(":name"=>$name, ":race"=>$race, ":pronouns"=>$pronouns, ":background"=>$background) ;
+     $stmt= $conn->prepare("INSERT INTO character_table (char_name)
+     VALUES(:name);
+     $stmt->execute(":name"=>$name) ;
    }
    catch (Exception $e){
      echo $e;
    }
-
-try {
-foreach($phys as $p){
-    $stmt = $conn->prepare("INSERT INTO character_physical_skills (skill_name) VALUES(:p)");
-    $stmt->execute(":p"=>$p) ;
-   }
-   }
-   catch(Exception $e){
-    echo $e ;
-    }
 
 
 
