@@ -1,5 +1,7 @@
 <?php
 include("mysql.php");
+$name = $_REQUEST["name"] ;
+$pronouns = $_REQUEST["pronouns"] ;
 $race = $_REQUEST["race"] ;
 $background = $_REQUEST["background"] ;
 $phys = $_REQUEST["physical"] ;
@@ -23,7 +25,8 @@ $traits = $_REQUEST["traits"] ;
     <p>Character will now be reviewed by Admin.</p>
 
     <h2>Name:</h2>
-    //<p><?=$name ?></p>
+    <p><?=$name ?></p>
+    <p><?=$pronouns ?></p>
       
     <h2>Race:</h2>
     <p><?=$race ?></p>
