@@ -34,7 +34,13 @@ $traits = explode("\r", $traits) ;
 </head>
    <body>
    	<form action="userSubmitted.php" method="post">  //Should be changed to whatever file we make is (purgatory.php)
-
+	
+	<fieldset>
+		<legend>Name and Pronouns</legend>
+		<input type="text" name="name" /> <br />
+		<input type="text" name="pronouns" /> <br />
+	</fieldset>
+		
    	<fieldset>
    		<legend>Race</legend>
 	<select name="race" size = "5">
