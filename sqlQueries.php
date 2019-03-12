@@ -1,5 +1,6 @@
 <?php
-include("mysql.php");
+require_once "config.php" ;
+
 $name = $_REQUEST["name"] ;
 $pronouns = $_REQUEST["pronouns"] ;
 $race = $_REQUEST["race"] ;
@@ -13,16 +14,22 @@ $maj_dis = $_REQUEST["maj_dis"] ;
 $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
 echo $name ;
-try {
-     $sql = "INSERT INTO character_table (char_name) VALUES ('Peter')";
-     if(mysqli_stmt_execute($conn, $sql)){
-        mysqli_stmt_store_result($sql) ;
-        echo "we did a thing";}
-     else{ echo mysql_errno($conn) . ": " . mysql_error($conn). "\n" ; }
-   }
-   catch (Exception $e){
-     echo $e;
-     echo "error couldnt execute sql";
-   }
-   mysql_close($conn);
+
+     $query = "INSERT INTO character_table (char_name, race, background) VALUES(?,?,?)" ;
+     if($stmt = mysqli_prepare($conn, $query)){
+        mysqli_stmt_bind_param($stmt, "ss", $param_name, $param_race, $param_bg) ;
+
+        $param_name = $name ;
+        $param_race = $race ;
+        $param_bg = $background ;
+
+        if(mysqli_stmt_execute($stmt)){
+            echo "good" ;
+            }
+            else{
+            echo "bad" ;
+            }
+     mysqli_stmt_close($stmt) ;
+
+   mysqli_close($link);
 ?>
