@@ -22,5 +22,16 @@ $traits = $_REQUEST["traits"] ;
 catch(PDOException $e){
      echo $e->getMessage() ;
 }
+
+foreach($maj_adv as $ma){
+   $stmt= $conn->prepare("INSERT INTO char_adv_and_disadv (TYPE) VALUES(:param_ma)");
+  if($stmt->execute(array(":param_ma"=>$ma)){
+           echo "worked" ;
+      }
+catch(PDOException $e){
+     echo $e->getMessage() ;
+}
+     
+}
       
 ?>
