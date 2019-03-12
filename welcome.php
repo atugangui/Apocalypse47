@@ -35,7 +35,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         if (sizeof($rows)==0) {
             ?><p>you do not have any characters</p><?php
         } else {
-            
+            ?><p>Wy are we here?</p><?php
         }
     ?>
     <p>
