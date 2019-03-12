@@ -29,10 +29,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <?php
     echo "string";
         $name = htmlspecialchars($_SESSION["username"]);
+            echo "string";
         $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = $name";
+        echo "string";
         $stmt = $conn->prepare($sql);
+        echo "string";
         $stmt->execute();
+        echo "string";
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo "string";
         print_r($rows);
         if (sizeof($rows[0])==0) {
             ?>
