@@ -34,7 +34,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = $name";
         echo "string";
         $stmt = $conn->prepare($sql);
-        echo "string";
+        //echo "string";
         $stmt->execute();
         echo "string";
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
