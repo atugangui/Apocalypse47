@@ -14,10 +14,12 @@ $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
 echo $name ;
 try {
-     
-     echo "We did it";
+     $sql = "INSERT INTO character_table (name) VALUES ('Peter')";
+     echo "we did a thing";
    }
    catch (Exception $e){
      echo $e;
+     echo "error couldnt execute sql";
    }
+   mysql_close($conn);
 ?>
