@@ -25,8 +25,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="page-header">
         <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
     </div>
-    <h2>These are your characters:</h2>
+    <h2>These are you're characters:</h2>
     <?php
+    echo "string";
         $name = htmlspecialchars($_SESSION["username"]);
         $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = $name";
         $stmt = $conn->prepare($sql);
