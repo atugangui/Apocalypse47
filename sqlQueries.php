@@ -14,7 +14,7 @@ $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
 echo $name ;
 try {
-     $sql = "INSERT INTO character_table (name) VALUES ('Peter')";
+     $sql = "INSERT INTO character_table (char_name) VALUES ('Peter')";
      if(mysqli_stmt_execute($conn, $sql)){
         mysqli_stmt_store_result($sql) ;
         echo "we did a thing";}
