@@ -23,7 +23,7 @@ $stmt = ("INSERT into character_adv_and_disadv (TYPE, name) values("trait", $tra
 
 try {
      $stmt= $conn->prepare("INSERT INTO character_table (race, background) VALUES(:race, :background)");
-     $stmt->execute(":race"=>$race, ":background"=>$background) ;
+     $stmt->execute(array(":race"=>$race, ":background"=>$background)) ;
       
    }
    catch (Exception $e){
