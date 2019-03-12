@@ -15,7 +15,9 @@ $traits = $_REQUEST["traits"] ;
 echo $name ;
 try {
      $sql = "INSERT INTO character_table (name) VALUES ('Peter')";
-     echo "we did a thing";
+     if(mysqli_query($conn, $sql)){
+     echo "we did a thing";}
+     else{ echo "Didnt do the thing";}
    }
    catch (Exception $e){
      echo $e;
