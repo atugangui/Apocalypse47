@@ -17,7 +17,7 @@ echo $name ;
 
      $query = "INSERT INTO character_table (char_name, race, background) VALUES(?,?,?)" ;
      if($stmt = mysqli_prepare($link, $query)){
-        mysqli_stmt_bind_param($stmt, "ss", $param_name, $param_race, $param_bg) ;
+        mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_race, $param_bg) ;
 
         $param_name = $name ;
         $param_race = $race ;
