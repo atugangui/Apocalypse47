@@ -14,9 +14,7 @@ $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
 echo $name ;
 try {
-     $stmt= "INSERT INTO character_table (char_name)
-     VALUES(:name)";
-     $stmt->execute(":name"=>'Amanda') ;
+     
      echo "We did it";
    }
    catch (Exception $e){
