@@ -25,7 +25,7 @@ catch(PDOException $e){
 
 foreach($maj_adv as $ma){
  try{
-   $stmt= $conn->prepare("INSERT INTO character_adv_and_disadv (TYPE) VALUES($ma)");
+   $stmt= $conn->prepare("INSERT INTO character_adv_and_disadv (NAME) VALUES($ma)");
   if($stmt->execute()){
            echo "worked" ;
       }
