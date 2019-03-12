@@ -23,6 +23,8 @@ catch(PDOException $e){
      echo $e->getMessage() ;
 }
 
+$charId = $conn->lastInsertId() ;
+
 foreach($maj_adv as $ma){
  try{
    $stmt= $conn->prepare("INSERT INTO character_adv_and_disadv (NAME) VALUES(:param_ma)");
