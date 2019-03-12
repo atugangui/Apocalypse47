@@ -32,6 +32,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        print_r($rows);
         if (sizeof($rows[0])==0) {
             ?>
             <p>you do not have any characters</p>
