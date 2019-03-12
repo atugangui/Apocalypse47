@@ -35,12 +35,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
                 mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) != 0){
-                    $username_err = "This username is already taken.";
-                } else{
-                    $username = trim($_POST["username"]);
+
+                $rows = mysqli_stmt_num_rows($stmt);
+                if ($rows == 0) {
+                    ?><p>You do not have any characters</p><?php
+                } else {
+                    if(mysqli_stmt_bind_result($stmt, $charIDS)){
+                        ?> <p>These are your character ids</p>
+                        <ul><?php
+                        while (mysqli_stmt_fetch($stmt)) { ?>
+                            <li><?= "%s", $charIDS ?></li>
+                        <?php
+                        }
+                        ?></ul><?php
+                    } else{
+                        echo "Something went wrong";
+                    }
                 }
+                
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
