@@ -24,10 +24,12 @@ catch(PDOException $e){
 }
 
 foreach($maj_adv as $ma){
+ try{
    $stmt= $conn->prepare("INSERT INTO character_adv_and_disadv (TYPE) VALUES(:param_ma)");
   if($stmt->execute(array(":param_ma"=>$ma)){
            echo "worked" ;
       }
+     }
 catch(PDOException $e){
      echo $e->getMessage() ;
 }
