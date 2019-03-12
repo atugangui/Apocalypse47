@@ -17,7 +17,7 @@ echo $name ;
 
 try {
      $stmt= $conn->prepare("INSERT INTO character_table (char_name)
-     VALUES(:name);
+     VALUES(:name)");
      $stmt->execute(":name"=>'Amanda') ;
    }
    catch (Exception $e){
