@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <h2>These are your characters:</h2>
     <?php
  $name = htmlspecialchars($_SESSION["username"]);
-        $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = $name)";
+        $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = $name";
         if($stmt = mysqli_prepare($link, $sql)){
             
             // Attempt to execute the prepared statement
