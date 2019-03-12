@@ -33,7 +33,7 @@ $traits = explode("\r", $traits) ;
       <meta charset="utf-8" />
 </head>
    <body>
-   	<form action="sqlQueries.php" method="post">  //Should be changed to whatever file we make is (purgatory.php)
+   	<form action="sqlQueries.php" method="post">
 
 	<fieldset>
 		<legend>Name and Pronouns</legend>

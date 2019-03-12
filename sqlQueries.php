@@ -18,7 +18,7 @@ try {
      if(mysqli_stmt_execute($conn, $sql)){
         mysqli_stmt_store_result($sql) ;
         echo "we did a thing";}
-     else{ echo "Didnt do the thing";}
+     else{ echo mysql_errno($conn) . ": " . mysql_error($conn). "\n" ; }
    }
    catch (Exception $e){
      echo $e;
