@@ -12,18 +12,14 @@ $min_adv = $_REQUEST["min_adv"] ;
 $maj_dis = $_REQUEST["maj_dis"] ;
 $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
-
 echo $name ;
-
 try {
-     $stmt= $conn->prepare("INSERT INTO character_table (char_name)
-     VALUES(:name)");
+     $stmt= "INSERT INTO character_table (char_name)
+     VALUES(:name)";
      $stmt->execute(":name"=>'Amanda') ;
+     echo "We did it";
    }
    catch (Exception $e){
      echo $e;
    }
-
-
-
 ?>
