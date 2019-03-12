@@ -29,24 +29,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <?php
     echo "string";
         $name = htmlspecialchars($_SESSION["username"]);
-        echo $name;
-            echo "string";
-        $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = $name";
-        echo "string";
+        $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = :name";
         $stmt = $conn->prepare($sql);
-        //echo "string";
-        $stmt->execute();
-        echo "string";
+        $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo "string";
         print_r($rows);
         if (sizeof($rows[0])==0) {
             ?>
-            <p>you do not have any characters</p>
+            <p>You do not have any characters.</p>
             <?php
         } else {
             ?>
-            <p>Wy are we here?</p>
+            <p>Here are your characters:</p>
             <?php
         }
     ?>
