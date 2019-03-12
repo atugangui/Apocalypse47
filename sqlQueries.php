@@ -14,8 +14,9 @@ $maj_dis = $_REQUEST["maj_dis"] ;
 $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
  try{
-      $stmt = $conn->prepare("INSERT INTO character_table (char_name) VALUES ('Amanda')") ;
-      if($stmt->execute()){
+  $stmt= $conn->prepare("INSERT INTO character_table (char_name, race, background) VALUES(:param_name, :param_race, :param_bg)");
+     $stmt->execute(array(":param_name"=>$name, ":param_race"=>$race, ":param_bg"=>$background)) ;
+  if($stmt->execute()){
            echo "worked" ;
       }
  }
