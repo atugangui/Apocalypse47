@@ -25,8 +25,8 @@ catch(PDOException $e){
 
 foreach($maj_adv as $ma){
  try{
-   $stmt= $conn->prepare("INSERT INTO character_adv_and_disadv (NAME) VALUES($ma)");
-  if($stmt->execute()){
+   $stmt= $conn->prepare("INSERT INTO character_adv_and_disadv (NAME) VALUES(:param_ma)");
+  if($stmt->execute(array(":param_ma"=>$ma) )){
            echo "worked" ;
       }
      }
