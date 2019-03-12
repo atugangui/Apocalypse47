@@ -30,7 +30,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     echo "string";
         $name = htmlspecialchars($_SESSION["username"]);
             echo "string";
-        $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = $name";
+        $sql = "SELECT * FROM users";
         echo "string";
         $stmt = $conn->prepare($sql);
         echo "string";
