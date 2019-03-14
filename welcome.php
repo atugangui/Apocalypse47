@@ -33,15 +33,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        print_r($rows);
         if (sizeof($rows[0])==0) {
             ?>
             <p>You do not have any characters.</p>
             <?php
         } else {
             ?>
-            <p>Here are your characters:</p>
+            <ul>Here are your characters:</ul>
             <?php
+            for ($i=0; $i < sizeof(); $i++) {  ?>
+                <li><?= $rows ?></li>
+            <?php }
         }
     ?>
     <p>
