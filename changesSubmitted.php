@@ -1,6 +1,7 @@
 <?php
 include("mysql.php");
 
+//Gather user input information
 $name = $_REQUEST["name"] ;
 $pronouns = $_REQUEST["pronouns"] ;
 $race = $_REQUEST["race"] ;
@@ -14,7 +15,9 @@ $maj_dis = $_REQUEST["maj_dis"] ;
 $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
 
+//Insert into database
 include("sqlQueries.php") ;
+
 ?>
 
 <html>
@@ -23,10 +26,12 @@ include("sqlQueries.php") ;
 </head>
 <body>
 
+    //Display character name and pronouns
     <h2>Name:</h2>
     <p><?=$name ?></p>
     <p><?=$pronouns ?></p>
 
+    //Display race, background, skills, etc.
     <h2>Race:</h2>
     <p><?=$race ?></p>
 
