@@ -26,7 +26,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             $sql = "INSERT INTO player_table (email, NAME, pronouns, xp, bp) VALUES (?,?,?, ?, ?)";
                             $stmt = $conn -> prepare($sql);
                             $stmt -> execute([$email, $name, $pronouns, $xp, $bp]);
-                            header("location: welcome.php")
+                            header("location: welcome.php");
                         }
 ?>
 
