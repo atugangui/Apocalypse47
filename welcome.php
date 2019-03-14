@@ -38,16 +38,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <?php
         } else {
             ?>
-            <ul>Here are your characters:</ul>
+            <ul></ul>
             <?php
             for ($i=0; $i < sizeof(); $i++) {  ?>
-                <li><?= $rows[$i]["char_id"] ?></li>
+                <li><?= $rows[$i]['char_id'] ?></li>
             <?php }
         }
     ?>
     <p>
-        <a href="Creator.php" class="btn">Make a new character</a>
+        <a href="Creator.php" class="btn-primary">Make a new character</a>
     </p>
+    <?php 
+        $sql = "SELECT * FROM player_table WHERE player_table.email = :name";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(":name"=>$name));
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (sizeof($rows)==0) { ?>
+            <a href="makePlayer.php" class="btn-primary"></a>
+    <?php } ?>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
