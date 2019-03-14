@@ -10,7 +10,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 $email = $_SESSION["username"] ;
-echo $email ;
 
 //Grabbing character information from creation page
 $name = $_REQUEST["name"] ;
@@ -31,7 +30,7 @@ try{
  $stmt = $conn->prepare("SELECT player_id FROM player_table WHERE email= :email") ;
  if($stmt->execute(array(":email"=>$email))){
   $player_id = $stmt->fetch(PDO::FETCH_ASSOC) ;
-  $pid = $player_id ;
+  $pid = $player_id['player_id'];
   echo $pid ;
  } }
 catch(Exception $e){
