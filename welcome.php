@@ -53,9 +53,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (sizeof($rows)==0) { ?>
+        if (sizeof($rows)==0) { 
+            ?>
+            <br>
             <a href="makePlayer.php" class="btn-primary">Finish your account here!</a>
-    <?php } ?>
+    <?php
+        } 
+    ?>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
