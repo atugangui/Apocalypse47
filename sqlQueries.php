@@ -86,8 +86,5 @@ foreach($traits as $trait){
 }catch(Exception $e){
  echo $e ;
 }
-
-  header("location: changesSubmitted.php");
-    exit;
       
 ?>
