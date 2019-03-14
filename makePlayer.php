@@ -19,6 +19,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         if (sizeof($rows[0])!=0) {
             header("location: welcome.php");
         }
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+                            $xp = 50;
+                            $bp = 0;
+
+                            $sql = "INSERT INTO player_table (email, NAME, pronouns, xp, bp) VALUES (?,?,?, ?, ?)";
+                            $stmt = $conn -> prepare($sql);
+                            $stmt -> execute([$email, $name, $pronouns, $xp, $bp]);
+                            header("location: welcome.php")
+                        }
 ?>
 
 <!DOCTYPE html>
@@ -41,14 +50,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <input type="reset" class="btn btn-default" value="Reset">
-                        <?php
-                        if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-                            $sql = "INSERT INTO player_table (email, NAME, pronouns, xp, bp) VALUES (?,?,?, ?, ?)";
-                            $stmt = $conn -> prepare($sql);
-                            $stmt -> execute([$email, $name, $pronouns, 50, 0]);
-                        }
-                        ?>
                     </div>
                 </form>
             </div>
