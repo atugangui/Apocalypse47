@@ -17,7 +17,6 @@ try{
  if($stmt->execute(array(":email"=>$email))){
   $player_id = $stmt->fetch(PDO::FETCH_ASSOC) ;
   $pid = $player_id['player_id'];
-  echo $pid ;
  } }
 catch(Exception $e){
   echo $e ;
