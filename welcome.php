@@ -1,4 +1,6 @@
 <?php
+// Include database connection
+require_once "mysql.php";
 // Initialize the session
 session_start();
  
@@ -23,6 +25,42 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="page-header">
         <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
     </div>
+    <h2>These are your characters:</h2>
+    <?php
+        $name = htmlspecialchars($_SESSION["username"]);
+        $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = :name";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(":name"=>$name));
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (sizeof($rows[0])==0) {
+            ?>
+            <p>You do not have any characters.</p>
+            <?php
+        } else {
+            ?>
+            <ul></ul>
+            <?php
+            for ($i=0; $i < sizeof(); $i++) {  ?>
+                <li><?= $rows[$i]['char_id'] ?></li>
+            <?php }
+        }
+    ?>
+    <p>
+        <a href="Creator.php" class="btn-primary">Make a new character</a>
+    </p>
+    <?php 
+        $sql = "SELECT * FROM player_table WHERE player_table.email = :name";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(":name"=>$name));
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (sizeof($rows)==0) { 
+            $xp = 50;
+            $bap = 0;
+            $sql = "INSERT INTO player_table (email, xp, bap) VALUES (:param_email, :param_xp, :param_bap)";
+            $stmt = $conn -> prepare($sql);
+            $stmt -> execute(array(":param_email" => $name, ":param_xp" => $xp, ":param_bap"=> $bap));
+        } 
+    ?>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
