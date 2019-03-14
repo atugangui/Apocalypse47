@@ -11,6 +11,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 $email = $_SESSION["username"] ;
+
 //Pull player ID related to email
 try{
  $stmt = $conn->prepare("SELECT player_id FROM player_table WHERE email= :email") ;
@@ -22,7 +23,9 @@ catch(Exception $e){
   echo $e ;
  }
 
-//SQL queries to insert character information into player database
+//All SQL queries to insert character information into player database
+
+//Insert player ID, name, race, pronouns, background, and point values
  try{
   
   $stmt= $conn->prepare("INSERT INTO character_table (player_id, char_name, race, char_pronouns, background, total_cp, 
