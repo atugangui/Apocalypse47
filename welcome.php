@@ -53,7 +53,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (sizeof($rows[0])==0) { 
+        echo sizeof($rows);
+        if (sizeof($rows)==0) { 
             ?>
             <br>
             <a href="makePlayer.php" class="btn-primary">Finish your account here!</a>
