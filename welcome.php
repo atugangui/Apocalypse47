@@ -28,7 +28,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <h2>These are your characters:</h2>
     <?php
         $name = htmlspecialchars($_SESSION["username"]);
-        $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = :name";
+        $sql = "SELECT char_name FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = :name";
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <ul></ul>
             <?php
             for ($i=0; $i < sizeof($rows); $i++) {  ?>
-                <li><?= $rows[$i]['char_id'] ?></li>
+                <li><?= $rows[$i]['char_name'] ?></li>
             <?php }
         }
     ?>
