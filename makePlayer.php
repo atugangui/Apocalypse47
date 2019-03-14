@@ -4,7 +4,7 @@ require_once "mysql.php";
 // Initialize the session
 session_start();
 
-$email = $_SESSION["username"];
+$email = htmlspecialchars($_SESSION["username"]);
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -16,7 +16,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":email"=>$email));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (sizeof($rows)!=0) {
+        if (sizeof($rows[0])!=0) {
             header("location: welcome.php");
         }
 ?>
