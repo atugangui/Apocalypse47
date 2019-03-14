@@ -11,7 +11,4 @@ $min_adv = $_REQUEST["min_adv"] ;
 $maj_dis = $_REQUEST["maj_dis"] ;
 $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
-
-header("location: sqlQueries.php");
-    exit;
 ?>
