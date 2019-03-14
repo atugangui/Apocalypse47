@@ -42,9 +42,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <input type="reset" class="btn btn-default" value="Reset">
                         <?php
+                        if($_SERVER["REQUEST_METHOD"] == "POST"){
+
                             $sql = "INSERT INTO player_table (email, NAME, pronouns) VALUES (?,?,?)";
                             $stmt = $conn -> prepare($sql);
                             $stmt -> execute([$email, $name, $pronouns]);
+                        }
                         ?>
                     </div>
                 </form>
