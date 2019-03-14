@@ -1,6 +1,16 @@
 <?php
 include ("mysql.php") ;
 
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+$email = $_SESSION["username"] ;
+
 //Grabbing character information from creation page
 $name = $_REQUEST["name"] ;
 $pronouns = $_REQUEST["pronouns"] ;
@@ -14,6 +24,16 @@ $min_adv = $_REQUEST["min_adv"] ;
 $maj_dis = $_REQUEST["maj_dis"] ;
 $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
+
+//Pull player ID related to email
+try{
+ $stmt = $conn->prepare("SELECT player_id FROM player_table WHERE email= :email") ;
+ if($stmt->execute(array(":email"=>$email))){
+  $player_id = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
+  echo $player_id[0] ;
+ } catch(Exception $e){
+  echo $e ;
+ }
 
 //SQL queries to insert character information into player database
  try{
