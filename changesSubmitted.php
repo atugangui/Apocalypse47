@@ -26,12 +26,10 @@ include("sqlQueries.php") ;
 </head>
 <body>
 
-    //Display character name and pronouns
     <h2>Name:</h2>
     <p><?=$name ?></p>
     <p><?=$pronouns ?></p>
 
-    //Display race, background, skills, etc.
     <h2>Race:</h2>
     <p><?=$race ?></p>
 
