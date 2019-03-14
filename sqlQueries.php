@@ -17,9 +17,12 @@ $traits = $_REQUEST["traits"] ;
 
 //SQL queries to insert character information into player database
  try{
-  $stmt= $conn->prepare("INSERT INTO character_table (char_name, race, char_pronouns, background) 
-                         VALUES(:param_name, :param_race, :param_prons, :param_bg)");
-  if($stmt->execute(array(":param_name"=>$name, ":param_race"=>$race, ":param_prons"=>$pronouns, ":param_bg"=>$background))){
+  $stmt= $conn->prepare("INSERT INTO character_table (char_name, race, char_pronouns, background, total_cp, 
+                                                      total_bp, remaining_cp, remaining_bp, cumulative_xp) 
+                         VALUES(:param_name, :param_race, :param_prons, :param_bg, :param_cp, 
+                                :param_bp, :param_rcp, :param_rbp, :param_xp)");
+  if($stmt->execute(array(":param_name"=>$name, ":param_race"=>$race, ":param_prons"=>$pronouns, ":param_bg"=>$background,
+                         ":param_cp"=>'50', ":param_bp"=>'0', ":param_rcp"=>'50', ":param_rbp"=>'0', ":param_xp"=>'0'))){
            echo nl2br("Name, race, pronouns, and background inserted.\n") ;
       }
 
