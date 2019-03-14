@@ -54,7 +54,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (sizeof($rows)==0) { ?>
-            <a href="makePlayer.php" class="btn-primary"></a>
+            <a href="makePlayer.php" class="btn-primary">Finish your account here!</a>
     <?php } ?>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
