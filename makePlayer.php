@@ -19,7 +19,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         if (sizeof($rows[0])!=0) {
             header("location: welcome.php");
         }
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST['submit'])){
                             $xp = 50;
                             $bp = 0;
 
