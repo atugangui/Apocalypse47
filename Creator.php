@@ -33,7 +33,7 @@ $traits = explode("\r", $traits) ;
       <meta charset="utf-8" />
 </head>
    <body>
-   	<form action="sqlQueries.php" method="post">
+   	<form action="changesSubmitted.php" method="post">
 
 	<fieldset>
 		<legend>Name and Pronouns</legend>
