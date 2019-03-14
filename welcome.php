@@ -54,6 +54,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (sizeof($rows)==0) { 
+            echo "string";
             $xp = 50;
             $bp = 0;
             $sql = "INSERT INTO player_table (email, xp, bp) VALUES (:param_email, :param_xp, :param_bp)";
