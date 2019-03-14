@@ -55,10 +55,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo sizeof($rows[0]);
         if (sizeof($rows)==0) { 
-            ?>
-            <br>
-            <a href="makePlayer.php" class="btn-primary">Finish your account here!</a>
-    <?php
+            $xp = 50;
+            $bp = 0;
+            $sql = "INSERT INTO player_table (email, xp, bp) VALUES (?, ?, ?)";
+            $stmt = $conn -> prepare($sql);
+            $stmt -> execute([$email, $xp, $bp]);
         } 
     ?>
     <p>
