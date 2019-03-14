@@ -44,9 +44,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <?php
                         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-                            $sql = "INSERT INTO player_table (email, NAME, pronouns) VALUES (?,?,?)";
+                            $sql = "INSERT INTO player_table (email, NAME, pronouns, xp, bp) VALUES (?,?,?, ?, ?)";
                             $stmt = $conn -> prepare($sql);
-                            $stmt -> execute([$email, $name, $pronouns]);
+                            $stmt -> execute([$email, $name, $pronouns, 50, 0]);
                         }
                         ?>
                     </div>
