@@ -32,7 +32,7 @@ catch(Exception $e){
                                                       total_bp, remaining_cp, remaining_bp, cumulative_xp) 
                          VALUES(:param_pid, :param_name, :param_race, :param_prons, :param_bg, :param_cp, 
                                 :param_bp, :param_rcp, :param_rbp, :param_xp)");
-$stmt->execute(array("param_pid"=>$pid, ":param_name"=>$name, ":param_race"=>$race, ":param_prons"=>$pronouns, ":param_bg"=>$background,
+$stmt->execute(array(":param_pid"=>$pid, ":param_name"=>$name, ":param_race"=>$race, ":param_prons"=>$pronouns, ":param_bg"=>$background,
                          ":param_cp"=>'50', ":param_bp"=>'0', ":param_rcp"=>'50', ":param_rbp"=>'0', ":param_xp"=>'0')) ;
 
 $charID = $conn->lastInsertId() ;
