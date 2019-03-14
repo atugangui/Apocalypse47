@@ -16,7 +16,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":email"=>$email));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (sizeof($rows)==0) {
+        if (sizeof($rows)!=0) {
             header("location: welcome.php");
         }
 ?>
