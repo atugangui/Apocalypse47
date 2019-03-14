@@ -49,7 +49,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <input type="text" name="pronouns" class="form-control" value="<?php echo $pronouns; ?>">
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                         <input type="reset" class="btn btn-default" value="Reset">
                     </div>
                 </form>
