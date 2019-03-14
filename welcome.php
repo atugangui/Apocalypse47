@@ -45,6 +45,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         }
     ?>
     <p>
+        <a href="Creator.php" class="btn">Make a new character</a>
+    </p>
+    <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
     </p>
