@@ -1,5 +1,6 @@
 <?php
 include ("mysql.php") ;
+include ("collectCharacterInput.php) ;
 // Initialize the session
 session_start();
  
@@ -10,19 +11,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 $email = $_SESSION["username"] ;
-//Grabbing character information from creation page
-$name = $_REQUEST["name"] ;
-$pronouns = $_REQUEST["pronouns"] ;
-$race = $_REQUEST["race"] ;
-$background = $_REQUEST["background"] ;
-$phys = $_REQUEST["physical"] ;
-$ment = $_REQUEST["mental"] ;
-$spirit = $_REQUEST["spiritual"] ;
-$maj_adv = $_REQUEST["maj_adv"] ;
-$min_adv = $_REQUEST["min_adv"] ;
-$maj_dis = $_REQUEST["maj_dis"] ;
-$min_dis = $_REQUEST["min_dis"] ;
-$traits = $_REQUEST["traits"] ;
 //Pull player ID related to email
 try{
  $stmt = $conn->prepare("SELECT player_id FROM player_table WHERE email= :email") ;
