@@ -27,7 +27,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     <h2>These are your characters:</h2>
     <?php
-    echo "string";
         $name = htmlspecialchars($_SESSION["username"]);
         $sql = "SELECT char_id FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = :name";
         $stmt = $conn->prepare($sql);
@@ -42,7 +41,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <ul>Here are your characters:</ul>
             <?php
             for ($i=0; $i < sizeof(); $i++) {  ?>
-                <li><?= $rows[$i] ?></li>
+                <li><?= $rows[$i]["char_id"] ?></li>
             <?php }
         }
     ?>
