@@ -54,12 +54,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (sizeof($rows)==0) { 
-            echo "string";
             $xp = 50;
-            $bp = 0;
-            $sql = "INSERT INTO player_table (email, xp, bp) VALUES (:param_email, :param_xp, :param_bp)";
+            $bap = 0;
+            $sql = "INSERT INTO player_table (email, xp, bap) VALUES (:param_email, :param_xp, :param_bap)";
             $stmt = $conn -> prepare($sql);
-            $stmt -> execute(array(":param_email" => $name, ":param_xp" => $xp, ":param_bp"=> $bp));
+            $stmt -> execute(array(":param_email" => $name, ":param_xp" => $xp, ":param_bap"=> $bap));
         } 
     ?>
     <p>
