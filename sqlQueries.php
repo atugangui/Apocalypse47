@@ -1,6 +1,6 @@
 <?php
 include ("mysql.php") ;
-include ("collectCharacterInput.php) ;
+
 // Initialize the session
 session_start();
  
