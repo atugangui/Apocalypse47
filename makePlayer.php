@@ -22,7 +22,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         if(isset($_POST['submit'])){
                             $xp = 50;
                             $bp = 0;
-
+                                        $name = trim($_POST["Name"]);
+                                        $pronouns = trim($_POST["pronouns"]);
                             $sql = "INSERT INTO player_table (email, NAME, pronouns, xp, bp) VALUES (?,?,?, ?, ?)";
                             $stmt = $conn -> prepare($sql);
                             $stmt -> execute([$email, $name, $pronouns, $xp, $bp]);
