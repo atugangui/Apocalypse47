@@ -42,7 +42,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <ul>Here are your characters:</ul>
             <?php
             for ($i=0; $i < sizeof(); $i++) {  ?>
-                <li><?= $rows ?></li>
+                <li><?= $rows[$i] ?></li>
             <?php }
         }
     ?>
