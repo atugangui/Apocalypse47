@@ -53,7 +53,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo sizeof($rows);
+        echo sizeof($rows[0]);
         if (sizeof($rows)==0) { 
             ?>
             <br>
