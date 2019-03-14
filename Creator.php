@@ -1,5 +1,16 @@
 <?php
-//Get movie title, year, and rating
+
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+$email = $_SESSION["username"] ;
+echo $email ;
+	
 $races = file_get_contents("race_types.csv") ;
 $races = explode("\r", $races) ;
 $bgs = file_get_contents("background_choices.csv") ;
