@@ -30,8 +30,8 @@ $traits = $_REQUEST["traits"] ;
 try{
  $stmt = $conn->prepare("SELECT player_id FROM player_table WHERE email= :email") ;
  if($stmt->execute(array(":email"=>$email))){
-  $player_id = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
-  $pid = $player_id[0] ;
+  $player_id = $stmt->fetch(PDO::FETCH_ASSOC) ;
+  $pid = $player_id ;
   echo $pid ;
  } }
 catch(Exception $e){
@@ -45,7 +45,7 @@ catch(Exception $e){
                                                       total_bp, remaining_cp, remaining_bp, cumulative_xp) 
                          VALUES(:param_pid, :param_name, :param_race, :param_prons, :param_bg, :param_cp, 
                                 :param_bp, :param_rcp, :param_rbp, :param_xp)");
-  if($stmt->execute(array("param_pid"=>$player_id[0], ":param_name"=>$name, ":param_race"=>$race, ":param_prons"=>$pronouns, ":param_bg"=>$background,
+  if($stmt->execute(array("param_pid"=>$pid, ":param_name"=>$name, ":param_race"=>$race, ":param_prons"=>$pronouns, ":param_bg"=>$background,
                          ":param_cp"=>'50', ":param_bp"=>'0', ":param_rcp"=>'50', ":param_rbp"=>'0', ":param_xp"=>'0'))){
            echo nl2br("Name, race, pronouns, and background inserted.\n") ;
       }
