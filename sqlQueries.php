@@ -23,7 +23,7 @@ $traits = $_REQUEST["traits"] ;
            echo nl2br("Name, race, pronouns, and background inserted.\n") ;
       }
 
-$charId = $conn->lastInsertId() ;
+$charID = $conn->lastInsertId() ;
 
   //Insert physical skills
 foreach($phys as $p){
