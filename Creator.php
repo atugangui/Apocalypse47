@@ -9,7 +9,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 $email = $_SESSION["username"] ;
-echo $email ;
 	
 $races = file_get_contents("race_types.csv") ;
 $races = explode("\r", $races) ;
