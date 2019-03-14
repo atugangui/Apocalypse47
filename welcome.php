@@ -56,9 +56,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         if (sizeof($rows)==0) { 
             $xp = 50;
             $bp = 0;
-            $sql = "INSERT INTO player_table (email, xp, bp) VALUES ('$email',50 , 0)";
+            $sql = "INSERT INTO player_table (email, xp, bp) VALUES (:param_email, :param_xp, :param_bp)";
             $stmt = $conn -> prepare($sql);
-            $stmt -> execute();
+            $stmt -> execute(array(":param_email" => $name, ":param_xp" => $xp, ":param_bp"=> $bp));
         } 
     ?>
     <p>
