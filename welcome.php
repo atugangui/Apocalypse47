@@ -40,7 +40,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             ?>
             <ul></ul>
             <?php
-            for ($i=0; $i < sizeof(); $i++) {  ?>
+            for ($i=0; $i < sizeof($rows); $i++) {  ?>
                 <li><?= $rows[$i]['char_id'] ?></li>
             <?php }
         }
