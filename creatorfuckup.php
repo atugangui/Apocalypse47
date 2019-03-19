@@ -32,7 +32,7 @@ $traits = explode("\r", $traits) ;
       <title>Test</title>
       <meta charset="utf-8" />
       <script src = "/Users/Ericaholland/WebstormProjects/NetDev/Softdev/creatorfuckaround.js"></script>
-      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
    <body>
    	<form action="changesSubmitted.php" method="post">
