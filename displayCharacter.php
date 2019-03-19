@@ -1,6 +1,6 @@
 <?php
 $name = $_GET['name'] ;
-echo "butt" ;
+
 // Include database connection
 require_once "mysql.php";
 // Initialize the session
@@ -15,7 +15,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $email = htmlspecialchars($_SESSION["username"]);
 $sql = "SELECT player_id FROM player_table WHERE email = :email" ;
 $stmt = $conn->prepare($sql);
-        $stmt->execute(array(":email"=>$email));
+        if($stmt->execute(array(":email"=>$email))){
+         echo "good" ;
+        }
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $player_id = $rows[0] ;
 
