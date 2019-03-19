@@ -41,7 +41,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <ul></ul>
             <?php
             foreach($rows as $name) {  ?>
-                <input type="button" value="<?php echo $name['char_name'] ?> onClick="window.location='charactersheet.php?name=<?php echo $name['char_name'] ?>'">
+                <input type="button" value="<?php echo $name['char_name'] ?>" onClick="window.location='charactersheet.php?name=<?php echo $name['char_name'] ?>'">
             <?php }
         }
     ?>
