@@ -15,17 +15,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $email = htmlspecialchars($_SESSION["username"]);
 $sql = "SELECT player_id FROM player_table WHERE email = :email" ;
 $stmt = $conn->prepare($sql);
-        if($stmt->execute(array(":email"=>$email))){
-         echo "got player_id" ;
-        }
+$stmt->execute(array(":email"=>$email)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $player_id = $rows[0] ;
 
 $sql = "SELECT char_id FROM character_table WHERE player_id = :player_id AND char_name = :char_name" ;
 $stmt = $conn->prepare($sql) ;
-if($stmt->execute(array(":player_id"=>$player_id, ":char_name"=>$name))){
- echo "got char_id" ;
-}
+$stmt->execute(array(":player_id"=>$player_id, ":char_name"=>$name)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $char_id = $rows[0] ;
@@ -33,13 +29,9 @@ $char_id = $rows[0] ;
 //SQL Queries to pull information
 $sql = "SELECT * FROM character_table WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
-if($stmt->execute(array(":char_id"=>$char_id)) ){
- echo "got info" ;
-}
-else{
- echo "bad" ;
-}
+$stmt->execute(array(":char_id"=>$char_id));
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+var_dump($rows) ;
 
 $pronouns = $rows[0]['pronouns'] ;
 $race = $rows[0]['race'] ;
