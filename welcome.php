@@ -41,7 +41,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <ul></ul>
             <?php
             for ($i=0; $i < sizeof($rows); $i++) {  ?>
-                <li><?= $rows[$i]['char_name'] ?></li>
+                <a href="charactersheet.php" class="btn-primary"><?= $rows[$i]['char_name'] ?></a>
             <?php }
         }
     ?>
