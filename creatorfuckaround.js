@@ -8,14 +8,14 @@ $("#first-choice").change(function() {
         var vals = [];
 
         switch(key) {
-            case 'human':
-                vals = data.human.split(",");
+            case 'beverages':
+                vals = data.beverages.split(",");
                 break;
-            case 'havassian':
-                vals = data.havassian.split(",");
+            case 'snacks':
+                vals = data.snacks.split(",");
                 break;
             case 'base':
-                vals = ['Please choose from here'];
+                vals = ['Please choose from above'];
         }
 
         var $secondChoice = $("#second-choice");
