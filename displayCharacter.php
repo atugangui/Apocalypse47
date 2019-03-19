@@ -17,14 +17,14 @@ $sql = "SELECT player_id FROM player_table WHERE email = :email" ;
 $stmt = $conn->prepare($sql);
 $stmt->execute(array(":email"=>$email)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$player_id = $rows[0] ;
+$player_id = $rows[0]['player_id'] ;
 
 $sql = "SELECT char_id FROM character_table WHERE player_id = :player_id AND char_name = :char_name" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":player_id"=>$player_id, ":char_name"=>$name)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$char_id = $rows[0] ;
+$char_id = $rows[0]['char_id'] ;
 
 //SQL Queries to pull information
 $sql = "SELECT * FROM character_table WHERE char_id = :char_id" ;
