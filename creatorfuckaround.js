@@ -12,7 +12,7 @@ $("#first-choice").change(function() {
                 vals = data.human.split(",");
                 break;
             case 'havassian':
-                vals = data.snacks.split(",");
+                vals = data.havassian.split(",");
                 break;
             case 'base':
                 vals = ['Please choose from above'];
