@@ -2,7 +2,7 @@ $("#first-choice").change(function() {
 
     var $dropdown = $(this);
 
-    $.getJSON("jsonbackgrounds.json", function(data) {
+    $.getJSON("jsonbackgrounds/data.json", function(data) {
 
         var key = $dropdown.val();
         var vals = [];
