@@ -8,7 +8,7 @@ $("#first-choice").change(function() {
         var vals = [];
 
         switch(key) {
-            case 'beverages':
+            case 'human':
                 vals = data.human.split(",");
                 break;
             case 'havassian':

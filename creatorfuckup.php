@@ -44,8 +44,8 @@ $traits = explode("\r", $traits) ;
 
 	<select id="first-choice">
       <option selected value="base">Please Select</option>
-      <option value="beverages">Beverages</option>
-      <option value="snacks">Snacks</option>
+      <option value="beverages">Human</option>
+      <option value="snacks">Havassian</option>
     </select>
 
     <br>
