@@ -23,7 +23,7 @@ $player_id = $rows[0] ;
 
 $sql = "SELECT char_id FROM character_table WHERE player_id = :player_id AND char_name = :char_name" ;
 $stmt = $conn->prepare($sql) ;
-if($stmt->execute(array(":char_name"=>$name))){
+if($stmt->execute(array(":player_id"=>$player_id, ":char_name"=>$name))){
  echo "got char_id" ;
 }
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
