@@ -31,7 +31,7 @@ $traits = explode("\r", $traits) ;
 <head>
       <title>Test</title>
       <meta charset="utf-8" />
-      <script src = "Softdev/creatorfuckaround.js"></script>
+      <script src = "/Users/Ericaholland/WebstormProjects/NetDev/Softdev/creatorfuckaround.js"></script>
 </head>
    <body>
    	<form action="changesSubmitted.php" method="post">
