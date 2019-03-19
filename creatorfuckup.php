@@ -42,5 +42,17 @@ $traits = explode("\r", $traits) ;
 		<input type="text" name="pronouns" /> <br />
 	</fieldset>
 
+	<select id="first-choice">
+      <option selected value="base">Please Select</option>
+      <option value="beverages">Beverages</option>
+      <option value="snacks">Snacks</option>
+    </select>
+
+    <br>
+
+    <select id="second-choice">
+      <option>Please choose from above</option>
+    </select>
+
    </body>
    </html>
