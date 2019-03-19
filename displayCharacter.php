@@ -1,6 +1,6 @@
 <?php
 $name = $_GET['name'] ;
-
+echo "butt" ;
 // Include database connection
 require_once "mysql.php";
 // Initialize the session
