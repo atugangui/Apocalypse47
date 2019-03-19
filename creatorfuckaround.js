@@ -15,7 +15,7 @@ $("#first-choice").change(function() {
                 vals = data.snacks.split(",");
                 break;
             case 'base':
-                vals = ['Please choose from above'];
+                vals = ['Please choose from here'];
         }
 
         var $secondChoice = $("#second-choice");
