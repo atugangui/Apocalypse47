@@ -29,7 +29,12 @@ $char_id = $rows[0] ;
 //SQL Queries to pull information
 $sql = "SELECT * FROM character_table WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
-$stmt->execute(array(":char_id"=>$char_id)) ;
+if($stmt->execute(array(":char_id"=>$char_id)) ){
+ echo "good" ;
+}
+else{
+ echo "bad" ;
+}
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $pronouns = $rows[0]['pronouns'] ;
