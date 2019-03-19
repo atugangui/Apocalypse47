@@ -41,7 +41,7 @@ $sql = "SELECT skill_name FROM character_physical_skills WHERE char_id = :char_i
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-for($i=0;$i<sizeof($rows);$i++){
+for($i=0;$i<sizeof($rows[0]);$i++){
  $phys[$i] = $skill ;
 }
 
