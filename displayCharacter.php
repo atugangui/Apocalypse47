@@ -16,14 +16,16 @@ $email = htmlspecialchars($_SESSION["username"]);
 $sql = "SELECT player_id FROM player_table WHERE email = :email" ;
 $stmt = $conn->prepare($sql);
         if($stmt->execute(array(":email"=>$email))){
-         echo "good" ;
+         echo "got player_id" ;
         }
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $player_id = $rows[0] ;
 
 $sql = "SELECT char_id FROM character_table WHERE player_id = :player_id AND char_name = :char_name" ;
 $stmt = $conn->prepare($sql) ;
-$stmt->execute(array(":char_name"=>$name)) ;
+if($stmt->execute(array(":char_name"=>$name))){
+ echo "got char_id" ;
+}
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $char_id = $rows[0] ;
@@ -32,7 +34,7 @@ $char_id = $rows[0] ;
 $sql = "SELECT * FROM character_table WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
 if($stmt->execute(array(":char_id"=>$char_id)) ){
- echo "good" ;
+ echo "got info" ;
 }
 else{
  echo "bad" ;
