@@ -40,8 +40,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             ?>
             <ul></ul>
             <?php
-            for ($i=0; $i < sizeof($rows); $i++) {  ?>
-                <input type="button" onClick="window.location='charactersheet.php?name=<?php echo $rows[$i]['char_name'] ?>'">
+            foreach($rows as $name) {  ?>
+                <input type="button" onClick="window.location='charactersheet.php?name=<?php echo $name ?>'">
             <?php }
         }
     ?>
