@@ -31,17 +31,19 @@ $sql = "SELECT * FROM character_table WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id));
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-var_dump($rows) ;
 
 $pronouns = $rows[0]['pronouns'] ;
 $race = $rows[0]['race'] ;
-$background = $rows['background'] ;
+$background = $rows[0]['background'] ;
 
 
 $sql = "SELECT skill_name FROM character_physical_skills WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$phys = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows);$i++){
+ $phys[$i] = $skill ;
+}
 
 $sql = "SELECT skill_name FROM character_mental_skills WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
