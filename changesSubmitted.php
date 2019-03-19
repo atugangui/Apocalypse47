@@ -79,4 +79,5 @@ include("sqlQueries.php") ;
       <?php } ?>
 
 </body>
+    <a href="welcome.php" class="btn-primary">Return to Home Page</a>
 </html>
