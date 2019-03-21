@@ -20,8 +20,6 @@ include ("getCharacterOptions.php") ;
 
     <h2>Physical Skills:</h2>
       <button type="button>Edit</button>
-                    <div id="edit_phys">
-				       </div>
                                        <select multiple="multiple" name="physical[]" size="5">
    				<?php 
 		foreach($phys_skills as $phys){
