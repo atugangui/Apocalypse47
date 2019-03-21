@@ -20,26 +20,16 @@ $bgs = explode("\r", $bgs) ;
     <body>
         <div class="category_div" id="category_div">Please choose a race:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
-
-
-                <option value="">Select Language</option>
-                <option value="Php">Php</option>
-                <option value="Java">Java</option>
-                <option value="Javascript">Javascript</option>
-                <option value="Dotnet">Dotnet</option>
+                <?php
+                foreach($races as $race){
+                    $race = explode(",", $race);
+                    $r = $race[0];
+                    ?>
+                    <option value="<?= $r ?>"><?=$r ?></option>
+                <?php }?>
             </select>
 
 
-
-            <select name="race" size = "5">
-            		<?php
-            		foreach($races as $race){
-            			$race = explode(",", $race) ;
-            			$r = $race[0] ;
-            			?>
-            			<option value="<?= $r ?>"><?=$r ?></option>
-            		<?php }?>
-            </select>
 
 
         </div>
