@@ -27,27 +27,24 @@ $bgs = explode("\r", $bgs) ;
     </head>
     <title>Dynamic Drop Down List</title>
     <body>
-        <div class="category_div" id="category_div">Please choose a race:
-            <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
-                <option value="">Select Language</option>
-                                <option value="Php">Human</option>
-                                <option value="Java">Havassian</option>
-                                <option value="Javascript">Vaukderir</option>
-                                <option value="Dotnet">Wolfen</option>
-            </select>
-        </div>
-
-
-        <div class="sub_category_div" id="sub_category_div">Please select framework:
-            <script type="text/javascript" language="JavaScript">
-                document.write('<select name="subcategory" id="subcategory"><option value="">Please select framework</option></select>')
-            </script>
-            <noscript>
-                <select name="subcategory" id="subcategory" >
-                    <option value="">Please select framework</option>
+            <div class="category_div" id="category_div">Please specify language:
+                <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                    <option value="">Select Language</option>
+                    <option value="Php">Php</option>
+                    <option value="Java">Java</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Dotnet">Dotnet</option>
                 </select>
-            </noscript>
-        </div>
-
-    </body>
+            </div>
+            <div class="sub_category_div" id="sub_category_div">Please select framework:
+                <script type="text/javascript" language="JavaScript">
+                    document.write('<select name="subcategory" id="subcategory"><option value="">Please select framework</option></select>')
+                </script>
+                <noscript>
+                    <select name="subcategory" id="subcategory" >
+                        <option value="">Please select framework</option>
+                    </select>
+                </noscript>
+            </div>
+        </body>
 </html>
