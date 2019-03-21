@@ -7,9 +7,8 @@ $race_length = sizeof($races);
 for($i = 0; $i < $race_length; $i++){
     $r = explode(",", $races[$i]);
     $race_names[$i] = $r[0];
-    echo $r[0];
 }
-//echo $race_length;
+
 
 
 $bgs = file_get_contents("background_choices.csv") ;
@@ -30,14 +29,15 @@ $bgs = explode("\r", $bgs) ;
     <body>
         <div class="category_div" id="category_div">Please choose a race:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
-            <?php
-                foreach($race_names as $race_name){?>
-                    <option value="<?= $race_name ?>"><?=$race_name ?></option>
-            <?php }?>
+                <option value="">Select Language</option>
+                                <option value="Human">Human</option>
+                                <option value="Havassian">Havassian</option>
+                                <option value="Vaukderir">Vauk</option>
+                                <option value="Wolfen">Wolfen</option>
             </select>
         </div>
 
-/*
+
         <div class="sub_category_div" id="sub_category_div">Please select framework:
             <script type="text/javascript" language="JavaScript">
                 document.write('<select name="subcategory" id="subcategory"><option value="">Please select framework</option></select>')
@@ -48,6 +48,6 @@ $bgs = explode("\r", $bgs) ;
                 </select>
             </noscript>
         </div>
-*/
+
     </body>
 </html>
