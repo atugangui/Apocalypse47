@@ -1,28 +1,43 @@
-<?php
-
-$races = file_get_contents("race_types.csv") ;
-$races = explode("\r", $races) ;
-$race_names = [];
-$race_length = sizeof($races);
-for($i = 0; $i < $race_length; $i++){
-    $r = explode(",", $races[$i]);
-    $race_names[$i] = $r[0];
-}
-
-
-
-$bgs = file_get_contents("background_choices.csv") ;
-$bgs = explode("\r", $bgs) ;
-
-?>
-
-<!DOCTYPE html>
-<html>
+                                <html>
     <head>
         <title>Create dyanamic dropdown list in javascript</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="Softdev/creatorFlailing.js" type="text/javascript"></script>
+        <script language="javascript" type="text/javascript">
+            function dynamicdropdown(listindex)
+            {
+                document.getElementById("subcategory").length = 0;
+                switch (listindex)
+                {
+                    case "Php" :
+                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
+                        document.getElementById("subcategory").options[1]=new Option("Cakephp","Cakephp");
+                        document.getElementById("subcategory").options[2]=new Option("Wordpress","Wordpress");
+                        document.getElementById("subcategory").options[3]=new Option("Codeigniter","Codeigniter");
+                        document.getElementById("subcategory").options[4]=new Option("Joomla","Joomla");
+                        document.getElementById("subcategory").options[5]=new Option("Magento","Magento");
+                        break;
+                    
+                    case "Java" :
+                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
+                        document.getElementById("subcategory").options[1]=new Option("Strauts","Strauts");
+                        document.getElementById("subcategory").options[2]=new Option("Hibernate","Hibernate");
+                        break;
+                    case "Javascript" :
+                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
+                        document.getElementById("subcategory").options[1]=new Option("D-Jango","D-Jango");
+                        document.getElementById("subcategory").options[2]=new Option("Angular","Angular");
+                        document.getElementById("subcategory").options[3]=new Option("Prototype","Prototype");
+                        document.getElementById("subcategory").options[4]=new Option("jQuery","jQuery");
+                        document.getElementById("subcategory").options[5]=new Option("Backbone","Backbone");
+                        break;
+                    case "Dotnet" :
+                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
+                        document.getElementById("subcategory").options[1]=new Option("VbScript","VbScript");
+                        break;
+                }
+                return true;
+            }
+       </script>
     </head>
     <title>Dynamic Drop Down List</title>
     <body>
@@ -46,4 +61,4 @@ $bgs = explode("\r", $bgs) ;
             </noscript>
         </div>
     </body>
-</html>
+</html>                            
