@@ -53,10 +53,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
  $ment[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 $sql = "SELECT skill_name FROM character_spiritual_skills WHERE char_id = :char_id" ;
@@ -75,10 +73,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
- $maj_adv[$counter] = $rows[$i]['NAME'] ;
+ $maj_adv[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 
@@ -88,10 +84,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
- $min_adv[$counter] = $rows[$i]['NAME'] ;
+ $min_adv[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'major_disadvantage'" ;
@@ -100,10 +94,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
- $maj_dis[$counter] = $rows[$i]['NAME'] ;
+ $maj_dis[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'minor_disadvantage'" ;
@@ -112,10 +104,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
- $min_dis[$counter] = $rows[$i]['NAME'] ;
+ $min_dis[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'trait'" ;
@@ -124,10 +114,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
- $traits[$counter] = $rows[$i]['NAME'] ;
+ $traits[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 
