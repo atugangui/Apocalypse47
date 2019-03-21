@@ -19,11 +19,10 @@ include ("getCharacterOptions.php") ;
 
     <h2>Background:</h2>
     <p><?=$cbackground ?></p>
-<button onlick= "test()">Test</button>
 	
 
     <h2>Physical Skills:</h2>
-      <button onlick= "edit_char()">Edit</button>
+      <button onclick = "edit_char()">Edit</button>
 		
 		<div id="physDropdown" class="dropdown-content">
                                        <select multiple="multiple" name="physical[]" size="5">
