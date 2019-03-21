@@ -21,6 +21,7 @@ include ("getCharacterOptions.php") ;
     <h2>Physical Skills:</h2>
       <button type="button>Edit</button>
                     <div id="edit_phys">
+				       </div>
                                        <select multiple="multiple" name="physical[]" size="5">
    				<?php 
 		foreach($phys_skills as $phys){
@@ -33,7 +34,7 @@ include ("getCharacterOptions.php") ;
 			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
 		<?php }?>
    			</select>
-                                               </div>
+
     <?php foreach($phys as $skill){
       ?><p><?=$skill ?></p>
       <br>
