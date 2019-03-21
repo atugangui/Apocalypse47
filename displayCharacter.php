@@ -62,7 +62,7 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
- $cmaj_adv[$counter] = $rows[$i]['skill_name'] ;
+ $cmaj_adv[$counter] = $rows[$i]['NAME'] ;
  $counter++ ;
 }
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'minor_advantage'" ;
@@ -71,7 +71,7 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
- $cmin_adv[$counter] = $rows[$i]['skill_name'] ;
+ $cmin_adv[$counter] = $rows[$i]['NAME'] ;
  $counter++ ;
 }
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'major_disadvantage'" ;
@@ -80,7 +80,7 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
- $cmaj_dis[$counter] = $rows[$i]['skill_name'] ;
+ $cmaj_dis[$counter] = $rows[$i]['NAME'] ;
  $counter++ ;
 }
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'minor_disadvantage'" ;
@@ -89,7 +89,7 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
- $cmin_dis[$counter] = $rows[$i]['skill_name'] ;
+ $cmin_dis[$counter] = $rows[$i]['NAME'] ;
  $counter++ ;
 }
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'trait'" ;
@@ -98,7 +98,7 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
- $ctraits[$counter] = $rows[$i]['skill_name'] ;
+ $ctraits[$counter] = $rows[$i]['NAME'] ;
  $counter++ ;
 }
 include ("charactersheet.php") ;

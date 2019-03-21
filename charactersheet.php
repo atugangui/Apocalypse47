@@ -1,12 +1,14 @@
-<?php
-include ("getCharacterOptions.php") ;
-?>
-
+<!DOCTYPE html>
 <html>
 <head>
+      <link href="edit.css" type="text/css" rel="stylesheet"/>
+      <script src="edit.js" type="text/javascript"></script>
       <meta charset="utf-8" />
 </head>
 <body>
+<?php
+include ("getCharacterOptions.php") ;
+?>
 
     <h2>Name:</h2>
     <p><?=$cname ?></p>
@@ -17,9 +19,13 @@ include ("getCharacterOptions.php") ;
 
     <h2>Background:</h2>
     <p><?=$cbackground ?></p>
+<button onlick= "test()">Test</button>
+	
 
     <h2>Physical Skills:</h2>
-      <button type="button">Edit</button>
+      <button onlick= "edit_char()">Edit</button>
+		
+		<div id="physDropdown" class="dropdown-content">
                                        <select multiple="multiple" name="physical[]" size="5">
    				<?php 
 		foreach($phys_skills as $phys){
@@ -31,7 +37,8 @@ include ("getCharacterOptions.php") ;
 			?>
 			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
 		<?php }?>
-   			</select>
+			</select>
+		</div>
 
     <?php foreach($cphys as $skill){
       ?><p><?=$skill ?></p>
