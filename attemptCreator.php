@@ -5,8 +5,12 @@ $races = explode("\r", $races) ;
 $race_names = [];
 $race_length = sizeof($races);
 for($i = 0; $i < $race_length; $i++){
-echo $race_length;
+    $r = explode(",", $race);
+    $race_names[$i] = $r[0];
+
 }
+echo $race_length;
+
 
 $bgs = file_get_contents("background_choices.csv") ;
 $bgs = explode("\r", $bgs) ;
