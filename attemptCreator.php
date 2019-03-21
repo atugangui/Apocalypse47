@@ -7,7 +7,7 @@ $race_length = sizeof($races);
 for($i = 0; $i < $race_length; $i++){
     $r = explode(",", $race);
     $race_names[$i] = $r[0];
-    echo $race_names[$i];
+    echo $r[0];
 }
 //echo $race_length;
 
