@@ -19,7 +19,7 @@ $bgs = explode("\r", $bgs) ;
     <title>Dynamic Drop Down List</title>
     <body>
         <div class="category_div" id="category_div">Please choose a race:
-            <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+            <select name="category" class="required-entry" id="race" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
                 <?php
                 foreach($races as $race){
                     $race = explode(",", $race);
@@ -28,11 +28,9 @@ $bgs = explode("\r", $bgs) ;
                     <option value="<?= $r ?>"><?=$r ?></option>
                 <?php }?>
             </select>
-
-
-
-
         </div>
+
+
         <div class="sub_category_div" id="sub_category_div">Please select framework:
             <script type="text/javascript" language="JavaScript">
                 document.write('<select name="subcategory" id="subcategory"><option value="">Please select framework</option></select>')
