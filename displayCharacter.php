@@ -65,10 +65,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
  $spirit[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'major_advantage'" ;
