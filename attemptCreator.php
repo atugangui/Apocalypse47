@@ -1,4 +1,14 @@
+<?php
 
+$races = file_get_contents("race_types.csv") ;
+$races = explode("\r", $races) ;
+$race_names = [];
+$race_length = sizeof($races);
+for($i = 0; $i < $race_length; $i++){
+    $r = explode(",", $races[$i]);
+    $race_names[$i] = $r[0];
+}
+?>
 
 
 
@@ -16,7 +26,7 @@
         <div class="category_div" id="category_div">Please specify language:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
                 <option value="">Select Language</option>
-                <option value="Human">Human</option>
+                <option value="Human"><?=$race_names[2] ?></option>
                 <option value="Java">Java</option>
                 <option value="Javascript">Javascript</option>
                 <option value="Dotnet">Dotnet</option>
