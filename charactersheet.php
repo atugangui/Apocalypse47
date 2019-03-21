@@ -19,7 +19,7 @@ include ("getCharacterOptions.php") ;
     <p><?=$background ?></p>
 
     <h2>Physical Skills:</h2>
-      <button type="button>Edit</button>
+      <button type="button">Edit</button>
                                        <select multiple="multiple" name="physical[]" size="5">
    				<?php 
 		foreach($phys_skills as $phys){
