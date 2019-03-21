@@ -3,7 +3,7 @@ function dynamicdropdown(listindex)
     document.getElementById("subcategory").length = 0;
     switch (listindex)
     {
-        case "Human" :
+        case "Php" :
             document.getElementById("subcategory").options[0]=new Option("Please select framework","");
             document.getElementById("subcategory").options[1]=new Option("Cakephp","Cakephp");
             document.getElementById("subcategory").options[2]=new Option("Wordpress","Wordpress");
