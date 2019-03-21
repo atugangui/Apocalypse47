@@ -1,4 +1,11 @@
+<?php
 
+$races = file_get_contents("race_types.csv") ;
+$races = explode("\r", $races) ;
+$bgs = file_get_contents("background_choices.csv") ;
+$bgs = explode("\r", $bgs) ;
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -6,53 +13,35 @@
         <title>Create dyanamic dropdown list in javascript</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script language="javascript" type="text/javascript">
-            function dynamicdropdown(listindex)
-            {
-                document.getElementById("subcategory").length = 0;
-                switch (listindex)
-                {
-                    case "Php" :
-                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-                        document.getElementById("subcategory").options[1]=new Option("Cakephp","Cakephp");
-                        document.getElementById("subcategory").options[2]=new Option("Wordpress","Wordpress");
-                        document.getElementById("subcategory").options[3]=new Option("Codeigniter","Codeigniter");
-                        document.getElementById("subcategory").options[4]=new Option("Joomla","Joomla");
-                        document.getElementById("subcategory").options[5]=new Option("Magento","Magento");
-                        break;
+        <script src="Softdev/creatorFlailing.js"></script>
 
-                    case "Java" :
-                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-                        document.getElementById("subcategory").options[1]=new Option("Strauts","Strauts");
-                        document.getElementById("subcategory").options[2]=new Option("Hibernate","Hibernate");
-                        break;
-                    case "Javascript" :
-                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-                        document.getElementById("subcategory").options[1]=new Option("D-Jango","D-Jango");
-                        document.getElementById("subcategory").options[2]=new Option("Angular","Angular");
-                        document.getElementById("subcategory").options[3]=new Option("Prototype","Prototype");
-                        document.getElementById("subcategory").options[4]=new Option("jQuery","jQuery");
-                        document.getElementById("subcategory").options[5]=new Option("Backbone","Backbone");
-                        break;
-                    case "Dotnet" :
-                        document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-                        document.getElementById("subcategory").options[1]=new Option("VbScript","VbScript");
-                        break;
-                }
-                return true;
-            }
-       </script>
     </head>
     <title>Dynamic Drop Down List</title>
     <body>
-        <div class="category_div" id="category_div">Please specify language:
+        <div class="category_div" id="category_div">Please choose a race:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+
+
                 <option value="">Select Language</option>
                 <option value="Php">Php</option>
                 <option value="Java">Java</option>
                 <option value="Javascript">Javascript</option>
                 <option value="Dotnet">Dotnet</option>
             </select>
+
+
+
+            <select name="race" size = "5">
+            		<?php
+            		foreach($races as $race){
+            			$race = explode(",", $race) ;
+            			$r = $race[0] ;
+            			?>
+            			<option value="<?= $r ?>"><?=$r ?></option>
+            		<?php }?>
+            </select>
+
+
         </div>
         <div class="sub_category_div" id="sub_category_div">Please select framework:
             <script type="text/javascript" language="JavaScript">
