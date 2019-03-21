@@ -1,4 +1,8 @@
-                                <html>
+
+
+
+
+<html>
     <head>
         <title>Create dyanamic dropdown list in javascript</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,7 +16,7 @@
         <div class="category_div" id="category_div">Please specify language:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
                 <option value="">Select Language</option>
-                <option value="Php">Php</option>
+                <option value="Human">Human</option>
                 <option value="Java">Java</option>
                 <option value="Javascript">Javascript</option>
                 <option value="Dotnet">Dotnet</option>
