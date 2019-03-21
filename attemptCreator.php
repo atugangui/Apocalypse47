@@ -30,10 +30,10 @@ $bgs = explode("\r", $bgs) ;
         <div class="category_div" id="category_div">Please choose a race:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
                 <option value="">Select Language</option>
-                                <option value="Human">Human</option>
-                                <option value="Havassian">Havassian</option>
-                                <option value="Vaukderir">Vauk</option>
-                                <option value="Wolfen">Wolfen</option>
+                                <option value="Php">Human</option>
+                                <option value="Java">Havassian</option>
+                                <option value="Javascript">Vaukderir</option>
+                                <option value="Dotnet">Wolfen</option>
             </select>
         </div>
 

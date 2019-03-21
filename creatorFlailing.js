@@ -12,12 +12,12 @@ function dynamicdropdown(listindex)
             document.getElementById("subcategory").options[5]=new Option("Magento","Magento");
             break;
 
-        case "Havassian" :
+        case "Java" :
             document.getElementById("subcategory").options[0]=new Option("Please select framework","");
             document.getElementById("subcategory").options[1]=new Option("Strauts","Strauts");
             document.getElementById("subcategory").options[2]=new Option("Hibernate","Hibernate");
             break;
-        case "Vaukderir" :
+        case "Javascript" :
             document.getElementById("subcategory").options[0]=new Option("Please select framework","");
             document.getElementById("subcategory").options[1]=new Option("D-Jango","D-Jango");
             document.getElementById("subcategory").options[2]=new Option("Angular","Angular");
@@ -25,7 +25,7 @@ function dynamicdropdown(listindex)
             document.getElementById("subcategory").options[4]=new Option("jQuery","jQuery");
             document.getElementById("subcategory").options[5]=new Option("Backbone","Backbone");
             break;
-        case "Wulfen" :
+        case "Dotnet" :
             document.getElementById("subcategory").options[0]=new Option("Please select framework","");
             document.getElementById("subcategory").options[1]=new Option("VbScript","VbScript");
             break;
