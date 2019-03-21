@@ -1,20 +1,4 @@
-<?php
 
-$races = file_get_contents("race_types.csv") ;
-$races = explode("\r", $races) ;
-$race_names = [];
-$race_length = sizeof($races);
-for($i = 0; $i < $race_length; $i++){
-    $r = explode(",", $races[$i]);
-    $race_names[$i] = $r[0];
-}
-
-
-
-$bgs = file_get_contents("background_choices.csv") ;
-$bgs = explode("\r", $bgs) ;
-
-?>
 <!DOCTYPE html>
 <html>
     <head>
