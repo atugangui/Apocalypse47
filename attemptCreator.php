@@ -1,7 +1,7 @@
 <?php
 
 $races = file("race_types.csv") ;
-$race_namea = [];
+$race_names = [];
 foreach($races as $race){
     list($race_names) = split(',', $race);
 }
