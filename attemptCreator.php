@@ -2,6 +2,7 @@
     <head>
         <title>Create dyanamic dropdown list in javascript</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script language="javascript" type="text/javascript"></script>
         <script src = "Softdev/creatorFlailing.js" type="text/javascript"></script>
 
