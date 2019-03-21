@@ -1,3 +1,7 @@
+<?php
+include ("getCharacterOptions.php") ;
+?>
+
 <html>
 <head>
       <meta charset="utf-8" />
@@ -15,6 +19,21 @@
     <p><?=$background ?></p>
 
     <h2>Physical Skills:</h2>
+      <button type="button>Edit</button>
+                    <div id="edit_phys">
+                                       <select multiple="multiple" name="physical[]" size="5">
+   				<?php 
+		foreach($phys_skills as $phys){
+			$phys = explode(",", $phys) ;
+			$skill = $phys[0] ;
+			$requirement = $phys[1] ;
+			$cost = $phys[2] ;
+			$training = $phys[3] ;
+			?>
+			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+		<?php }?>
+   			</select>
+                                               </div>
     <?php foreach($phys as $skill){
       ?><p><?=$skill ?></p>
       <br>
