@@ -42,43 +42,64 @@ $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 for($i=0;$i<sizeof($rows[0]);$i++){
- $phys[$i] = $skill ;
+ $phys[$i] = $rows[0]['skill_name'] ;
 }
 
 $sql = "SELECT skill_name FROM character_mental_skills WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$ment = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows[0]);$i++){
+ $ment[$i] = $rows[0]['skill_name'] ;
+}
 
 $sql = "SELECT skill_name FROM character_spiritual_skills WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$spirit = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows[0]);$i++){
+ $spirit[$i] = $rows[0]['skill_name'] ;
+}
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'major_advantage'" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$maj_adv = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows[0]);$i++){
+ $maj_adv[$i] = $rows[0]['NAME'] ;
+}
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'minor_advantage'" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$min_adv = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows[0]);$i++){
+ $min_adv[$i] = $rows[0]['NAME'] ;
+}
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'major_disadvantage'" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$maj_dis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows[0]);$i++){
+ $maj_dis[$i] = $rows[0]['NAME'] ;
+}
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'minor_disadvantage'" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$min_dis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows[0]);$i++){
+ $min_dis[$i] = $rows[0]['NAME'] ;
+}
 
 $sql = "SELECT NAME FROM character_adv_and_disadv WHERE char_id = :char_id and TYPE = 'trait'" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id)) ;
-$traits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=0;$i<sizeof($rows[0]);$i++){
+ $traits[$i] = $rows[0]['NAME'] ;
+}
 
 
 include ("charactersheet.php") ;
