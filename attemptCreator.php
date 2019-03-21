@@ -7,9 +7,9 @@ $race_length = sizeof($races);
 for($i = 0; $i < $race_length; $i++){
     $r = explode(",", $race);
     $race_names[$i] = $r[0];
-
+    echo $race_names[$i];
 }
-echo $race_length;
+//echo $race_length;
 
 
 $bgs = file_get_contents("background_choices.csv") ;
