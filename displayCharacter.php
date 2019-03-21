@@ -43,10 +43,8 @@ $stmt->execute(array(":char_id"=>$char_id)) ;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $counter = 0 ;
 for($i=0;$i<sizeof($rows);$i++){
-for($j=0;$j<sizeof($rows[$i]);$j++){
  $phys[$counter] = $rows[$i]['skill_name'] ;
  $counter++ ;
-}
 }
 
 $sql = "SELECT skill_name FROM character_mental_skills WHERE char_id = :char_id" ;
