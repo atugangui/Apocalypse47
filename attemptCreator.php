@@ -31,11 +31,8 @@ $bgs = explode("\r", $bgs) ;
         <div class="category_div" id="category_div">Please choose a race:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
             <?php
-                foreach($races as $race){
-                    $race = explode(",", $race) ;
-                    $r = $race[0] ;
-                    ?>
-                    <option value="<?= $r ?>"><?=$r ?></option>
+                foreach($race_names as $race_name){?>
+                    <option value="<?= $race_name ?>"><?=$race_name ?></option>
             <?php }?>
             </select>
         </div>
