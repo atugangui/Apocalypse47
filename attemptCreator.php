@@ -4,7 +4,7 @@ $races = file_get_contents("race_types.csv") ;
 $races = explode("\r", $races) ;
 $race_names = [];
 $race_length = sizeof($races);
-for ($i < $race_length){
+for ($i = 0; $i < $race_length; i++){
     $r = explode(",", $races[$race_length]);
     $race_names = $r[0];
     echo $race_names;
