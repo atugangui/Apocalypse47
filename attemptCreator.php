@@ -36,6 +36,11 @@ $background = json_encode($background);
     <title>Create Character</title>
     <body>
         <div class="category_div" id="category_div">
+        <fieldset>
+        		<legend>Name and Pronouns</legend>
+        		<input type="text" name="name" /> <br />
+        		<input type="text" name="pronouns" /> <br />
+        </fieldset>
         <p> Please select the race of your character:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
                 <option value="">Select race</option>
@@ -57,4 +62,4 @@ $background = json_encode($background);
             </noscript>
         </div>
     </body>
-</html>                  
+</html>

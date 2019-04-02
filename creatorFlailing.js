@@ -13,12 +13,12 @@ function dynamicdropdown(listindex)
                     document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
                     option++;
                 }
-            i++;
+                i++;
             }
             break;
 
         case "Havassian" :
-           document.getElementById("subcategory").options[0]=new Option("Please select background","");
+            document.getElementById("subcategory").options[0]=new Option("Please select background","");
             var i = 1;
             var option = 1;
             while (i<backgrounds.length){
@@ -26,7 +26,7 @@ function dynamicdropdown(listindex)
                     document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
                     option++;
                 }
-            i++;
+                i++;
             }
             break;
         case "Vaukderir" :
@@ -38,7 +38,7 @@ function dynamicdropdown(listindex)
                     document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
                     option++;
                 }
-            i++;
+                i++;
             }
             break;
         case "Wulfen" :
@@ -50,7 +50,7 @@ function dynamicdropdown(listindex)
                     document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
                     option++;
                 }
-            i++;
+                i++;
             }
             break;
     }
