@@ -5,7 +5,10 @@ include("mysql.php");
 if(isset($_REQUEST["name"])){
     $cname = $_REQUEST["name"] ;
 }
-$cpronouns = $_REQUEST["pronouns"] ;
+if(isset($_REQUEST["pronouns"])){
+    $cpronouns = $_REQUEST["pronouns"] ;
+}
+
 $crace = $_REQUEST["race"] ;
 $cbackground = $_REQUEST["background"] ;
 $cphys = $_REQUEST["physical"] ;
