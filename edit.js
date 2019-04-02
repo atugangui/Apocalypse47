@@ -1,4 +1,4 @@
 function edit_char(){
-	document.getElementById("physDropdown").style.display('show');
+	document.getElementById("physDropdown").style.display='block';
 }
 
