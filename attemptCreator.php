@@ -99,7 +99,7 @@ $traits = explode("\r", $traits) ;
 
            		<fieldset>
            			<legend>Physical</legend>
-           			<select multiple="multiple" name="physical[]" size="5">
+           			<select multiple="multiple" name="physical[]" size="10">
            				<?php
         		foreach($phys_skills as $phys){
         			$phys = explode(",", $phys) ;
@@ -115,7 +115,7 @@ $traits = explode("\r", $traits) ;
 
            		<fieldset>
            			<legend>Mental</legend>
-           			<select multiple="multiple" name="mental[]" size="5">
+           			<select multiple="multiple" name="mental[]" size="10">
            				<?php
         		foreach($ment_skills as $ment){
         			$ment = explode(",", $ment) ;
@@ -131,7 +131,7 @@ $traits = explode("\r", $traits) ;
 
         		<fieldset>
         			<legend>Spiritual</legend>
-        			<select multiple="multiple" name="spiritual[]" size = "5">
+        			<select multiple="multiple" name="spiritual[]" size = "10">
         				<?php
         		foreach($spirit_skills as $spirit){
         			$spirit = explode(",", $spirit) ;
@@ -145,6 +145,81 @@ $traits = explode("\r", $traits) ;
         			</select>
         		</fieldset>
            	</fieldset>
+        <fieldset>
+           		<legend>Advantages</legend>
+           		<p>You may have two major and four minor advantages, or one major and two minor advantages.<br>
+           		Make sure to balance this out by taking disadvantages so the total weight is zero.</p>
+
+                 <fieldset>
+                    <legend>Major Advantages</legend>
+                    <select multiple="multiple" name="maj_adv[]" size="5">
+                       <?php
+                       foreach($major_advantages as $major_advantage){
+                          $maj_adv = explode(",", $major_advantage) ;
+                          $advantage = $maj_adv[1] ;
+                          $weight = $maj_adv[2] ;
+                          ?>
+                          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+                       <?php }?>
+                    </select>
+                 </fieldset>
+
+           		<fieldset>
+           			<legend>Minor Advantages</legend>
+           			<select multiple="multiple" name="min_adv[]" size="5">
+           				<?php
+           				foreach($minor_advantages as $minor_advantage) {
+           					$min_adv = explode(",", $minor_advantage) ;
+           					$advantage = $min_adv[1] ;
+           					$weight = $min_adv[2] ;
+           					?>
+           					<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+           				<?php }?>
+           			</select>
+           		</fieldset>
+
+                 <fieldset>
+                    <legend>Major Disadvantages</legend>
+                    <select multiple = "multiple" name="maj_dis[]" size="5">
+                       <?php
+                       foreach ($major_disadvantages as $major_disadvantage){
+                          $maj_dis = explode(",", $major_disadvantage) ;
+                          $advantage = $maj_dis[1] ;
+                          $weight = $maj_dis[2] ;
+                          ?>
+                          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+                       <?php }?>
+                    </select>
+                 </fieldset>
+
+           		<fieldset>
+           			<legend>Minor Disadvantages</legend>
+           			<select multiple="multiple" name="min_dis[]" size="5">
+           				<?php
+           				foreach ($minor_disadvantages as $minor_disadvantage){
+           					$min_dis = explode(",", $minor_disadvantage) ;
+           					$advantage = $min_dis[1] ;
+           					$weight = $min_dis[2] ;
+           					?>
+           					<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+           				<?php }?>
+           			</select>
+           		</fieldset>
+
+        </fieldset>
+        <fieldset>
+                 <legend>Traits</legend>
+                 <p>You can pick as many traits as you like</p>
+                 <select multiple="multiple" name="traits[]" size="5">
+                    <?php
+                    foreach ($traits as $trait){
+                       $traits = explode(",", $trait) ;
+                       $trait = $traits[1] ;
+                       ?>
+                       <option value="<?= $trait ?>"><?=$trait ?></option>
+                    <?php }?>
+                 </select>
+        </fieldset>
 
 
     </body>
