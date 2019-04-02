@@ -41,15 +41,31 @@ $background = json_encode($background);
         		<input type="text" name="name" /> <br />
         		<input type="text" name="pronouns" /> <br />
         </fieldset>
-        <p> Please select the race of your character:
-            <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
-                <option value="">Select race</option>
-                <?php
-                for ($i=1; $i < sizeof($race_names); $i++) {
-                    ?>
-                    <option value=<?=$race_names[$i] ?> > <?=$race_names[$i] ?></option>
-                <?php } ?>
-            </select>
+        <fieldset>
+            <legend> Race and background </legend>
+            <fieldset>
+                <p> Please select the race of your character:
+                <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                    <option value="">Select race</option>
+                    <?php
+                    for ($i=1; $i < sizeof($race_names); $i++) {
+                        ?>
+                        <option value=<?=$race_names[$i] ?> > <?=$race_names[$i] ?></option>
+                    <?php } ?>
+                </select>
+            </fieldset>
+            <fieldset>
+                <script type="text/javascript" language="JavaScript">
+                                document.write('<select name="subcategory" id="subcategory"><option value="">Please select background</option></select>')
+                            </script>
+                            <noscript>
+                                <select name="subcategory" id="subcategory" >
+                                    <option value="">Select background</option>
+                                </select>
+                            </noscript>
+            </fieldset>
+
+        </fieldset>
         </div>
         <div class="sub_category_div" id="sub_category_div">Select background:
             <script type="text/javascript" language="JavaScript">
