@@ -61,6 +61,7 @@ $traits = explode("\r", $traits) ;
     </head>
     <title>Create Character</title>
     <body>
+    <form action="changesSubmitted.php" method="post">
 
         <fieldset>
         		<legend>Name and Pronouns</legend>
@@ -220,7 +221,8 @@ $traits = explode("\r", $traits) ;
                     <?php }?>
                  </select>
         </fieldset>
-
+    <input type="submit" name="submit"/>
+    </form>
 
     </body>
 </html>
