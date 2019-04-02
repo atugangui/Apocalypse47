@@ -9,20 +9,55 @@
 <?php
 include ("getCharacterOptions.php") ;
 ?>
-
+<form action="changesSubmitted.php" method="post">
     <h2>Name:</h2>
+    <button onclick = "edit_char(0)">Edit</button>
+    <div id="nameInput" class="dropdown-content">
+        <input type="text" name="name" /><br />
+    </div>
     <p><?=$cname ?></p>
-    <p><?=$pronouns ?></p>
+
+    <h2>Pronouns:</h2>
+    <p><?=$cpronouns ?></p>
+    <button onclick = "edit_char(1)">Edit</button>
+    <div id="pronInput" class="dropdown-content">
+        <input type="text" name="pronouns" /><br />
+    </div>
 
     <h2>Race:</h2>
+    <button onclick = "edit_char(2)">Edit</button>
+    <div id="raceDropdown" class="dropdown-content">
+    <select name="race" size = "5">
+        <?php
+        foreach($races as $race){
+            $race = explode(",", $race) ;
+            $r = $race[0] ;
+            ?>
+            <option value="<?= $r ?>"><?=$r ?></option>
+        <?php }?>
+    </select>
+    </div>
     <p><?=$crace ?></p>
 
     <h2>Background:</h2>
+    <button onclick = "edit_char(3)">Edit</button>
+    <div id="bgDropdown" class="dropdown-content">
+        <select name="background" size = "5">
+            <?php
+            foreach($bgs as $bg){
+                $bg = explode(",", $bg) ;
+                $background = $bg[0] ;
+                $race = $bg[1] ;
+                ?>
+                <option value="<?= $background ?>"><?=$background ?> , <?=$race?></option>
+            <?php }?>
+        </select>
+    </div>
     <p><?=$cbackground ?></p>
 	
 
     <h2>Physical Skills:</h2>
-      <button onclick = "edit_char(1)">Edit</button>
+      <button onclick = "edit_char(4)">Edit</button>
 
 		<div id="physDropdown" class="dropdown-content">
                                        <select multiple="multiple" name="physical[]" size="5">
@@ -38,17 +73,13 @@ include ("getCharacterOptions.php") ;
 		<?php }?>
 			</select>
 		</div>
-
-
-
     <?php foreach($cphys as $skill){
       ?><p><?=$skill ?></p>
       <br>
       <?php } ?>
 
     <h2>Mental Skills</h2>
-<button onclick = "edit_char(2)">Edit</button>
-
+<button onclick = "edit_char(5)">Edit</button>
 <div id="mentDropdown" class="dropdown-content">
     <select multiple="multiple" name="physical[]" size="5">
         <?php
@@ -69,7 +100,7 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
       <h2>Spiritual Skills</h2>
-<button onclick = "edit_char(3)">Edit</button>
+<button onclick = "edit_char(6)">Edit</button>
 <div id="spiritDropdown" class="dropdown-content">
 <select multiple="multiple" name="spiritual[]" size = "5">
     <?php
@@ -90,7 +121,7 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
       <h2>Advantages and Disadvantages</h2>
-<button onclick = "edit_char(4)">Edit</button>
+<button onclick = "edit_char(7)">Edit</button>
 <div id="advDropdown" class="dropdown-content">
     <select multiple="multiple" name="maj_adv[]" size="5">
         <?php
@@ -121,7 +152,7 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
       <h2>Traits</h2>
-<button onclick = "edit_char(5)">Edit</button>
+<button onclick = "edit_char(8)">Edit</button>
 <div id="traitsDropdown" class="dropdown-content">
     <select multiple="multiple" name="traits[]" size="5">
         <?php
@@ -137,6 +168,8 @@ include ("getCharacterOptions.php") ;
       ?><p><?=$trait ?></p>
       <br>
       <?php } ?>
+<input type="submit" name="submit"/>
+</form>
 
 </body>
     <a href="welcome.php" class="btn-primary">Return to Home Page</a>
