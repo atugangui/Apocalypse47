@@ -2,7 +2,9 @@
 include("mysql.php");
 
 //Gather user input information
-$cname = $_REQUEST["name"] ;
+if(!isset($_REQUEST["name"])){
+    $cname = $_REQUEST["name"] ;
+}
 $cpronouns = $_REQUEST["pronouns"] ;
 $crace = $_REQUEST["race"] ;
 $cbackground = $_REQUEST["background"] ;
