@@ -1,4 +1,4 @@
 function edit_char(){
-	document.getElementbyId("physDropdown").style.visibility = 'visible';
+	document.getElementById("physDropdown").style.visibility = 'visible';
 }
 
