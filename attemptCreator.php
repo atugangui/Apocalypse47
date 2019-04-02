@@ -35,7 +35,7 @@ $background = json_encode($background);
     </head>
     <title>Create Character</title>
     <body>
-        <div class="category_div" id="category_div">
+
         <fieldset>
         		<legend>Name and Pronouns</legend>
         		<input type="text" name="name" /> <br />
@@ -66,16 +66,7 @@ $background = json_encode($background);
             </fieldset>
 
         </fieldset>
-        </div>
-        <div class="sub_category_div" id="sub_category_div">Select background:
-            <script type="text/javascript" language="JavaScript">
-                document.write('<select name="subcategory" id="subcategory"><option value="">Please select background</option></select>')
-            </script>
-            <noscript>
-                <select name="subcategory" id="subcategory" >
-                    <option value="">Select background</option>
-                </select>
-            </noscript>
-        </div>
+        
+
     </body>
 </html>
