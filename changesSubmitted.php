@@ -5,6 +5,9 @@ include("mysql.php");
 if(isset($_REQUEST["name"])){
     $cname = $_REQUEST["name"] ;
 }
+else{
+    $cname = $cname ;
+}
 if(isset($_REQUEST["pronouns"])){
     $cpronouns = $_REQUEST["pronouns"] ;
 }
