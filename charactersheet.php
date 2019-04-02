@@ -22,11 +22,11 @@ include ("getCharacterOptions.php") ;
 	
 
     <h2>Physical Skills:</h2>
-      <button onclick = "edit_char()">Edit</button>
-		
+      <button onclick = "edit_char(1)">Edit</button>
+
 		<div id="physDropdown" class="dropdown-content">
                                        <select multiple="multiple" name="physical[]" size="5">
-   				<?php 
+   				<?php
 		foreach($phys_skills as $phys){
 			$phys = explode(",", $phys) ;
 			$skill = $phys[0] ;
@@ -39,24 +39,70 @@ include ("getCharacterOptions.php") ;
 			</select>
 		</div>
 
+
+
     <?php foreach($cphys as $skill){
       ?><p><?=$skill ?></p>
       <br>
       <?php } ?>
 
     <h2>Mental Skills</h2>
+<button onclick = "edit_char(2)">Edit</button>
+
+<div id="mentDropdown" class="dropdown-content">
+    <select multiple="multiple" name="physical[]" size="5">
+        <?php
+        foreach($ment_skills as $ment){
+            $ment = explode(",", $ment) ;
+            $skill = $ment[0] ;
+            $requirement = $ment[1] ;
+            $cost = $ment[2] ;
+            $training = $ment[3] ;
+            ?>
+            <option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        <?php }?>
+    </select>
+</div>
     <?php foreach($cment as $skill){
       ?><p><?=$skill ?></p>
       <br>
       <?php } ?>
 
       <h2>Spiritual Skills</h2>
+<button onclick = "edit_char(3)">Edit</button>
+<div id="spiritDropdown" class="dropdown-content">
+<select multiple="multiple" name="spiritual[]" size = "5">
+    <?php
+    foreach($spirit_skills as $spirit){
+        $spirit = explode(",", $spirit) ;
+        $skill = $spirit[0] ;
+        $requirement = $spirit[1] ;
+        $cost = $spirit[2] ;
+        $training = $spirit[3] ;
+        ?>
+        <option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+    <?php }?>
+</select>
+</div>
       <?php foreach($cspirit as $skill){
       ?><p><?=$skill ?></p>
       <br>
       <?php } ?>
 
       <h2>Advantages and Disadvantages</h2>
+<button onclick = "edit_char(4)">Edit</button>
+<div id="advDropdown" class="dropdown-content">
+    <select multiple="multiple" name="maj_adv[]" size="5">
+        <?php
+        foreach($major_advantages as $major_advantage){
+            $maj_adv = explode(",", $major_advantage) ;
+            $advantage = $maj_adv[1] ;
+            $weight = $maj_adv[2] ;
+            ?>
+            <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+        <?php }?>
+    </select>
+</div>
       <?php foreach($cmaj_adv as $maja){
       ?><p><?=$maja ?></p>
       <br>
@@ -75,6 +121,18 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
       <h2>Traits</h2>
+<button onclick = "edit_char(5)">Edit</button>
+<div id="traitsDropdown" class="dropdown-content">
+    <select multiple="multiple" name="traits[]" size="5">
+        <?php
+        foreach ($traits as $trait){
+            $traits = explode(",", $trait) ;
+            $trait = $traits[1] ;
+            ?>
+            <option value="<?= $trait ?>"><?=$trait ?></option>
+        <?php }?>
+    </select>
+</div>
       <?php foreach($ctraits as $trait){
       ?><p><?=$trait ?></p>
       <br>
