@@ -42,9 +42,9 @@ $background = json_encode($background);
         		<input type="text" name="pronouns" /> <br />
         </fieldset>
         <fieldset>
-            <legend> Race and background </legend>
+            <legend> Race and Background </legend>
             <fieldset>
-                <p> Please select the race of your character:
+                <p> Select the race of your character: </p>
                 <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
                     <option value="">Select race</option>
                     <?php
@@ -55,18 +55,71 @@ $background = json_encode($background);
                 </select>
             </fieldset>
             <fieldset>
+                <p> Select the background of your character: </p>
                 <script type="text/javascript" language="JavaScript">
                                 document.write('<select name="subcategory" id="subcategory"><option value="">Please select background</option></select>')
-                            </script>
-                            <noscript>
-                                <select name="subcategory" id="subcategory" >
-                                    <option value="">Select background</option>
-                                </select>
-                            </noscript>
+                </script>
+                <noscript>
+                    <select name="subcategory" id="subcategory" >
+                        <option value="">Select background</option>
+                    </select>
+                </noscript>
             </fieldset>
-
         </fieldset>
-        
+        <fieldset>
+           		<legend>Skills</legend>
+           		<p>You start with ten points in a category of your choice, and twenty points in each of the other two.<br>
+           		Remember to hold down control when picking multiple options</p>
+
+           		<fieldset>
+           			<legend>Physical</legend>
+           			<select multiple="multiple" name="physical[]" size="5">
+           				<?php
+        		foreach($phys_skills as $phys){
+        			$phys = explode(",", $phys) ;
+        			$skill = $phys[0] ;
+        			$requirement = $phys[1] ;
+        			$cost = $phys[2] ;
+        			$training = $phys[3] ;
+        			?>
+        			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        		<?php }?>
+           			</select>
+           		</fieldset>
+
+           		<fieldset>
+           			<legend>Mental</legend>
+           			<select multiple="multiple" name="mental[]" size="5">
+           				<?php
+        		foreach($ment_skills as $ment){
+        			$ment = explode(",", $ment) ;
+        			$skill = $ment[0] ;
+        			$requirement = $ment[1] ;
+        			$cost = $ment[2] ;
+        			$training = $ment[3] ;
+        			?>
+        			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        		<?php }?>
+           			</select>
+        		</fieldset>
+
+        		<fieldset>
+        			<legend>Spiritual</legend>
+        			<select multiple="multiple" name="spiritual[]" size = "5">
+        				<?php
+        		foreach($spirit_skills as $spirit){
+        			$spirit = explode(",", $spirit) ;
+        			$skill = $spirit[0] ;
+        			$requirement = $spirit[1] ;
+        			$cost = $spirit[2] ;
+        			$training = $spirit[3] ;
+        			?>
+        			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        		<?php }?>
+        			</select>
+        		</fieldset>
+           	</fieldset>
+
 
     </body>
 </html>
