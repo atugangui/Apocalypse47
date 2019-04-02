@@ -10,12 +10,14 @@
 include ("getCharacterOptions.php") ;
 ?>
 <form action="changesSubmitted.php" method="post">
+    <fieldset>
     <h2>Name:</h2>
     <button onclick = "edit_char(0)">Edit</button>
     <div id="nameInput" class="dropdown-content">
         <input type="text" name="name" /><br />
     </div>
     <p><?=$cname ?></p>
+    </fieldset>
 
     <h2>Pronouns:</h2>
     <p><?=$cpronouns ?></p>
