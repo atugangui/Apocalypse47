@@ -8,27 +8,22 @@ $race_length = sizeof($races);
 for($i = 0; $i < $race_length; $i++){
     $r = explode(",", $races[$i]);
     $race_names[$i] = $r[0];
-
 }
-$js_array = json_encode($race_names); 
-
-for ($i=0; $i < sizeof($backgrounds); $i++) { 
+$js_array = json_encode($race_names);
+for ($i=0; $i < sizeof($backgrounds); $i++) {
     $temp = explode(",",$backgrounds[$i]);
-    for ($j=0; $j < sizeof($temp); $j++) { 
+    for ($j=0; $j < sizeof($temp); $j++) {
         $background[$i][$j] = $temp[$j];
     }
 }
 $background = json_encode($background);
-
-
-
 ?>
 
 
 
 <html>
     <head>
-        <title>Create dyanamic dropdown list in javascript</title>
+        <title>Create Character</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script language="javascript" type="text/javascript">
@@ -38,13 +33,14 @@ $background = json_encode($background);
         <script src="creatorFlailing.js" type="text/javascript"></script>
 
     </head>
-    <title>Dynamic Drop Down List</title>
+    <title>Create Character</title>
     <body>
-        <div class="category_div" id="category_div">Select race:
+        <div class="category_div" id="category_div">
+        <p> Please select the race of your character:
             <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
                 <option value="">Select race</option>
                 <?php
-                for ($i=1; $i < sizeof($race_names); $i++) { 
+                for ($i=1; $i < sizeof($race_names); $i++) {
                     ?>
                     <option value=<?=$race_names[$i] ?> > <?=$race_names[$i] ?></option>
                 <?php } ?>
@@ -61,4 +57,4 @@ $background = json_encode($background);
             </noscript>
         </div>
     </body>
-</html>                            
+</html>                  
