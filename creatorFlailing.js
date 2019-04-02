@@ -1,34 +1,57 @@
 function dynamicdropdown(listindex)
 {
+
     document.getElementById("subcategory").length = 0;
     switch (listindex)
     {
         case "Human" :
-            document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-            document.getElementById("subcategory").options[1]=new Option("Cakephp","Cakephp");
-            document.getElementById("subcategory").options[2]=new Option("Wordpress","Wordpress");
-            document.getElementById("subcategory").options[3]=new Option("Codeigniter","Codeigniter");
-            document.getElementById("subcategory").options[4]=new Option("Joomla","Joomla");
-            document.getElementById("subcategory").options[5]=new Option("Magento","Magento");
-            document.getElementById("subcategory").options[6]=new Option(races[0], races[0]);
+            document.getElementById("subcategory").options[0]=new Option("Please select background","");
+            var i = 1;
+            var option = 1;
+            while (i<backgrounds.length){
+                if ("Human" == backgrounds[i][1]) {
+                    document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
+                    option++;
+                }
+            i++;
+            }
             break;
 
-        case "Java" :
-            document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-            document.getElementById("subcategory").options[1]=new Option("Strauts","Strauts");
-            document.getElementById("subcategory").options[2]=new Option("Hibernate","Hibernate");
+        case "Havassian" :
+           document.getElementById("subcategory").options[0]=new Option("Please select background","");
+            var i = 1;
+            var option = 1;
+            while (i<backgrounds.length){
+                if ("Havassian" == backgrounds[i][1]) {
+                    document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
+                    option++;
+                }
+            i++;
+            }
             break;
-        case "Javascript" :
-            document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-            document.getElementById("subcategory").options[1]=new Option("D-Jango","D-Jango");
-            document.getElementById("subcategory").options[2]=new Option("Angular","Angular");
-            document.getElementById("subcategory").options[3]=new Option("Prototype","Prototype");
-            document.getElementById("subcategory").options[4]=new Option("jQuery","jQuery");
-            document.getElementById("subcategory").options[5]=new Option("Backbone","Backbone");
+        case "Vaukderir" :
+            document.getElementById("subcategory").options[0]=new Option("Please select background","");
+            var i = 1;
+            var option = 1;
+            while (i<backgrounds.length){
+                if ("Vaukderir" == backgrounds[i][1]) {
+                    document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
+                    option++;
+                }
+            i++;
+            }
             break;
-        case "Dotnet" :
-            document.getElementById("subcategory").options[0]=new Option("Please select framework","");
-            document.getElementById("subcategory").options[1]=new Option("VbScript","VbScript");
+        case "Wulfen" :
+            document.getElementById("subcategory").options[0]=new Option("Please select background","");
+            var i = 1;
+            var option = 1;
+            while (i<backgrounds.length){
+                if ("Wulfen" == backgrounds[i][1]) {
+                    document.getElementById("subcategory").options[option]=new Option(backgrounds[i][0],backgrounds[i][0]);
+                    option++;
+                }
+            i++;
+            }
             break;
     }
     return true;
