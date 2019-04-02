@@ -12,7 +12,7 @@ include ("getCharacterOptions.php") ;
 <form action="changesSubmitted.php" method="post">
     <fieldset>
     <h2>Name:</h2>
-    <button onclick = "edit_char(0)">Edit</button>
+    <button type="button" onclick = "edit_char(0)">Edit</button>
     <div id="nameInput" class="dropdown-content">
         <input type="text" name="name" /><br />
     </div>
@@ -21,13 +21,13 @@ include ("getCharacterOptions.php") ;
 
     <h2>Pronouns:</h2>
     <p><?=$cpronouns ?></p>
-    <button onclick = "edit_char(1)">Edit</button>
+    <button type="button" onclick = "edit_char(1)">Edit</button>
     <div id="pronInput" class="dropdown-content">
         <input type="text" name="pronouns" /><br />
     </div>
 
     <h2>Race:</h2>
-    <button onclick = "edit_char(2)">Edit</button>
+    <button type="button" onclick = "edit_char(2)">Edit</button>
     <div id="raceDropdown" class="dropdown-content">
     <select name="race" size = "5">
         <?php
@@ -42,7 +42,7 @@ include ("getCharacterOptions.php") ;
     <p><?=$crace ?></p>
 
     <h2>Background:</h2>
-    <button onclick = "edit_char(3)">Edit</button>
+    <button type="button" onclick = "edit_char(3)">Edit</button>
     <div id="bgDropdown" class="dropdown-content">
         <select name="background" size = "5">
             <?php
@@ -59,7 +59,7 @@ include ("getCharacterOptions.php") ;
 	
 
     <h2>Physical Skills:</h2>
-      <button onclick = "edit_char(4)">Edit</button>
+      <button type="button" onclick = "edit_char(4)">Edit</button>
 
 		<div id="physDropdown" class="dropdown-content">
                                        <select multiple="multiple" name="physical[]" size="5">
@@ -81,7 +81,7 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
     <h2>Mental Skills</h2>
-<button onclick = "edit_char(5)">Edit</button>
+<button type="button" onclick = "edit_char(5)">Edit</button>
 <div id="mentDropdown" class="dropdown-content">
     <select multiple="multiple" name="physical[]" size="5">
         <?php
@@ -102,7 +102,7 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
       <h2>Spiritual Skills</h2>
-<button onclick = "edit_char(6)">Edit</button>
+<button type="button" onclick = "edit_char(6)">Edit</button>
 <div id="spiritDropdown" class="dropdown-content">
 <select multiple="multiple" name="spiritual[]" size = "5">
     <?php
@@ -123,7 +123,7 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
       <h2>Advantages and Disadvantages</h2>
-<button onclick = "edit_char(7)">Edit</button>
+<button type="button" onclick = "edit_char(7)">Edit</button>
 <div id="advDropdown" class="dropdown-content">
     <select multiple="multiple" name="maj_adv[]" size="5">
         <?php
@@ -154,7 +154,7 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
       <h2>Traits</h2>
-<button onclick = "edit_char(8)">Edit</button>
+<button type="button" onclick = "edit_char(8)">Edit</button>
 <div id="traitsDropdown" class="dropdown-content">
     <select multiple="multiple" name="traits[]" size="5">
         <?php
@@ -170,6 +170,7 @@ include ("getCharacterOptions.php") ;
       ?><p><?=$trait ?></p>
       <br>
       <?php } ?>
+
 <input type="submit" name="submit"/>
 </form>
 
