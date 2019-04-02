@@ -10,7 +10,7 @@ function dynamicdropdown(listindex)
             document.getElementById("subcategory").options[3]=new Option("Codeigniter","Codeigniter");
             document.getElementById("subcategory").options[4]=new Option("Joomla","Joomla");
             document.getElementById("subcategory").options[5]=new Option("Magento","Magento");
-            document.getElementById("subcategory").options[6]=new Option(races[1], races[1]);
+            document.getElementById("subcategory").options[6]=new Option(races[0], races[0]);
             break;
 
         case "Java" :
