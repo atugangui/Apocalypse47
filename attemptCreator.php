@@ -1,5 +1,5 @@
 
-/* This is the main character creation page. The options for everything are stored in CSV files */
+#/* This is the main character creation page. The options for everything are stored in CSV files */
 
 // Parsing out the variables from the CSV files
 <?php
