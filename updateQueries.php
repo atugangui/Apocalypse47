@@ -7,48 +7,48 @@ $stmt->execute(array(":param_pid" => $pid, ":param_name" => $cname, ":param_race
 
 //Insert physical skills
 foreach($cphys as $p){
-    $stmt= $conn->prepare("UPDATE character_physical_skills SET char_id = :param_cchar_id, skill_name = :param_phys");
+    $stmt= $conn->prepare("UPDATE character_physical_skills SET skill_name = :param_phys WHERE char_id = :param_cid ");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_phys"=>$p)) ;
 }
 
 //Insert mental skills
 foreach($cment as $m){
-    $stmt= $conn->prepare("UPDATE character_mental_skills SET char_id = :param_cchar_id, skill_name = :param_ment");
+    $stmt= $conn->prepare("UPDATE character_mental_skills SET skill_name = :param_ment WHERE char_id = :param_cid ");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_ment"=>$m)) ;
 }
 
 //Insert spiritual skills
 foreach($cspirit as $s){
-    $stmt= $conn->prepare("UPDATE character_mental_skills SET char_id = :param_cchar_id, skill_name = :param_spirit");
+    $stmt= $conn->prepare("UPDATE character_mental_skills SET skill_name = :param_spirit WHERE char_id = :param_cid");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_spirit"=>$s)) ;
 }
 
 //Insert major advantages
 foreach($cmaj_adv as $maja){
-    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET char_id = :param_cchar_id, TYPE = :param_type, NAME = :param_maja");
+    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET TYPE = :param_type, NAME = :param_maja WHERE char_id = :param_cid");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_type"=>'major_advantage', ":param_maja"=>$maja)) ;
 }
 
 //Insert minor advantages
 foreach($cmin_adv as $mina){
-    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET char_id = :param_cchar_id, TYPE = :param_type, NAME = :param_mina");
+    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET TYPE = :param_type, NAME = :param_mina WHERE char_id = :param_cid");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_type"=>'minor_advantage', ":param_mina"=>$mina)) ;
 }
 
 //Insert major advantages
 foreach($cmaj_dis as $majd){
-    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET char_id = :param_cchar_id, TYPE = :param_type, NAME = :param_majd");
+    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET TYPE = :param_type, NAME = :param_majd WHERE char_id = :param_cid");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_type"=>'major_disadvantage', ":param_majd"=>$majd)) ;
 }
 
 //Insert minor disadvantages
 foreach($cmin_dis as $mind){
-    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET char_id = :param_cchar_id, TYPE = :param_type, NAME = :param_mind");
+    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET TYPE = :param_type, NAME = :param_mind WHERE char_id = :param_cid");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_type"=>'minor_disadvantage', ":param_mind"=>$mind)) ;
 }
 
 //Insert traits
 foreach($ctraits as $trait){
-    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET char_id = :param_cchar_id, TYPE = :param_type, NAME = :param_trait");
+    $stmt= $conn->prepare("UPDATE character_adv_and_disadv SET TYPE = :param_type, NAME = :param_trait WHERE char_id = :param_cid");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_type"=>'trait', ":param_trait"=>$trait)) ;
 }
