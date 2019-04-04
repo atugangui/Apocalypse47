@@ -10,6 +10,7 @@
 include ("getCharacterOptions.php") ;
 ?>
 <form action="changesSubmitted.php" method="post">
+    <input type="hidden" name="char_id" value="<?= $char_id ?>">
     <fieldset>
     <h2>Name:</h2>
     <button type="button" onclick = "edit_char(0)">Edit</button>
