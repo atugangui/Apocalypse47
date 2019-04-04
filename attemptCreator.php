@@ -2,8 +2,13 @@
 
 
 <?php
-/* This is the main character creation page. The options for everything are stored in CSV files
-Parsing out the variables from the CSV files */
+/* 
+*
+*
+* This is the main character creation page. The options for everything are stored in CSV files
+* The first php section parses out the variables from the CSV files
+*
+*/
 $races = file_get_contents("race_types.csv") ;
 $races = explode("\r", $races) ;
 $backgrounds = file_get_contents("background_choices.csv") ;
@@ -63,12 +68,14 @@ $traits = explode("\r", $traits) ;
     <title>Create Character</title>
     <body>
     <form action="changesSubmitted.php" method="post">
-
+      <h1>Create your Character </h1>
+      <h2> First, name your character and assign pronouns</h2>
         <fieldset>
         		<legend>Name and Pronouns</legend>
         		<input type="text" name="name" /> <br />
         		<input type="text" name="pronouns" /> <br />
         </fieldset>
+        <h2> Next, choose your character's race and background</h2>
         <fieldset>
             <legend> Race and Background </legend>
             <fieldset>
