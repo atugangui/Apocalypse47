@@ -1,7 +1,7 @@
 <?php
 
 $stmt = $conn->prepare("UPDATE character_table SET player_id = :param_pid, char_name = :param_name, race = :param_race, char_pronouns = :param_prons,
- background = :param_bg) WHERE char_id = :param_cchar_id");
+ background = :param_bg) WHERE char_id = $cchar_id");
 $stmt->execute(array(":param_pid" => $pid, ":param_name" => $cname, ":param_race" => $crace, ":param_prons" => $cpronouns, ":param_bg" => $cbackground, ":param_cchar_id" => $cchar_id));
 
 
