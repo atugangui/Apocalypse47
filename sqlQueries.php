@@ -29,7 +29,7 @@ catch(Exception $e){
  try{
 
        echo $cchar_id;
-       if (!isset($cchar_id)) {
+       if (isset($cchar_id)) {
            include ("updateQueries.php");
            echo "updated queries" ;
        }
