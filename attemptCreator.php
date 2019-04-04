@@ -1,3 +1,7 @@
+
+/* This is the main character creation page. The options for everything are stored in CSV files */
+
+// Parsing out the variables from the CSV files
 <?php
 $races = file_get_contents("race_types.csv") ;
 $races = explode("\r", $races) ;
@@ -17,10 +21,6 @@ for ($i=0; $i < sizeof($backgrounds); $i++) {
     }
 }
 $background = json_encode($background);
-
-
-
-
 
 
 $phys_skills = file_get_contents("physical_skills_available.csv") ;
