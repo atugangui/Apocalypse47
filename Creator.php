@@ -32,7 +32,7 @@ $phys_skills = explode("\r", $phys_skills) ;
 $physical_skills = [][];
 $physical_skills_length = sizeof($phys_skills);
 for($i = 0; $i < $physical_skills_length; $i++){
-  $p = explode(",", $phys_skills);
+  $p = explode(",", $phys_skills[$i]);
   echo $p[0];
 }
 
