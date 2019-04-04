@@ -104,7 +104,7 @@ $traits = explode("\r", $traits) ;
           <legend>Physical</legend>
           <select multiple="multiple" name="physical[]" size="10">
            	<?php
-            foreach($phys_skills as $phys, 1){
+            foreach($phys_skills as $phys){
             $phys = explode(",", $phys) ;
             $skill = $phys[0] ;
             $requirement = $phys[1] ;
