@@ -16,7 +16,7 @@ for($i = 0; $i < $race_length; $i++){
     $race_names[$i] = $r[0];
 }
 $js_array = json_encode($race_names);
-for ($i=1; $i < sizeof($backgrounds); $i++) {
+for ($i=0; $i < sizeof($backgrounds); $i++) {
     $temp = explode(",",$backgrounds[$i]);
     for ($j=0; $j < sizeof($temp); $j++) {
         $background[$i][$j] = $temp[$j];
