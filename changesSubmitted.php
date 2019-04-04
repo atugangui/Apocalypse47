@@ -3,7 +3,7 @@ include("mysql.php");
 
 //Gather user input information
 $cchar_id = $_REQUEST["char_id"];
-echo 1 ;
+echo $cchar_id;
 $cname = $_REQUEST["name"] ;
 $cpronouns = $_REQUEST["pronouns"];
 $crace = $_REQUEST["race"] ;

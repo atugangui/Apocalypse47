@@ -35,7 +35,12 @@ catch(Exception $e){
 $stmt->execute(array(":param_pid"=>$pid, ":param_name"=>$cname, ":param_race"=>$crace, ":param_prons"=>$cpronouns, ":param_bg"=>$cbackground,
                          ":param_cp"=>'50', ":param_bp"=>'0', ":param_rcp"=>'50', ":param_rbp"=>'0', ":param_xp"=>'0')) ;
 
-$charID = $conn->lastInsertId() ;
+if(!isset($cchar_ID)) {
+    $charID = $conn->lastInsertId() ;
+}
+else {
+    $charID = $cchar_ID;
+}
 
   //Insert physical skills
 foreach($cphys as $p){
