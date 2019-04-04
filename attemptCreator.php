@@ -1,9 +1,5 @@
-
-
-
 <?php
 /* 
-*
 *
 * This is the main character creation page. The options for everything are stored in CSV files
 * The first php section parses out the variables from the CSV files
@@ -50,7 +46,6 @@ $minor_disadvantages = explode("\r", $minor_disadvantages) ;
 $traits = file_get_contents("traits.csv") ;
 $traits = explode("\r", $traits) ;
 ?>
-
 
 
 <html>
@@ -103,8 +98,10 @@ $traits = explode("\r", $traits) ;
 
       <fieldset id="skills">  <!---------------------------------------------- skills ---------------------------->
         <legend>Skills</legend>
-        <p>You start with ten points in a category of your choice, and twenty points in each of the other two.<br>
-         Remember to hold down control when picking multiple options</p>
+        <h2> Choose your skills</h2>
+        <p> Each new character starts with 50 points to allot to skills: 10 points in one category and 20 points in the remaining two. <br>
+        Remember to hold down control when selecting multiple options!</p>
+        
 
         <fieldset class="skill">
           <legend>Physical</legend>
