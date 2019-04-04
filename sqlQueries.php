@@ -28,16 +28,7 @@ catch(Exception $e){
 //Insert player ID, name, race, pronouns, background, and point values
  try{
 
-     if(isset($cchar_ID)) {
-         $charID = $cchar_ID;
-         $stmt= $conn->prepare("INSERT INTO character_table (player_id, char_name, race, char_pronouns, background, total_cp, 
-                                                      total_bp, remaining_cp, remaining_bp, cumulative_xp) 
-                         VALUES(:param_pid, :param_name, :param_race, :param_prons, :param_bg, :param_cp, 
-                                :param_bp, :param_rcp, :param_rbp, :param_xp) WHERE char_id = '$charID'");
-         $stmt->execute(array(":param_pid"=>$pid, ":param_name"=>$cname, ":param_race"=>$crace, ":param_prons"=>$cpronouns, ":param_bg"=>$cbackground,
-             ":param_cp"=>'50', ":param_bp"=>'0', ":param_rcp"=>'50', ":param_rbp"=>'0', ":param_xp"=>'0')) ;
-     }
-     else {
+
          $stmt = $conn->prepare("INSERT INTO character_table (player_id, char_name, race, char_pronouns, background, total_cp, 
                                                       total_bp, remaining_cp, remaining_bp, cumulative_xp) 
                          VALUES(:param_pid, :param_name, :param_race, :param_prons, :param_bg, :param_cp, 
@@ -46,7 +37,6 @@ catch(Exception $e){
              ":param_cp" => '50', ":param_bp" => '0', ":param_rcp" => '50', ":param_rbp" => '0', ":param_xp" => '0'));
 
          $charID = $conn->lastInsertId();
-     }
 
   //Insert physical skills
 foreach($cphys as $p){
