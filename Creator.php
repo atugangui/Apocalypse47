@@ -113,9 +113,14 @@ $traits = explode("\r", $traits) ;
           <legend>Physical</legend>
           <select multiple="multiple" name="physical[]" size="10">
            	<?php
-            foreach($physical_skills as $phys){
+            foreach($phys_skills as $phys){
+            $phys = explode(",", $phys) ;
+            $skill = $phys[0] ;
+            $requirement = $phys[1] ;
+            $cost = $phys[2] ;
+            $training = $phys[3] ;
             ?>
-        	<option value="<?= $skill ?>"><?=$phys[0] ?> , Requirement: <?=$phys[1]?> , Cost: <?=$phys[2]?> , Training Required:  <?=$phys[3]?></option>
+        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required:  <?=$training?></option>
         		<?php }?>
           </select>
         </fieldset>
