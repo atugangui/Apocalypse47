@@ -1,8 +1,9 @@
 
-#/* This is the main character creation page. The options for everything are stored in CSV files */
 
-// Parsing out the variables from the CSV files
+
 <?php
+/* This is the main character creation page. The options for everything are stored in CSV files
+Parsing out the variables from the CSV files */
 $races = file_get_contents("race_types.csv") ;
 $races = explode("\r", $races) ;
 $backgrounds = file_get_contents("background_choices.csv") ;
