@@ -11,12 +11,12 @@ $backgrounds = file_get_contents("background_choices.csv") ;
 $backgrounds = explode("\r", $backgrounds) ;
 $race_names = [];
 $race_length = sizeof($races);
-for($i = 0; $i < $race_length; $i++){
+for($i = 1; $i < $race_length; $i++){
     $r = explode(",", $races[$i]);
     $race_names[$i] = $r[0];
 }
 $js_array = json_encode($race_names);
-for ($i=0; $i < sizeof($backgrounds); $i++) {
+for ($i=1; $i < sizeof($backgrounds); $i++) {
     $temp = explode(",",$backgrounds[$i]);
     for ($j=0; $j < sizeof($temp); $j++) {
         $background[$i][$j] = $temp[$j];
