@@ -154,9 +154,10 @@ $traits = explode("\r", $traits) ;
       
       <fieldset> <!------------------------- Adavantages and Disadvantages --------------------------->
         <legend>Advantages</legend>
-        <p>You may have two major and four minor advantages, or one major and two minor advantages.<br>
-           Make sure to balance this out by taking disadvantages so the total weight is zero.</p>
-
+        <h2>Choose your advantages and disadvantages</h2>
+        <p> Each major trait is worth two minor traits, so make sure your advantages and disadvantages equal out!
+          <br>
+        For example, if you have two minor advantages you can select one major disadvantage or two minor disadvantages</p>
         <fieldset>
           <legend>Major Advantages</legend>
           <select multiple="multiple" name="maj_adv[]" size="5">
@@ -216,6 +217,7 @@ $traits = explode("\r", $traits) ;
       
       <fieldset id="traits"> <!---------------------------- Traits -------------------------------------------->
         <legend>Traits</legend>
+        <h2> Choose your traits </h2>
         <p>You can pick as many traits as you like</p>
         <select multiple="multiple" name="traits[]" size="5">
           <?php
