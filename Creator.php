@@ -16,6 +16,8 @@ for($i = 0; $i < $race_length; $i++){
     $race_names[$i] = $r[0];
 }
 $js_array = json_encode($race_names);
+
+
 for ($i=0; $i < sizeof($backgrounds); $i++) {
     $temp = explode(",",$backgrounds[$i]);
     for ($j=0; $j < sizeof($temp); $j++) {
@@ -26,7 +28,14 @@ $background = json_encode($background);
 
 
 $phys_skills = file_get_contents("physical_skills_available.csv") ;
-$phys_skills = explode("\r", $phys_skills);
+$phys_skills = explode("\r", $phys_skills) ;
+$physical_skills = [][][][];
+$physical_skills_length = sizeof($phys_skills);
+for($i = 0; $i < $physical_skills_length; i++){
+  $p = explode(',', $phys_skills[$i]);
+  $physical_skills[$i][$i][$i][$i] = $p[0][1][2][3];
+}
+
 $ment_skills = file_get_contents("mental_skills_available.csv") ;
 $ment_skills = explode("\r", $ment_skills) ;
 $spirit_skills = file_get_contents("spiritual_skills_available.csv") ;
@@ -104,14 +113,9 @@ $traits = explode("\r", $traits) ;
           <legend>Physical</legend>
           <select multiple="multiple" name="physical[]" size="10">
            	<?php
-            foreach($phys_skills as $phys){
-            $phys = explode(",", $phys) ;
-            $skill = $phys[0] ;
-            $requirement = $phys[1] ;
-            $cost = $phys[2] ;
-            $training = $phys[3] ;
+            foreach($physical_skills as $phys){
             ?>
-        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required:  <?=$training?></option>
+        	<option value="<?= $skill ?>"><?=$phys[0] ?> , Requirement: <?=$phys[1]?> , Cost: <?=$phys[2]?> , Training Required:  <?=$phys[3]?></option>
         		<?php }?>
           </select>
         </fieldset>
