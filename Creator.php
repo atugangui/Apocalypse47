@@ -11,7 +11,7 @@ $backgrounds = file_get_contents("background_choices.csv") ;
 $backgrounds = explode("\r", $backgrounds) ;
 $race_names = [];
 $race_length = sizeof($races);
-for($i = 1; $i < $race_length; $i++){
+for($i = 0; $i < $race_length; $i++){
     $r = explode(",", $races[$i]);
     $race_names[$i] = $r[0];
 }
