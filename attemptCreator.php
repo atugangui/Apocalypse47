@@ -63,174 +63,175 @@ $traits = explode("\r", $traits) ;
         var backgrounds = <?= $background ?> ;
         </script>
         <script src="creatorFlailing.js" type="text/javascript"></script>
-
     </head>
     <title>Create Character</title>
     <body>
     <form action="changesSubmitted.php" method="post">
       <h1>Create your Character </h1>
       <h2> First, name your character and assign pronouns</h2>
-        <fieldset>
-        		<legend>Name and Pronouns</legend>
-        		<input type="text" name="name" /> <br />
-        		<input type="text" name="pronouns" /> <br />
-        </fieldset>
-        <h2> Next, choose your character's race and background</h2>
-        <fieldset>
-            <legend> Race and Background </legend>
-            <fieldset>
-                <p> Select the race of your character: </p>
-                <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
-                    <option value="">Select race</option>
-                    <?php
-                    for ($i=1; $i < sizeof($race_names); $i++) {
-                        ?>
-                        <option value=<?=$race_names[$i] ?> > <?=$race_names[$i] ?></option>
-                    <?php } ?>
-                </select>
-            </fieldset>
-            <fieldset>
-                <p> Select the background of your character: </p>
-                <script type="text/javascript" language="JavaScript">
+      <fieldset id="name_pronoun">  <!--------------------------------- name and pronouns ---------------------->
+        	<legend>Name and Pronouns</legend>
+        	<input type="text" name="name" /> <br />
+        	<input type="text" name="pronouns" /> <br />
+      </fieldset>
+      <h2> Next, choose your character's race and background</h2>
+      <fieldset id = "race_background"> <!----------------------------- race and background ------------------->
+        <legend> Race and Background </legend>
+        <fieldset id="race">
+          <p> Select the race of your character: </p>
+          <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+              <option value="">Select race</option>
+              <?php
+              for ($i=1; $i < sizeof($race_names); $i++) {
+                  ?>
+                  <option value=<?=$race_names[$i] ?> > <?=$race_names[$i] ?></option>
+              <?php } ?>
+          </select>
+        </fieldset>    
+        <fieldset id="background">
+          <p> Select the background of your character: </p>
+          <script type="text/javascript" language="JavaScript">
                                 document.write('<select name="subcategory" id="subcategory"><option value="">Please select background</option></select>')
-                </script>
-                <noscript>
-                    <select name="subcategory" id="subcategory" >
-                        <option value="">Select background</option>
-                    </select>
-                </noscript>
-            </fieldset>
+          </script>
+          <noscript>
+              <select name="subcategory" id="subcategory" >
+                  <option value="">Select background</option>
+              </select>
+          </noscript>
         </fieldset>
-        <fieldset>
-           		<legend>Skills</legend>
-           		<p>You start with ten points in a category of your choice, and twenty points in each of the other two.<br>
-           		Remember to hold down control when picking multiple options</p>
+      </fieldset>
 
-           		<fieldset>
-           			<legend>Physical</legend>
-           			<select multiple="multiple" name="physical[]" size="10">
-           				<?php
-        		foreach($phys_skills as $phys){
-        			$phys = explode(",", $phys) ;
-        			$skill = $phys[0] ;
-        			$requirement = $phys[1] ;
-        			$cost = $phys[2] ;
-        			$training = $phys[3] ;
-        			?>
-        			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+      <fieldset id="skills">  <!---------------------------------------------- skills ---------------------------->
+        <legend>Skills</legend>
+        <p>You start with ten points in a category of your choice, and twenty points in each of the other two.<br>
+         Remember to hold down control when picking multiple options</p>
+
+        <fieldset class="skill">
+          <legend>Physical</legend>
+          <select multiple="multiple" name="physical[]" size="10">
+           	<?php
+            foreach($phys_skills as $phys){
+            $phys = explode(",", $phys) ;
+            $skill = $phys[0] ;
+            $requirement = $phys[1] ;
+            $cost = $phys[2] ;
+            $training = $phys[3] ;
+            ?>
+        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required:  <?=$training?></option>
         		<?php }?>
-           			</select>
-           		</fieldset>
-
-           		<fieldset>
-           			<legend>Mental</legend>
-           			<select multiple="multiple" name="mental[]" size="10">
-           				<?php
-        		foreach($ment_skills as $ment){
-        			$ment = explode(",", $ment) ;
-        			$skill = $ment[0] ;
-        			$requirement = $ment[1] ;
-        			$cost = $ment[2] ;
-        			$training = $ment[3] ;
-        			?>
-        			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
-        		<?php }?>
-           			</select>
-        		</fieldset>
-
-        		<fieldset>
-        			<legend>Spiritual</legend>
-        			<select multiple="multiple" name="spiritual[]" size = "10">
-        				<?php
-        		foreach($spirit_skills as $spirit){
-        			$spirit = explode(",", $spirit) ;
-        			$skill = $spirit[0] ;
-        			$requirement = $spirit[1] ;
-        			$cost = $spirit[2] ;
-        			$training = $spirit[3] ;
-        			?>
-        			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
-        		<?php }?>
-        			</select>
-        		</fieldset>
-           	</fieldset>
-        <fieldset>
-           		<legend>Advantages</legend>
-           		<p>You may have two major and four minor advantages, or one major and two minor advantages.<br>
-           		Make sure to balance this out by taking disadvantages so the total weight is zero.</p>
-
-                 <fieldset>
-                    <legend>Major Advantages</legend>
-                    <select multiple="multiple" name="maj_adv[]" size="5">
-                       <?php
-                       foreach($major_advantages as $major_advantage){
-                          $maj_adv = explode(",", $major_advantage) ;
-                          $advantage = $maj_adv[1] ;
-                          $weight = $maj_adv[2] ;
-                          ?>
-                          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
-                       <?php }?>
-                    </select>
-                 </fieldset>
-
-           		<fieldset>
-           			<legend>Minor Advantages</legend>
-           			<select multiple="multiple" name="min_adv[]" size="5">
-           				<?php
-           				foreach($minor_advantages as $minor_advantage) {
-           					$min_adv = explode(",", $minor_advantage) ;
-           					$advantage = $min_adv[1] ;
-           					$weight = $min_adv[2] ;
-           					?>
-           					<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
-           				<?php }?>
-           			</select>
-           		</fieldset>
-
-                 <fieldset>
-                    <legend>Major Disadvantages</legend>
-                    <select multiple = "multiple" name="maj_dis[]" size="5">
-                       <?php
-                       foreach ($major_disadvantages as $major_disadvantage){
-                          $maj_dis = explode(",", $major_disadvantage) ;
-                          $advantage = $maj_dis[1] ;
-                          $weight = $maj_dis[2] ;
-                          ?>
-                          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
-                       <?php }?>
-                    </select>
-                 </fieldset>
-
-           		<fieldset>
-           			<legend>Minor Disadvantages</legend>
-           			<select multiple="multiple" name="min_dis[]" size="5">
-           				<?php
-           				foreach ($minor_disadvantages as $minor_disadvantage){
-           					$min_dis = explode(",", $minor_disadvantage) ;
-           					$advantage = $min_dis[1] ;
-           					$weight = $min_dis[2] ;
-           					?>
-           					<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
-           				<?php }?>
-           			</select>
-           		</fieldset>
-
+          </select>
         </fieldset>
-        <fieldset>
-                 <legend>Traits</legend>
-                 <p>You can pick as many traits as you like</p>
-                 <select multiple="multiple" name="traits[]" size="5">
-                    <?php
-                    foreach ($traits as $trait){
-                       $traits = explode(",", $trait) ;
-                       $trait = $traits[1] ;
-                       ?>
-                       <option value="<?= $trait ?>"><?=$trait ?></option>
-                    <?php }?>
-                 </select>
+
+        <fieldset class="skill">
+          <legend>Mental</legend>
+          <select multiple="multiple" name="mental[]" size="10">
+           	<?php
+            foreach($ment_skills as $ment){
+            $ment = explode(",", $ment) ;
+            $skill = $ment[0] ;
+            $requirement = $ment[1] ;
+            $cost = $ment[2] ;
+            $training = $ment[3] ;
+            ?>
+        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        		<?php }?>
+          </select>
         </fieldset>
+
+        <fieldset class="skill">
+        	<legend>Spiritual</legend>
+        	<select multiple="multiple" name="spiritual[]" size = "10">
+        			<?php
+        	foreach($spirit_skills as $spirit){
+        		$spirit = explode(",", $spirit) ;
+        		$skill = $spirit[0] ;
+        		$requirement = $spirit[1] ;
+        		$cost = $spirit[2] ;
+        		$training = $spirit[3] ;
+        		?>
+        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        		<?php }?>
+        	</select>
+        </fieldset>
+      </fieldset>
+      
+      <fieldset> <!------------------------- Adavantages and Disadvantages --------------------------->
+        <legend>Advantages</legend>
+        <p>You may have two major and four minor advantages, or one major and two minor advantages.<br>
+           Make sure to balance this out by taking disadvantages so the total weight is zero.</p>
+
+        <fieldset>
+          <legend>Major Advantages</legend>
+          <select multiple="multiple" name="maj_adv[]" size="5">
+            <?php
+          foreach($major_advantages as $major_advantage){
+            $maj_adv = explode(",", $major_advantage) ;
+            $advantage = $maj_adv[1] ;
+            $weight = $maj_adv[2] ;
+            ?>
+          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+            <?php }?>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Minor Advantages</legend>
+          <select multiple="multiple" name="min_adv[]" size="5">
+           	<?php
+          foreach($minor_advantages as $minor_advantage) {
+           	$min_adv = explode(",", $minor_advantage) ;
+           	$advantage = $min_adv[1] ;
+           	$weight = $min_adv[2] ;
+           	?>
+          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+           	<?php }?>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Major Disadvantages</legend>
+          <select multiple = "multiple" name="maj_dis[]" size="5">
+            <?php
+          foreach ($major_disadvantages as $major_disadvantage){
+            $maj_dis = explode(",", $major_disadvantage) ;
+            $advantage = $maj_dis[1] ;
+            $weight = $maj_dis[2] ;
+            ?>
+          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+            <?php }?>
+          </select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Minor Disadvantages</legend>
+           	<select multiple="multiple" name="min_dis[]" size="5">
+           		<?php
+           	foreach ($minor_disadvantages as $minor_disadvantage){
+           		$min_dis = explode(",", $minor_disadvantage) ;
+           		$advantage = $min_dis[1] ;
+           		$weight = $min_dis[2] ;
+           		?>
+           	<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+           		<?php }?>
+          </select>
+        </fieldset>
+      </fieldset>
+      
+      <fieldset id="traits"> <!---------------------------- Traits -------------------------------------------->
+        <legend>Traits</legend>
+        <p>You can pick as many traits as you like</p>
+        <select multiple="multiple" name="traits[]" size="5">
+          <?php
+        foreach ($traits as $trait){
+          $traits = explode(",", $trait) ;
+          $trait = $traits[1] ;
+          ?>
+        <option value="<?= $trait ?>"><?=$trait ?></option>
+          <?php }?>
+        </select>
+      </fieldset>
+
     <input type="submit" name="submit"/>
     </form>
-
     </body>
 </html>
