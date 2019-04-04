@@ -29,12 +29,7 @@ $background = json_encode($background);
 
 $phys_skills = file_get_contents("physical_skills_available.csv") ;
 $phys_skills = explode("\r", $phys_skills) ;
-$physical_skills = [][][][];
-$physical_skills_length = sizeof($phys_skills);
-for($i = 0; $i < $physical_skills_length; i++){
-  $p = explode(',', $phys_skills[$i]);
-  $physical_skills[$i][$i][$i][$i] = $p[0][1][2][3];
-}
+
 
 $ment_skills = file_get_contents("mental_skills_available.csv") ;
 $ment_skills = explode("\r", $ment_skills) ;
