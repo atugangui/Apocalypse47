@@ -33,7 +33,7 @@ $physical_skills = [][];
 $physical_skills_length = sizeof($phys_skills);
 for($i = 0; $i < $physical_skills_length; $i++){
   $p = explode(",", $phys_skills);
-  $physical_skills[$i][0] = $p[0];
+  echo $p[0];
 }
 
 $ment_skills = file_get_contents("mental_skills_available.csv") ;
