@@ -28,7 +28,7 @@ catch(Exception $e){
 //Insert player ID, name, race, pronouns, background, and point values
  try{
 
-       if (isset($ccharID)) {
+       if ($ccharID != NULL) {
            include ("updateQueries.php");
            echo "updated queries" ;
        }
