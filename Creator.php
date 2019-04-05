@@ -23,6 +23,7 @@ for ($i=0; $i < sizeof($backgrounds); $i++) {
     }
 }
 $background = json_encode($background);
+
 $phys_skills = file_get_contents("physical_skills_available.csv") ;
 $phys_skills = explode("\r", $phys_skills);
 $ment_skills = file_get_contents("mental_skills_available.csv") ;
@@ -152,6 +153,8 @@ $traits = explode("\r", $traits) ;
         <fieldset>
           <legend>Major Advantages</legend>
           <select multiple="multiple" name="maj_adv[]" size="5">
+
+
             <?php
           foreach($major_advantages as $major_advantage){
             $maj_adv = explode(",", $major_advantage) ;
@@ -181,6 +184,7 @@ $traits = explode("\r", $traits) ;
           <legend>Major Disadvantages</legend>
           <select multiple = "multiple" name="maj_dis[]" size="5">
             <?php
+
           foreach ($major_disadvantages as $major_disadvantage){
             $maj_dis = explode(",", $major_disadvantage) ;
             $advantage = $maj_dis[1] ;
@@ -204,6 +208,7 @@ $traits = explode("\r", $traits) ;
            		<?php }?>
           </select>
         </fieldset>
+
       </fieldset>
       
       <h2> Choose your traits </h2>
@@ -221,7 +226,9 @@ $traits = explode("\r", $traits) ;
         </select>
       </fieldset>
 
+
     <input type="submit" name="submit"/>
     </form>
     </body>
+
 </html>
