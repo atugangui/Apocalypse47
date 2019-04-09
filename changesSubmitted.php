@@ -19,7 +19,8 @@ $ctraits = $_REQUEST["traits"] ;
 print("hello");
 echo "\n";
 $phys_test = explode(",", $cphys);
-print_r($phys_test);
+
+print($phys_test[1]);
 
 //Insert into database
 include("sqlQueries.php") ;
