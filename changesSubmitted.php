@@ -55,7 +55,6 @@ elseif($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
 elseif($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
 			print("Do it again. No category can have more than 20 points");
 		}
-}
 else {
 	// do the things!
 }
