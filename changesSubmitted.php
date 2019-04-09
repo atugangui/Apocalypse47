@@ -49,6 +49,7 @@ for ($i=0; $i < sizeof($cmaj_adv); $i++) {
     $temp = explode(",",$cmaj_adv[$i]);
     for ($j=0; $j < sizeof($temp); $j++) {
         $major_advantages[$i][$j] = $temp[$j];
+        print($major_advantages[$i][$j]);
         $advantage_disadvantage_weight = $advantage_disadvantage_weight + $major_advantages[$i][2];
     }
 }
