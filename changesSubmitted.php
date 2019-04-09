@@ -19,7 +19,7 @@ $ctraits = $_REQUEST["traits"] ;
 print("hello");
 echo "\n";
 
-
+print(sizeof($cphys));
 
 for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
@@ -31,10 +31,6 @@ for ($i=0; $i < sizeof($cphys); $i++) {
 print($phys_test[0][0]);
 print("hell0");
 
-
-$phys_test[][] = explode(",", $cphys);
-
-print($phys_test[1][1]);
 
 //Insert into database
 include("sqlQueries.php") ;
