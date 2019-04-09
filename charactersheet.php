@@ -23,6 +23,7 @@ include ("getCharacterOptions.php") ;
     <h2>Pronouns:</h2>
     <p><?=$cpronouns ?></p>
     <button type="button" onclick = "edit_char(1)">Edit</button>
+    <input type="hidden" name="pronouns" value="<?= $cpronouns ?>">
     <div id="pronInput" class="dropdown-content">
         <input type="text" name="pronouns" /><br />
     </div>
@@ -167,8 +168,8 @@ include ("getCharacterOptions.php") ;
         <?php }?>
     </select>
 </div>
-      <?php foreach($ctraits as $trait){
-      ?><p><?=$trait ?></p>
+      <?php foreach($ctraits as $ctrait){
+      ?><p><?= $ctrait ?></p>
       <br>
       <?php } ?>
 
