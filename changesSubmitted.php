@@ -16,9 +16,7 @@ $min_dis = $_REQUEST["min_dis"] ;
 $traits = $_REQUEST["traits"] ;
 
 
-$mental_skill_try = $_REQUEST["mental"];
-$exploded_result = explode(' ', $result);
-echo "name".exploded_result[0];
+
 
 
 
