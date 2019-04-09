@@ -26,7 +26,7 @@ $sql = "SELECT * FROM character_table WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id));
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$cpronouns = $rows[0]['pronouns'] ;
+$cpronouns = $rows[0]['char_pronouns'] ;
 echo $cpronouns;
 $crace = $rows[0]['race'] ;
 $cbackground = $rows[0]['background'] ;
