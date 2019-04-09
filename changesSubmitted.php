@@ -18,9 +18,9 @@ $ctraits = $_REQUEST["traits"] ;
 
 print("hello");
 echo "\n";
-$phys_test = explode(",", $cphys);
+$phys_test[][] = explode(",", $cphys);
 
-print($phys_test[1]);
+print($phys_test[1][1]);
 
 //Insert into database
 include("sqlQueries.php") ;
