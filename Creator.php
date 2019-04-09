@@ -81,7 +81,7 @@ $traits = explode("\r", $traits) ;
         <fieldset id="background_one">
           <p> Select the background of your character: </p>
           <script type="text/javascript" language="JavaScript">
-                                document.write('<select name="subcategory" id="subcategory"><option value="">Please select background</option></select>')
+                                document.write('<select name="background" id="subcategory"><option value="">Please select background</option></select>')
           </script>
           <noscript>
               <select name="background" id="subcategory" >
