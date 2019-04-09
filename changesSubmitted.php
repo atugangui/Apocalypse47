@@ -16,8 +16,10 @@ $cmaj_dis = $_REQUEST["maj_dis"] ;
 $cmin_dis = $_REQUEST["min_dis"] ;
 $ctraits = $_REQUEST["traits"] ;
 
+print("hello");
+echo "\n";
 $phys_test = explode(",", $cphys);
-print($phys_test);
+print_r($phys_test);
 
 //Insert into database
 include("sqlQueries.php") ;
