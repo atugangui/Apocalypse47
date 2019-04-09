@@ -17,8 +17,8 @@ $cmin_dis = $_REQUEST["min_dis"] ;
 $ctraits = $_REQUEST["traits"] ;
 
 print("hello");
-echo "\n";
 
+$phys_test = [][];
 for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
 
