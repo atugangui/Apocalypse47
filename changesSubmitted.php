@@ -53,7 +53,7 @@ for ($i=0; $i < sizeof($cmaj_adv); $i++) {
         $advantage_disadvantage_weight = $advantage_disadvantage_weight + $major_advantages[$i][2];
     }
 }
-print($advantage_disadvantage_weight);
+print($advantage_disadvantage_weight); //// THIS IS WHATS NOT WORKING
 
 
 if($physical_cost + $mental_cost + spiritual_cost > 50){
