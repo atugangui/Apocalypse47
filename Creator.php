@@ -122,7 +122,7 @@ $traits = explode("\r", $traits) ;
             $cost = $ment[2] ;
             $training = $ment[3] ;
             ?>
-        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        	<option value="<?= $skill?>, <?= $cost ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
         		<?php }?>
           </select>
         </fieldset>
