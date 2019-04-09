@@ -16,9 +16,8 @@ $cmaj_dis = $_REQUEST["maj_dis"] ;
 $cmin_dis = $_REQUEST["min_dis"] ;
 $ctraits = $_REQUEST["traits"] ;
 
-
-$skill_test = $_REQUEST["mental"] ;
-echo $skill_test;
+$phys_test = explode(",", $cphys);
+print($phys_test);
 
 //Insert into database
 include("sqlQueries.php") ;
