@@ -161,6 +161,7 @@ $traits = explode("\r", $traits) ;
             $advantage = $maj_adv[1] ;
             $weight = $maj_adv[2] ;
             ?>
+          <option value="<?= $advantage ?>, <?= $weight ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
             <?php }?>
           </select>
         </fieldset>
@@ -189,7 +190,7 @@ $traits = explode("\r", $traits) ;
             $advantage = $maj_dis[1] ;
             $weight = $maj_dis[2] ;
             ?>
-          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+          <option value="<?= $advantage ?>, <?= $weight ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
             <?php }?>
           </select>
           </fieldset>
@@ -203,7 +204,7 @@ $traits = explode("\r", $traits) ;
            		$advantage = $min_dis[1] ;
            		$weight = $min_dis[2] ;
            		?>
-           	<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+           	<option value="<?= $advantage ?>, <?= $weight ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
            		<?php }?>
           </select>
         </fieldset>
