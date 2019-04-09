@@ -24,7 +24,7 @@ for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
     for ($j=0; $j < sizeof($temp); $j++) {
         $physical_skills[$i][$j] = $temp[$j];
-        $physical_cos = $physical_cos + $physical_skills[$i][1];
+        $physical_cost = $physical_cost + $physical_skills[$i][1];
     }
 }
 
@@ -44,12 +44,21 @@ for ($i=0; $i < sizeof($cspirit); $i++) {
     }
 }
 
-print($spiritual_cost);
 
 # Do the points sum up
-//if physical is ten, 
-	// and ifmental and spirital are twenty
-	// else ya fucked up
+if($physical_cost + $mental_cost + spiritual_cost > 50){
+	print("ya fucked up. You have more than 50 total points");
+}
+elseif($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
+		print("you fucked up: you have to have one category with ten points and two with 20. None have less than 10")
+	}
+elseif($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
+			print("Do it again. No category can have more than 20 points");
+		}
+}
+else {
+	// do the things!
+}
 
 
 // if mental is ten
