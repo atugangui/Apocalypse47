@@ -19,7 +19,7 @@ $ctraits = $_REQUEST["traits"] ;
 print("hello");
 echo "\n";
 
-print($cphys);
+print_r($cphys);
 for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
 
