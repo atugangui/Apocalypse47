@@ -16,16 +16,35 @@ $cmaj_dis = $_REQUEST["maj_dis"] ;
 $cmin_dis = $_REQUEST["min_dis"] ;
 $ctraits = $_REQUEST["traits"] ;
 
-
+$point_sum = 0;
 for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
     for ($j=0; $j < sizeof($temp); $j++) {
-        $phys_test[$i][$j] = $temp[$j];
+        $physical_skills[$i][$j] = $temp[$j];
+        $point_sum = $point_sum + $physical_skills[$i][1];
     }
 }
 
+for ($i=0; $i < sizeof($cment); $i++) {
+    $temp = explode(",",$cment[$i]);
+    for ($j=0; $j < sizeof($temp); $j++) {
+        $mental_skills[$i][$j] = $temp[$j];
+        $point_sum = $point_sum + $mental_skills[$i][1];
+    }
+}
+
+for ($i=0; $i < sizeof($cspirit); $i++) {
+    $temp = explode(",",$cspirit[$i]);
+    for ($j=0; $j < sizeof($temp); $j++) {
+        $spiritual_skills[$i][$j] = $temp[$j];
+        $point_sum = $point_sum + $spiritual_skills[$i][1];
+    }
+}
+print($point_sum);
+
+
 print($phys_test[0][0]);
-print("hell0");
+
 
 
 //Insert into database
