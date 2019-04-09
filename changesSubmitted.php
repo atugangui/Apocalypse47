@@ -19,6 +19,7 @@ $ctraits = $_REQUEST["traits"] ;
 $physical_cost = 0;
 $mental_cost = 0;
 $spiritual_cost = 0;
+$advantage_disadvantage_weight = 0;
 
 for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
@@ -44,15 +45,24 @@ for ($i=0; $i < sizeof($cspirit); $i++) {
     }
 }
 
+for ($i=0; $i < sizeof($cmaj_adv); $i++) {
+    $temp = explode(",",$cmaj_adv[$i]);
+    for ($j=0; $j < sizeof($temp); $j++) {
+        $major_advantages[$i][$j] = $temp[$j];
+        $advantage_disadvantage_weight = $advantage_disadvantage_weight + $major_advantages[$i][2];
+    }
+}
+print($advantage_disadvantage_weight);
+
 
 if($physical_cost + $mental_cost + spiritual_cost > 50){
-	print("ya fucked up. You have more than 50 total points");
+	print("ya fucked up. You have more than 50 total points. Do it better this time.");
 }
 elseif($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
-		print("you fucked up: you have to have one category with ten points and two with 20. None have less than 10");
+		print("you fucked up: you have to have one category with ten points and two with 20. None have less than 10. Try again.");
 	}
 elseif($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
-			print("Do it again. No category can have more than 20 points");
+			print("Do it again. No category can have more than 20 points. Try again.");
 		}
 else {
 	//Insert into database
