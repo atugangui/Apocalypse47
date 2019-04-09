@@ -23,7 +23,7 @@ print(sizeof($cphys));
 
 for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
-    print($temp[$i]);
+    
     for ($j=0; $j < sizeof($temp); $j++) {
         $phsy_test[$i][$j] = $temp[$j];
     }
