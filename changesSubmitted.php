@@ -55,26 +55,14 @@ elseif($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
 			print("Do it again. No category can have more than 20 points");
 		}
 else {
-	// do the things!
+	//Insert into database
+	include("sqlQueries.php") ;
+
+	include("charactersheet.php") ;
 }
-
-
-// if mental is ten
-	// and if phsy adn psirital are twenty
-	// else ya fucked up
-
-// if spiritual is ten
-	// and phsy and mental are twenty
-	// else ya fucked up
 
 
 print($phys_test[0][0]);
 
-
-
-//Insert into database
-include("sqlQueries.php") ;
-
-include("charactersheet.php") ;
 
 ?>
