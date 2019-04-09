@@ -106,7 +106,7 @@ $traits = explode("\r", $traits) ;
             $cost = $phys[2] ;
             $training = $phys[3] ;
             ?>
-        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required:  <?=$training?></option>
+        	<option value="<?= $skill ?>, <?= $cost ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required:  <?=$training?></option>
         		<?php }?>
           </select>
         </fieldset>
@@ -138,7 +138,7 @@ $traits = explode("\r", $traits) ;
         		$cost = $spirit[2] ;
         		$training = $spirit[3] ;
         		?>
-        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+        	<option value="<?= $skill ?>, <?= $cost ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
         		<?php }?>
         	</select>
         </fieldset>
