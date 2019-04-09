@@ -16,14 +16,11 @@ $cmaj_dis = $_REQUEST["maj_dis"] ;
 $cmin_dis = $_REQUEST["min_dis"] ;
 $ctraits = $_REQUEST["traits"] ;
 
-print("hello");
 
 for ($i=0; $i < sizeof($cphys); $i++) {
     $temp = explode(",",$cphys[$i]);
-
     for ($j=0; $j < sizeof($temp); $j++) {
         $phys_test[$i][$j] = $temp[$j];
-        print($phys_test[$i][$j]);
     }
 }
 
