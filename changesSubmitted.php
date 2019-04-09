@@ -45,12 +45,11 @@ for ($i=0; $i < sizeof($cspirit); $i++) {
 }
 
 
-# Do the points sum up
 if($physical_cost + $mental_cost + spiritual_cost > 50){
 	print("ya fucked up. You have more than 50 total points");
 }
 elseif($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
-		print("you fucked up: you have to have one category with ten points and two with 20. None have less than 10")
+		print("you fucked up: you have to have one category with ten points and two with 20. None have less than 10");
 	}
 elseif($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
 			print("Do it again. No category can have more than 20 points");
