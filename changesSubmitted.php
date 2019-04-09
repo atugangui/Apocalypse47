@@ -18,12 +18,14 @@ $ctraits = $_REQUEST["traits"] ;
 
 print("hello");
 echo "\n";
-$i = 0;
-$phys_test[][];
-foreach($cphys as $thing){
-	$phys_test[$i][] = explode(",", $thing);
-	$i++;
 
+
+
+for ($i=0; $i < sizeof($cphys); $i++) {
+    $temp = explode(",",$cphys[$i]);
+    for ($j=0; $j < sizeof($temp); $j++) {
+        $phsy_test[$i][$j] = $temp[$j];
+    }
 }
 
 print($phys_test[0][0]);
