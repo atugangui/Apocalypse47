@@ -85,7 +85,7 @@ include ("getCharacterOptions.php") ;
     <h2>Mental Skills</h2>
 <button type="button" onclick = "edit_char(5)">Edit</button>
 <div id="mentDropdown" class="dropdown-content">
-    <select multiple="multiple" name="physical[]" size="5">
+    <select multiple="multiple" name="mental[]" size="5">
         <?php
         foreach($ment_skills as $ment){
             $ment = explode(",", $ment) ;
