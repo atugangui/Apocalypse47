@@ -69,7 +69,7 @@ $traits = explode("\r", $traits) ;
         <legend> Race and Background </legend>
         <fieldset id="race">
           <p> Select the race of your character: </p>
-          <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+          <select name="race" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
               <option value="">Select race</option>
               <?php
               for ($i=1; $i < sizeof($race_names); $i++) {
@@ -84,7 +84,7 @@ $traits = explode("\r", $traits) ;
                                 document.write('<select name="subcategory" id="subcategory"><option value="">Please select background</option></select>')
           </script>
           <noscript>
-              <select name="subcategory" id="subcategory" >
+              <select name="background" id="subcategory" >
                   <option value="">Select background</option>
               </select>
           </noscript>
