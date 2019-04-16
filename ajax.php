@@ -7,14 +7,14 @@ session_start();
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
-}
+} 
 
 /* get the incoming function name   */
 $fx=$_POST["fx"];
 
 switch($fx){
   case "updateName":
-  updateName();
+       updateName();
   break;
 }
 
