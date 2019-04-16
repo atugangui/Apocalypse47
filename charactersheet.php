@@ -186,7 +186,7 @@ function ajaxName(){
   var newName=$("#editNameInput").val() ;
   $.ajax({
       method: "POST",
-      url: "testajaxx.php",
+      url: "ajax.php",
       data: { name: newName, char_id: <?= $char_id?>, fx: "updateName" }
     })
       .done(function( msg ) {
