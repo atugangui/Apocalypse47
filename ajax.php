@@ -10,9 +10,5 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 } 
 $fx=$_POST["fx"];
-switch($fx){
-  case "updateName":
-       updateName();
-  break;
-}
+
 ?>
