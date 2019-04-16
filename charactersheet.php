@@ -1,13 +1,11 @@
 
 <?php
 include ("getCharacterOptions.php") ;
-        $raceSelect = "<select name = 'race'>" ;
-          $rid = 0 ;
+        $raceSelect = "<select name='race'>" ;
         foreach($races as $race){
             $race = explode(",", $race) ;
             $r = $race[0] ;
-            $rid = $rid + 1 ;
-            $raceSelect.="<option value='$rid'>$r</option>" ;
+            $raceSelect.="<option value='$r'>$r</option>" ;
           }
     $raceSelect.="</select>" ;
 ?>
