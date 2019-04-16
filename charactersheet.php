@@ -8,6 +8,16 @@
 <body>
 <?php
 include ("getCharacterOptions.php") ;
+        $raceSelect = "<select name = 'race'>" ;
+          $rid = 0 ;
+        foreach($races as $race){
+            $race = explode(",", $race) ;
+            $r = $race[0] ;
+            $rid = $rid + 1 ;
+            ?>
+            $raceSelect.="<option value='$rid'>$race</option>" ;
+          }
+    $raceSelect.="</select>" ;
 ?>
 <form action="changesSubmitted.php" method="post">
     <input type="hidden" name="char_id" value="<?= $char_id ?>">
@@ -23,25 +33,14 @@ include ("getCharacterOptions.php") ;
     <h2>Pronouns:</h2>
     <p><?=$cpronouns ?></p>
     <button type="button" onclick = "edit_char(1)">Edit</button>
-    <input type="hidden" name="pronouns" value="<?= $cpronouns ?>">
     <div id="pronInput" class="dropdown-content">
         <input type="text" name="pronouns" /><br />
     </div>
 
     <h2>Race:</h2>
-    <button type="button" onclick = "edit_char(2)">Edit</button>
-    <div id="raceDropdown" class="dropdown-content">
-    <select name="race" size = "5">
-        <?php
-        foreach($races as $race){
-            $race = explode(",", $race) ;
-            $r = $race[0] ;
-            ?>
-            <option value="<?= $r ?>"><?=$r ?></option>
-        <?php }?>
-    </select>
-    </div>
     <p><?=$crace ?></p>
+    <button type="submit" id="editRace" onclick="editRaceClick()">Edit</button>
+    
 
     <h2>Background:</h2>
     <button type="button" onclick = "edit_char(3)">Edit</button>
@@ -85,7 +84,7 @@ include ("getCharacterOptions.php") ;
     <h2>Mental Skills</h2>
 <button type="button" onclick = "edit_char(5)">Edit</button>
 <div id="mentDropdown" class="dropdown-content">
-    <select multiple="multiple" name="mental[]" size="5">
+    <select multiple="multiple" name="physical[]" size="5">
         <?php
         foreach($ment_skills as $ment){
             $ment = explode(",", $ment) ;
@@ -168,13 +167,23 @@ include ("getCharacterOptions.php") ;
         <?php }?>
     </select>
 </div>
-      <?php foreach($ctraits as $ctrait){
-      ?><p><?= $ctrait ?></p>
+      <?php foreach($ctraits as $trait){
+      ?><p><?=$trait ?></p>
       <br>
       <?php } ?>
 
 <input type="submit" name="submit"/>
 </form>
+
+<script>
+
+  function editRaceClick(){
+    var raceMenu="<?- $raceSelect?>"; 
+    $("#raceArea").html(raceMenu) ;
+
+  }
+
+</script>
 
 </body>
     <a href="welcome.php" class="btn-primary">Return to Home Page</a>
