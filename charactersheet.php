@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-      <link href="edit.css" type="text/css" rel="stylesheet"/>
-      <script src="edit.js" type="text/javascript"></script>
-      <meta charset="utf-8" />
-</head>
-<body>
+
 <?php
 include ("getCharacterOptions.php") ;
         $raceSelect = "<select name = 'race'>" ;
@@ -18,6 +11,15 @@ include ("getCharacterOptions.php") ;
           }
     $raceSelect.="</select>" ;
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+      <link href="edit.css" type="text/css" rel="stylesheet"/>
+      <script src="edit.js" type="text/javascript"></script>
+      <meta charset="utf-8" />
+</head>
+<body>
+
 <form action="changesSubmitted.php" method="post">
     <input type="hidden" name="char_id" value="<?= $char_id ?>">
     <fieldset>
