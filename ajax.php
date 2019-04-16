@@ -9,5 +9,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 } 
-
+$fx=$_POST["fx"];
+switch($fx){
+  case "updateName":
+       updateName();
+  break;
+}
 ?>
