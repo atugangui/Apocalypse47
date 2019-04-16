@@ -178,7 +178,7 @@ include ("getCharacterOptions.php") ;
 <script>
 
   function editRaceClick(){
-    var raceMenu="<?- $raceSelect?>"; 
+    var raceMenu="<?= $raceSelect?>"; 
     $("#raceArea").html(raceMenu) ;
 
   }
