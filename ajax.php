@@ -12,7 +12,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $fx=$_POST["fx"];
 
 if($fx == "updateName"){
-   updateName() ;
+   echo "Hello" ;
 }
 
 function updateName(){
