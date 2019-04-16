@@ -17,3 +17,4 @@ function updateName(){
   }
   else{echo "fail";}
 }
+?>
