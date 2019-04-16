@@ -14,8 +14,7 @@ include ("getCharacterOptions.php") ;
             $race = explode(",", $race) ;
             $r = $race[0] ;
             $rid = $rid + 1 ;
-            ?>
-            $raceSelect.="<option value='$rid'>$race</option>" ;
+            $raceSelect.="<option value='$rid'>$r</option>" ;
           }
     $raceSelect.="</select>" ;
 ?>
