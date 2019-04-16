@@ -1,5 +1,6 @@
 <?php
-include ("mysql.php") ;
+$dir= getcwd();
+include ($dir."/mysql.php") ;
 // Initialize the session
 session_start();
  
@@ -8,6 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 } 
+
 
 /* get the incoming function name   */
 $fx=$_POST["fx"];
@@ -18,7 +20,7 @@ switch($fx){
   break;
 }
 
-function updateName(){
+function updateName($mysql){
   $name=$_POST["name"];
   $id=$_POST["char_id"];
   $stmt = $conn->prepare("UPDATE character_table SET char_name = :param_name WHERE char_id = :param_cid");
