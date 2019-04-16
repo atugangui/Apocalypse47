@@ -26,7 +26,7 @@ $sql = "SELECT * FROM character_table WHERE char_id = :char_id" ;
 $stmt = $conn->prepare($sql) ;
 $stmt->execute(array(":char_id"=>$char_id));
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$pronouns = $rows[0]['pronouns'] ;
+$cpronouns = $rows[0]['pronouns'] ;
 $crace = $rows[0]['race'] ;
 $cbackground = $rows[0]['background'] ;
 $sql = "SELECT skill_name FROM character_physical_skills WHERE char_id = :char_id" ;
