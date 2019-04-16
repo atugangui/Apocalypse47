@@ -20,7 +20,7 @@ switch($fx){
   break;
 }
 
-function updateName($mysql){
+function updateName(){
   $name=$_POST["name"];
   $id=$_POST["char_id"];
   $stmt = $conn->prepare("UPDATE character_table SET char_name = :param_name WHERE char_id = :param_cid");
