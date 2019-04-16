@@ -37,9 +37,11 @@ include ("getCharacterOptions.php") ;
         <input type="text" name="pronouns" /><br />
     </div>
 
+	<div id="raceArea">
     <h2>Race:</h2>
     <p><?=$crace ?></p>
     <button type="submit" id="editRace" onclick="editRaceClick()">Edit</button>
+	</div>
     
 
     <h2>Background:</h2>
