@@ -9,20 +9,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 } 
+$mysql = new mysqlFunctions();
 $fx=$_POST["fx"];
 
-function updateName(){
+function updateName($mysql){
   $name=$_POST["name"];
-  $id=$_POST["char_id"];
-  $stmt = $conn->prepare("UPDATE character_table SET char_name = :param_name WHERE char_id = :param_cid");
-  if($stmt->execute(array(":param_name" => $name, ":param_cid" => $id))){
+  $id=$_POST["id"];
+  if($mysql->updateName($id, $name)){
     echo "success";
   }
   else{echo "fail";}
-}
-
-if($fx == "updateName"){
-   updateName() ;
 }
 
 
