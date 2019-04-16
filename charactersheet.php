@@ -20,7 +20,6 @@ include ("getCharacterOptions.php") ;
 </head>
 <body>
 
-<form action="changesSubmitted.php" method="post">
     <input type="hidden" name="char_id" value="<?= $char_id ?>">
     <fieldset>
     <h2>Name:</h2>
@@ -174,7 +173,6 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
 <input type="submit" name="submit"/>
-</form>
 
 <script>
 
