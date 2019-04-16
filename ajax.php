@@ -11,10 +11,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 } 
 $fx=$_POST["fx"];
 
-if($fx == "updateName"){
-   echo "Hello" ;
-}
-
 function updateName(){
   $name=$_POST["name"];
   $id=$_POST["char_id"];
@@ -24,4 +20,10 @@ function updateName(){
   }
   else{echo "fail";}
 }
+
+if($fx == "updateName"){
+   updateName() ;
+}
+
+
 ?>
