@@ -8,17 +8,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
-$email = $_SESSION["username"] ;
-//Pull player ID related to email
-try{
- $stmt = $conn->prepare("SELECT player_id FROM player_table WHERE email= :email") ;
- if($stmt->execute(array(":email"=>$email))){
-  $player_id = $stmt->fetch(PDO::FETCH_ASSOC) ;
-  $pid = $player_id['player_id'];
- } }
-catch(Exception $e){
-  echo $e ;
- }
 
 /* get the incoming function name   */
 $fx=$_POST["fx"];
