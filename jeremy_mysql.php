@@ -26,6 +26,25 @@ class mysqlFunctions{
     }
   }
 
+function updatePron($id, $pron){
+    $conn = $this->conn ;
+    try {
+      $stmt = $conn->prepare("update character_table set char_pronouns=:pron where char_id=:id");
+      $stmt->execute(array(":id"=>$id, ":pron"=>$pron));
+      $count = $stmt->rowCount();
+      if($count =='0'){
+          return false;
+      }
+      else{
+          return true;
+      }
+      //var_dump($rows);
+    }
+    catch (Exception $e) {
+      echo $e;
+    }
+  }
+
   function updateRace($id, $race){
     $conn = $this->conn ;
     try {

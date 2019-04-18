@@ -28,10 +28,9 @@ include ("getCharacterOptions.php") ;
 
 
     <h2>Pronouns:</h2>
-    <p><?=$cpronouns ?></p>
-    <button type="button" onclick = "edit_char(1)">Edit</button>
-    <div id="pronInput" class="dropdown-content">
-        <input type="text" name="pronouns" /><br />
+    <p id="pronInput"><?=$cpronouns ?></p>
+    <div id="pronArea">
+        <button type="submit" id="editPron" onclick="editPronClick()">Edit</button>
     </div>
 
   
@@ -195,6 +194,26 @@ function ajaxName(){
         //alert( "Data Saved: " + msg );
         newHtml="<div class='d-inline p-2'  >Name: </div><div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editName' onclick='editNameClick()'>Edit</button></div>";
         $("#nameArea").html(newHtml);
+      });
+}
+
+function editPronClick(){
+  var pron=$("#pronInput").text();
+  var pronHtml="<input type='text' id='editPronInput' value='"+pron+"'><button type='submit' id='submitPron' onclick='ajaxPron()'>Submit</button>";
+  $("#pronArea").html(pronHtml);
+}
+
+function ajaxPron(){
+  var newPron=$("#editPronInput").val() ;
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { pron: newPron, char_id: "<?= $char_id?>", fx: "updatePron" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Pronouns: </div><div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editPron' onclick='editPronClick()'>Edit</button></div>";
+        $("#pronArea").html(newHtml);
       });
 }
 

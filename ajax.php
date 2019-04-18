@@ -11,10 +11,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 } 
 $mysql = new mysqlFunctions();
 $fx=$_POST["fx"];
+
 switch($fx){
   case "updateName":
   updateName($mysql);
   break ;
+  case "updatePron":
+  updatePron($mysql) ;
   case "updateRace":
   updateRace($mysql) ;
   break;
@@ -24,6 +27,15 @@ function updateName($mysql){
     $name=$_POST["name"];
     $id=$_POST["char_id"];
     if($mysql->updateName($id, $name)){
+        echo "success";
+    }
+    else{echo "fail";}
+}
+
+function updatePron($mysql){
+    $pron=$_POST["pron"];
+    $id=$_POST["char_id"];
+    if($mysql->updateName($id, $pron)){
         echo "success";
     }
     else{echo "fail";}
