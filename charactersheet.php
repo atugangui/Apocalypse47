@@ -16,6 +16,17 @@ include ("getCharacterOptions.php") ;
                 $bgSelect.="<option value='$background'>$background,$race</option>";
               }
                 $bgSelect.="</select>" ;
+
+    $physSelect = "<select multiple='multiple' id='selectedPhys' name='phys'>" ;
+            foreach($phys_skills as $phys){
+              $phys = explode(",", $phys) ;
+              $skill = $phys[0] ;
+              $requirement = $phys[1] ;
+              $cost = $phys[2] ;
+              $training = $phys[3] ;
+              $physSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+            }
+    $physSelect.="</select>" ;
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,13 +45,11 @@ include ("getCharacterOptions.php") ;
         <button type="submit" id="editName" onclick="editNameClick()">Edit</button>
     </div>
 
-
     <h2>Pronouns:</h2>
     <p id="pronInput"><?=$cpronouns ?></p>
     <div id="pronArea">
         <button type="submit" id="editPron" onclick="editPronClick()">Edit</button>
     </div>
-
   
     <h2>Race:</h2>
     <p><?=$crace ?></p>
@@ -54,28 +63,14 @@ include ("getCharacterOptions.php") ;
     <button type="submit" onclick="editBgClick()">Edit</button>
     </div>
   
-
     <h2>Physical Skills:</h2>
-      <button type="button" onclick = "edit_char(4)">Edit</button>
-
-    <div id="physDropdown" class="dropdown-content">
-                                       <select multiple="multiple" name="physical[]" size="5">
-          <?php
-    foreach($phys_skills as $phys){
-      $phys = explode(",", $phys) ;
-      $skill = $phys[0] ;
-      $requirement = $phys[1] ;
-      $cost = $phys[2] ;
-      $training = $phys[3] ;
-      ?>
-      <option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
-    <?php }?>
-      </select>
-    </div>
     <?php foreach($cphys as $skill){
       ?><p><?=$skill ?></p>
       <br>
       <?php } ?>
+    <div id="physArea">
+    <button type="submit" onclick="editPhysClick()">Edit</button>
+    </div>
 
     <h2>Mental Skills</h2>
 <button type="button" onclick = "edit_char(5)">Edit</button>
@@ -229,7 +224,7 @@ function ajaxPron(){
     })
       .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  >Race: </div><div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
         $("#raceArea").html(newHtml);
       });
 }
@@ -249,8 +244,28 @@ function ajaxPron(){
     })
       .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<button type='submit' id='editBg' onclick='editBgClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  >Background: </div><div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' id='editBg' onclick='editBgClick()'>Edit</button>" ;
         $("#bgArea").html(newHtml);
+      });
+}
+
+function editPhysClick(){
+    var physMenu="<?= $physSelect?>"; 
+    physMenu+="<button type='submit' id='submitPhys' onclick='ajaxPhys()'>Submit</button>" ;
+    $("#physArea").html(physMenu) ;
+  }
+
+  function ajaxPhys(){
+  var newPhys=$("#selectedPhys option:selected").text();
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { phys: newPhys, char_id: "<?= $char_id?>", fx: "updatePhys" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Physical Skills: </div><div class='d-inline p-2'  id='physInput'>"+newPhys+"</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
+        $("#physArea").html(newHtml);
       });
 }
 

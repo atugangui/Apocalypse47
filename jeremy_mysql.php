@@ -3,10 +3,12 @@
 This file contains the class for the mysql connection and all its functions/interactions
 */
 class mysqlFunctions{
+
   function __construct() {
     include("mysql.php");
     $this->conn = $conn ;
   }
+
   function updateName($id, $name){
     $conn = $this->conn ;
     try {
@@ -69,6 +71,25 @@ function updatePron($id, $pron){
     try {
       $stmt = $conn->prepare("update character_table set background=:background where char_id=:id");
       $stmt->execute(array(":id"=>$id, ":background"=>$background));
+      $count = $stmt->rowCount();
+      if($count =='0'){
+          return false;
+      }
+      else{
+          return true;
+      }
+      //var_dump($rows);
+    }
+    catch (Exception $e) {
+      echo $e;
+    }
+  }
+
+  function updatePhys($id, $phys){
+    $conn = $this->conn ;
+    try {
+      $stmt = $conn->prepare("update character_physical_skills set skill_name=:phys where char_id=:id");
+      $stmt->execute(array(":id"=>$id, ":phys"=>$phys));
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;

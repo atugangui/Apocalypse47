@@ -62,4 +62,17 @@ function updateBg($mysql) {
     }
     else{echo "fail";}
 }
+
+function updatePhys($mysql){
+	$id=$_POST["char_id"];
+	$phys = $_POST["phys"] ;
+	console.log($phys) ;
+	$phys.forEach(function(skill) {
+		if($mysql->updatePhys($id, $skill)){
+        echo "success";
+    }
+    else{echo "fail";}
+
+	}
+}
 ?>
