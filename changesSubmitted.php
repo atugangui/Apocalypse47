@@ -43,11 +43,34 @@ for ($i=0; $i < sizeof($cmaj_adv); $i++) {
     $temp = explode(",",$cmaj_adv[$i]);
     for ($j=0; $j < sizeof($temp); $j++) {
         $major_advantages[$i][$j] = $temp[$j];
-        print($major_advantages[$i][$j]);
         $advantage_disadvantage_weight = $advantage_disadvantage_weight + $major_advantages[$i][1];
     }
 }
-print($advantage_disadvantage_weight); //// THIS IS WHATS NOT WORKING
+for ($i=0; $i < sizeof($cmin_adv); $i++) {
+    $temp = explode(",",$cmin_adv[$i]);
+    for ($j=0; $j < sizeof($temp); $j++) {
+        $minor_advantages[$i][$j] = $temp[$j];
+        $advantage_disadvantage_weight = $advantage_disadvantage_weight + $minor_advantages[$i][1];
+    }
+}
+for ($i=0; $i < sizeof($cmaj_dis); $i++) {
+    $temp = explode(",",$cmaj_dis[$i]);
+    for ($j=0; $j < sizeof($temp); $j++) {
+        $major_disadvantages[$i][$j] = $temp[$j];
+        $advantage_disadvantage_weight = $advantage_disadvantage_weight + $major_disadvantages[$i][1];
+    }
+}
+for ($i=0; $i < sizeof($cmin_dis); $i++) {
+    $temp = explode(",",$cmin_dis[$i]);
+    for ($j=0; $j < sizeof($temp); $j++) {
+        $minor_disadvantages[$i][$j] = $temp[$j];
+        $advantage_disadvantage_weight = $advantage_disadvantage_weight + $minor_disadvantages[$i][1];
+    }
+}
+if($advantage_disadvantage_weight!=0)
+{
+    print("You need to balance your advantages properly you fucking pinecone.")
+}
 if($physical_cost + $mental_cost + $spiritual_cost > 50){
 	print("ya fucked up. You have more than 50 total points. Do it better this time.");
 }
