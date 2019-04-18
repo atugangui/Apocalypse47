@@ -19,7 +19,7 @@ switch($fx){
   updateRace($mysql) ;
   break;
 }
-updateName($mysql);
+
 function updateName($mysql){
     $name=$_POST["name"];
     $id=$_POST["char_id"];
