@@ -25,6 +25,9 @@ switch($fx){
   case "updateBg":
   updateBg($mysql) ;
   break;
+  case "updatePhys":
+  updatePhys($mysql) ;
+  break ;
 }
 
 function updateName($mysql){
