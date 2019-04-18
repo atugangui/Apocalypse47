@@ -18,7 +18,7 @@ include ("getCharacterOptions.php") ;
 <body>
 
     <input type="hidden" name="char_id" value="<?= $char_id ?>">
-        echo $char_id ;
+        <?php echo $char_id ; ?>
     <h2>Name:</h2>
     <p><?=$cname ?></p>
     <div id="nameArea">
