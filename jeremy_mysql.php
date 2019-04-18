@@ -4,13 +4,15 @@ This file contains the class for the mysql connection and all its functions/inte
 */
 class mysqlFunctions{
 
-  function construct() {
+  function __construct() {
     include("mysql.php");
+    $this->conn = $conn ;
   }
 
 
 
   function updateName($id, $name){
+    $conn = $this->conn ;
     try {
       $stmt = $conn->prepare("update character_table set char_name=:name where char_id=:id");
       $stmt->execute(array(":id"=>$id, ":name"=>$name));
