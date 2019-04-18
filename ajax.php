@@ -13,6 +13,7 @@ $mysql = new mysqlFunctions();
 
 
 $fx=$_POST["fx"];
+updateName($mysql);
 function updateName($mysql){
     $name=$_POST["name"];
     $id=$_POST["id"];
@@ -21,5 +22,6 @@ function updateName($mysql){
     }
     else{echo "fail";}
 }
+
 
 ?>
