@@ -199,7 +199,7 @@ function ajaxName(){
 
   function editRaceClick(){
     var raceMenu="<?= $raceSelect?>"; 
-    raceMenu+="<button type="submit" id="submitRace" onclick="ajaxRace()">Submit</button>" ;
+    raceMenu+="<button type='submit' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
     $("#raceArea").html(raceMenu) 
   }
 
