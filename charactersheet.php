@@ -199,7 +199,7 @@ function ajaxName(){
 
   function editRaceClick(){
     var raceMenu="<?= $raceSelect?>"; 
-    raceMenu+="<button type='submit' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
+    raceMenu+="<button type="submit" id="submitRace" onclick="ajaxRace()">Submit</button>" ;
     $("#raceArea").html(raceMenu) 
   }
 
@@ -213,7 +213,7 @@ function ajaxName(){
     })
       .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
+        <button type="submit" id="editRace" onclick="editRaceClick()">Edit</button>
         $("#editRace").html(newHtml);
       });
 }
