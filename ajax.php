@@ -16,7 +16,7 @@ $fx=$_POST["fx"];
 updateName($mysql);
 function updateName($mysql){
     $name=$_POST["name"];
-    $id=$_POST["id"];
+    $id=$_POST["char_id"];
     if($mysql->updateName($id, $name)){
         echo "success";
     }
