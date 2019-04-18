@@ -12,4 +12,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $mysql = new mysqlFunctions();
 
 
+$fx=$_POST["fx"];
+function updateName($mysql){
+    $name=$_POST["name"];
+    $id=$_POST["id"];
+    if($mysql->updateName($id, $name)){
+        echo "success";
+    }
+    else{echo "fail";}
+}
+
 ?>
