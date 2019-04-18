@@ -67,15 +67,14 @@ for ($i=0; $i < sizeof($cmin_dis); $i++) {
         $advantage_disadvantage_weight = $advantage_disadvantage_weight + $minor_disadvantages[$i][1];
     }
 }
-if($advantage_disadvantage_weight!=0)
-{
-    print("You need to balance your advantages properly you fucking pinecone.");
+if($advantage_disadvantage_weight!=0){
+    print("You need to balance your advantages properly.");
 }
 else if($physical_cost + $mental_cost + $spiritual_cost > 50){
-	print("ya fucked up. You have more than 50 total points. Do it better this time.");
+	print("You messed up. You have more than 50 total points. Do it better this time.");
 }
 elseif($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
-		print("you fucked up: you have to have one category with ten points and two with 20. None have less than 10. Try again.");
+		print("You messed up: you have to have one category with ten points and two with 20. None have less than 10. Try again.");
 	}
 elseif($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
 			print("Do it again. No category can have more than 20 points. Try again.");
