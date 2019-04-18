@@ -69,7 +69,7 @@ for ($i=0; $i < sizeof($cmin_dis); $i++) {
 }
 if($advantage_disadvantage_weight!=0)
 {
-    print("You need to balance your advantages properly you fucking pinecone.")
+    print("You need to balance your advantages properly you fucking pinecone.");
 }
 else if($physical_cost + $mental_cost + $spiritual_cost > 50){
 	print("ya fucked up. You have more than 50 total points. Do it better this time.");
