@@ -19,7 +19,7 @@ class mysqlFunctions{
   function updateName($id, $name){
     $db=$this->db;
     try {
-      $stmt = $db->prepare("update users set name=:name where id=:id");
+      $stmt = $db->prepare("update character_table set char_name=:name where char_id=:id");
       $stmt->execute(array(":id"=>$id, ":name"=>$name));
       $count = $stmt->rowCount();
       if($count =='0'){
