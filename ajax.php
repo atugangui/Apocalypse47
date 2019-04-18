@@ -1,6 +1,6 @@
 <?php
 $dir= getcwd();
-include ($dir."/mysql.php") ;
+include ($dir."/jeremy_mysql.php") ;
 // Initialize the session
 session_start();
  
