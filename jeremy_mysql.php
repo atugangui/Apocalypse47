@@ -63,5 +63,24 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
+
+  function updateBg($id, $background){
+    $conn = $this->conn ;
+    try {
+      $stmt = $conn->prepare("update character_table set background=:background where char_id=:id");
+      $stmt->execute(array(":id"=>$id, ":background"=>$background));
+      $count = $stmt->rowCount();
+      if($count =='0'){
+          return false;
+      }
+      else{
+          return true;
+      }
+      //var_dump($rows);
+    }
+    catch (Exception $e) {
+      echo $e;
+    }
+  }
 }
  ?>

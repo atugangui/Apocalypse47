@@ -7,6 +7,16 @@ include ("getCharacterOptions.php") ;
             $raceSelect.="<option value='$r'>$r</option>" ;
           }
     $raceSelect.="</select>" ;
+
+    $bgSelect = "<select id='selectedBg' name='bg'>" ;
+            foreach($bgs as $bg){
+                $bg = explode(",", $bg) ;
+                $background = $bg[0] ;
+                $race = $bg[1] ;
+                ?>
+                $bgSelect.="<option value='<?= $background ?>'><?=$background ?> , <?=$race?></option>";
+              }
+                $bgSelect.="</select>" ;
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,9 +28,8 @@ include ("getCharacterOptions.php") ;
 <body>
 
     <input type="hidden" name="char_id" value="<?= $char_id ?>">
-        <?php echo $char_id ; ?>
-    <h2>Name:</h2>
 
+    <h2>Name:</h2>
     <p id="nameInput"><?=$cname ?></p>
     <div id="nameArea">
         <button type="submit" id="editName" onclick="editNameClick()">Edit</button>
@@ -38,6 +47,12 @@ include ("getCharacterOptions.php") ;
     <p><?=$crace ?></p>
     <div id="raceArea">
     <button type="submit" onclick="editRaceClick()">Edit</button>
+    </div>
+
+    <h2>Background:</h2>
+    <p><?=$cbackground ?></p>
+    <div id="bgArea">
+    <button type="submit" onclick="editBgClick()">Edit</button>
     </div>
     
 
@@ -225,18 +240,38 @@ function ajaxPron(){
 
   function ajaxRace(){
   var newRace=$("#selectedRace option:selected" ).text();
-  console.log(newRace) ;
   $.ajax({
       method: "POST",
       url: "ajax.php",
       data: { race: newRace, char_id: "<?= $char_id?>", fx: "updateRace" }
     })
       .done(function( msg ) {
-        alert( "Data Saved: " + msg );
+        //alert( "Data Saved: " + msg );
         newHtml="<button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
         $("#raceArea").html(newHtml);
       });
 }
+
+  function editBgClick(){
+    var bgMenu="<?= $bgSelect?>"; 
+    bgMenu+="<button type='submit' id='submitBg' onclick='ajaxBg()'>Submit</button>" ;
+    $("#bgArea").html(bgMenu) ;
+  }
+
+  function ajaxBg(){
+  var newBg=$("#selectedBg option:selected" ).text();
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { bg: newBg, char_id: "<?= $char_id?>", fx: "updateBg" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<button type='submit' id='editBg' onclick='editBgClick()'>Edit</button>" ;
+        $("#bgArea").html(newHtml);
+      });
+}
+
 </script>
 
 </body>

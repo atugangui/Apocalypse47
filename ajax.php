@@ -18,8 +18,12 @@ switch($fx){
   break ;
   case "updatePron":
   updatePron($mysql) ;
+  break ;
   case "updateRace":
   updateRace($mysql) ;
+  break;
+  case "updateBg":
+  updateBg($mysql) ;
   break;
 }
 
@@ -45,6 +49,15 @@ function updateRace($mysql) {
 	$id=$_POST["char_id"];
 	$race = $_POST["race"] ;
 	if($mysql->updateRace($id, $race)){
+        echo "success";
+    }
+    else{echo "fail";}
+}
+
+function updateBg($mysql) {
+	$id=$_POST["char_id"];
+	$bg = $_POST["bg"] ;
+	if($mysql->updateBg($id, $bg)){
         echo "success";
     }
     else{echo "fail";}
