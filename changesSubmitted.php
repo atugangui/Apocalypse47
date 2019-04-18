@@ -71,7 +71,7 @@ if($advantage_disadvantage_weight!=0)
 {
     print("You need to balance your advantages properly you fucking pinecone.")
 }
-if($physical_cost + $mental_cost + $spiritual_cost > 50){
+else if($physical_cost + $mental_cost + $spiritual_cost > 50){
 	print("ya fucked up. You have more than 50 total points. Do it better this time.");
 }
 elseif($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
@@ -85,5 +85,4 @@ else {
 	include("sqlQueries.php") ;
 	include("charactersheet.php") ;
 }
-print($phys_test[0][0]);
 ?>
