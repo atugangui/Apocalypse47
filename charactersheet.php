@@ -206,7 +206,7 @@ function ajaxName(){
   function ajaxRace(){
   var newRace=$("#selectedRace option:selected" ).text();
   console.log(newRace) ;
-  /*$.ajax({
+  $.ajax({
       method: "POST",
       url: "ajax.php",
       data: { race: newRace, char_id: "<?= $char_id?>", fx: "updateRace" }
@@ -215,7 +215,7 @@ function ajaxName(){
         //alert( "Data Saved: " + msg );
         <button type="submit" id="editRace" onclick="editRaceClick()">Edit</button>
         $("#editRace").html(newHtml);
-      });*/
+      });
 }
 </script>
 
