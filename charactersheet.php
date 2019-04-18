@@ -187,7 +187,7 @@ function ajaxName(){
   $.ajax({
       method: "POST",
       url: "ajax.php",
-      data: { name: newName, char_id: <?= $char_id?>, fx: "updateName" }
+      data: { name: newName, char_id: "<?= $char_id?>", fx: "updateName" }
     })
       .done(function( msg ) {
         //alert( "Data Saved: " + msg );
