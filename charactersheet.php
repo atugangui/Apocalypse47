@@ -213,7 +213,7 @@ function ajaxName(){
     })
       .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        <button type="submit" id="editRace" onclick="editRaceClick()">Edit</button>
+        newHtml="<button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
         $("#editRace").html(newHtml);
       });
 }
