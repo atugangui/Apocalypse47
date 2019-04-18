@@ -35,7 +35,7 @@ function updateName($mysql){
 function updatePron($mysql){
     $pron=$_POST["pron"];
     $id=$_POST["char_id"];
-    if($mysql->updateName($id, $pron)){
+    if($mysql->updatePron($id, $pron)){
         echo "success";
     }
     else{echo "fail";}
