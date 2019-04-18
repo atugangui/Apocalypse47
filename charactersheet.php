@@ -54,23 +54,6 @@ include ("getCharacterOptions.php") ;
     <div id="bgArea">
     <button type="submit" onclick="editBgClick()">Edit</button>
     </div>
-    
-
-    <h2>Background:</h2>
-    <button type="button" onclick = "edit_char(3)">Edit</button>
-    <div id="bgDropdown" class="dropdown-content">
-        <select name="background" size = "5">
-            <?php
-            foreach($bgs as $bg){
-                $bg = explode(",", $bg) ;
-                $background = $bg[0] ;
-                $race = $bg[1] ;
-                ?>
-                <option value="<?= $background ?>"><?=$background ?> , <?=$race?></option>
-            <?php }?>
-        </select>
-    </div>
-    <p><?=$cbackground ?></p>
   
 
     <h2>Physical Skills:</h2>
