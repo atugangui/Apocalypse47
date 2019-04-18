@@ -212,7 +212,7 @@ function ajaxName(){
       data: { race: newRace, char_id: "<?= $char_id?>", fx: "updateRace" }
     })
       .done(function( msg ) {
-        //alert( "Data Saved: " + msg );
+        alert( "Data Saved: " + msg );
         newHtml="<button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
         $("#editRace").html(newHtml);
       });
