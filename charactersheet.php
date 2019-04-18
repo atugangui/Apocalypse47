@@ -1,6 +1,6 @@
 <?php
 include ("getCharacterOptions.php") ;
-        $raceSelect = "<select name='race'>" ;
+        $raceSelect = "<select id='selectedRace' name='race'>" ;
         foreach($races as $race){
             $race = explode(",", $race) ;
             $r = $race[0] ;
@@ -20,7 +20,8 @@ include ("getCharacterOptions.php") ;
     <input type="hidden" name="char_id" value="<?= $char_id ?>">
         <?php echo $char_id ; ?>
     <h2>Name:</h2>
-    <p><?=$cname ?></p>
+
+    <p id="nameInput"><?=$cname ?></p>
     <div id="nameArea">
         <button type="submit" id="editName" onclick="editNameClick()">Edit</button>
     </div>
@@ -176,7 +177,6 @@ include ("getCharacterOptions.php") ;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
 <script>
-
   function editNameClick(){
   var name=$("#nameInput").text();
   var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' id='submitName' onclick='ajaxName()'>Submit</button>";
@@ -199,8 +199,24 @@ function ajaxName(){
 
   function editRaceClick(){
     var raceMenu="<?= $raceSelect?>"; 
+    raceMenu+="<button type="submit" id="submitRace" onclick="ajaxRace()">Submit</button>" ;
     $("#raceArea").html(raceMenu) 
   }
+
+  function ajaxRace(){
+  var newRace=$("#selectedRace option:selected" ).text();
+  console.log(newRace) ;
+  /*$.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { race: newRace, char_id: "<?= $char_id?>", fx: "updateRace" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        <button type="submit" id="editRace" onclick="editRaceClick()">Edit</button>
+        $("#editRace").html(newHtml);
+      });*/
+}
 </script>
 
 </body>
