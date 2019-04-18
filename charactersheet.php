@@ -14,7 +14,7 @@ include ("getCharacterOptions.php") ;
                 $background = $bg[0] ;
                 $race = $bg[1] ;
                 ?>
-                $bgSelect.="<option value='<?= $background ?>'><?=$background ?> , <?=$race?></option>";
+                $bgSelect.="<option value='$background'>$background,$race</option>";
               }
                 $bgSelect.="</select>" ;
 ?>
