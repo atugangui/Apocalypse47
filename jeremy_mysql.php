@@ -3,17 +3,12 @@
 This file contains the class for the mysql connection and all its functions/interactions
 */
 class mysqlFunctions{
-  function __construct(){
-    include("config.php");
-    $connect="mysql:host=$server;dbname=$database";
-    try {
-      $db = new PDO($connect, $username, $password);
-    }
-    catch(PDOException $e) {
-      echo $e->getMessage();
-    }
-    $this->db=$db;
+
+  function construct() {
+    include("mysql.php");
+    $this->db = $conn;
   }
+
 
 
   function updateName($id, $name){
