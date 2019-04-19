@@ -36,6 +36,7 @@ include ("getCharacterOptions.php") ;
             $cost = $ment[2] ;
             $training = $ment[3] ;
             $mentSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+            }
     $mentSelect.="</select>" ;
 ?>
 <!DOCTYPE html>
