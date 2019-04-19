@@ -27,6 +27,16 @@ include ("getCharacterOptions.php") ;
               $physSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
             }
     $physSelect.="</select>" ;
+
+    $mentSelect = "<select multiple='multiple' id='selectedment' name='ment'>" ;
+            foreach($ment_skills as $ment){
+            $ment = explode(",", $ment) ;
+            $skill = $ment[0] ;
+            $requirement = $ment[1] ;
+            $cost = $ment[2] ;
+            $training = $ment[3] ;
+            $mentSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+    $mentSelect.="</select>" ;
 ?>
 <!DOCTYPE html>
 <html>
@@ -256,7 +266,11 @@ function editPhysClick(){
   }
 
   function ajaxPhys(){
-  var newPhys=$("#selectedPhys option:selected").text();
+  var newPhys= [] ;
+  $.each($("#selectedPhys option:selected"), function(){
+    newPhys.push($(this).text()) ;
+  }
+  alert("You have selected: " + newPhys.join(",")) ;
   $.ajax({
       method: "POST",
       url: "ajax.php",
