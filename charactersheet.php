@@ -28,7 +28,7 @@ include ("getCharacterOptions.php") ;
             }
     $physSelect.="</select>" ;
 
-    $mentSelect = "<select multiple='multiple' id='selectedment' name='ment'>" ;
+    /*$mentSelect = "<select multiple='multiple' id='selectedment' name='ment'>" ;
             foreach($ment_skills as $ment){
             $ment = explode(",", $ment) ;
             $skill = $ment[0] ;
@@ -37,7 +37,7 @@ include ("getCharacterOptions.php") ;
             $training = $ment[3] ;
             $mentSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
             }
-    $mentSelect.="</select>" ;
+    $mentSelect.="</select>" ;*/
 ?>
 <!DOCTYPE html>
 <html>
