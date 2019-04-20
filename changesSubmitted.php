@@ -14,6 +14,7 @@ $cmin_adv = $_REQUEST["min_adv"] ;
 $cmaj_dis = $_REQUEST["maj_dis"] ;
 $cmin_dis = $_REQUEST["min_dis"] ;
 $ctraits = $_REQUEST["traits"] ;
+
 $physical_cost = 0;
 $mental_cost = 0;
 $spiritual_cost = 0;
@@ -84,4 +85,5 @@ else {
 	include("sqlQueries.php") ;
 	include("charactersheet.php") ;
 }
+
 ?>
