@@ -95,7 +95,8 @@ if ($errors==0) {
     include("charactersheet.php") ;
 } else {
     ?><script language="javascript" type="text/javascript">
-        alert("You messed up " + <?=$err[0] ?>);// + <?=$err[0] ?> );
+    error = "You messed up " + <?=$err[0] ?>;
+        alert(error);// + <?=$err[0] ?> );
             // <?php foreach ($errors as $error) {
             //     ?> <?= $error ?> +
             // <?php } ?>
