@@ -95,6 +95,7 @@ if ($errors==0) {
     include("sqlQueries.php") ;
     include("charactersheet.php") ;
 } else {
+    $errort = "";
     foreach ($err as $error) {
         $errort = $errort.$error;
     }
