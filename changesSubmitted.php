@@ -103,7 +103,7 @@ if ($errors==0) {
     ?><script language="javascript" type="text/javascript">
         var error = <?= $errort ?>;
 
-       alert("You messed up: " + error + "Do better; it's not that hard.");
+       alert("You messed up: " + error + "Do better next time; it's not that hard.");
         </script>
         <script language="javascript" type="text/javascript">
             history.go(-1);
