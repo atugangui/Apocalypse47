@@ -107,7 +107,15 @@ function updateSpirit($mysql){
 function updateAdvant($mysql, $type){
 	$id=$_POST["char_id"];
 	$maja = $_POST["maja"] ;
+	$mina = $_POST["mina"] ;
+	$mind = $_POST["mind:"] ;
 	if($mysql->updateAdvant($id, $maja, $type)){
+        echo "success";
+    }
+    if($mysql->updateAdvant($id, $mina, $type)){
+        echo "success";
+    }
+    if($mysql->updateAdvant($id, $mind, $type)){
         echo "success";
     }
     else{echo "fail";}
