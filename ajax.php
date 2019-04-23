@@ -104,19 +104,33 @@ function updateSpirit($mysql){
     else{echo "fail";}
 	}
 
-function updateAdvant($mysql, $type){
-	$id=$_POST["char_id"];
-	$maja = $_POST["maja"] ;
-    $majd = $_POST["majd"] ;
-	if($mysql->updateAdvant($id, $maja, $type)){
-        echo "success";
+function updateAdvant($mysql, $type)
+{
+    $id = $_POST["char_id"];
+    $maja = $_POST["maja"];
+    $majd = $_POST["majd"];
+    $mina = $_POST["mina"];
+    $mind = $_POST["mind"];
+    if ($type == 'maja') {
+        if ($mysql->updateAdvant($id, $maja, $type)) {
+            echo "success";
+        }
     }
-	if ($type == "majd") {
+    if ($type == 'mina') {
+        if ($mysql->updateAdvant($id, $mina, $type)) {
+            echo "success";
+        }
+    }
+    if ($type == 'mind') {
+        if ($mysql->updateAdvant($id, $mind, $type)) {
+            echo "success";
+        }
+    }
+    if ($type == "majd") {
         if ($mysql->updateAdvant($id, $majd, $type)) {
             echo "success";
         }
     }
-    else{echo "fail";}
-	}
 
+}
 ?>

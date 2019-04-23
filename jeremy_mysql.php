@@ -172,6 +172,23 @@ function updatePron($id, $pron){
                 $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_disadvantage')) ;
             }
         }
+
+
+
+    if($type === "mina"){
+        foreach($advant as $a){
+        $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
+        $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'minor_advantage')) ;
+        }
+    }
+    if($type === "mind"){
+        foreach($advant as $a){
+        $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
+        $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'minor_disadvantage')) ;
+        }
+    }
+
+
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;

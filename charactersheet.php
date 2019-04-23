@@ -58,7 +58,25 @@ foreach($major_advantages as $major_advantage){
             $majaSelect.="<option value='$advantage'>$advantage, Weight:$weight></option>" ;
           }
 $majaSelect.="</select>" ;
-?>
+
+$minaSelect = "<select multiple='multiple' id='selectedMina' name='mina'>" ;
+foreach($minor_advantages as $minor_advantage) {
+            $min_adv = explode(",", $minor_advantage) ;
+            $advantage = $min_adv[1] ;
+            $weight = $min_adv[2] ;
+            $minaSelect.="<option value='$advantage'>$advantage, Weight:$weight></option>" ;
+          }
+$minaSelect.="</select>" ;
+
+$mindSelect = "<select multiple='multiple' id='selectedMind' name='mind'>" ;
+foreach ($major_disadvantages as $major_disadvantage){
+            $maj_dis = explode(",", $major_disadvantage) ;
+            $advantage = $maj_dis[1] ;
+            $weight = $maj_dis[2] ;
+            $mindSelect.="<option value='$advantage'>$advantage, Weight:$weight></option>" ;
+          }
+$mindSelect.="</select>" ;
+
 
 
 $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
@@ -145,7 +163,9 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
             ?><p><?=$mina ?></p>
             <br>
           <?php } ?>
-
+          <div id="minaArea">
+            <button type="submit" onclick="editMinaClick()">Edit</button>
+          </div>
           <?php foreach($cmaj_dis as $majd){
             ?><p><?=$majd ?></p>
             <br>
@@ -157,6 +177,9 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
             ?><p><?=$mind ?></p>
             <br>
           <?php } ?>
+          <div id="mindArea">
+            <button type="submit" onclick="editMindClick()">Edit</button>
+          </div>
           
 
                   <h2>Traits</h2>
@@ -344,24 +367,65 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
       });
                         }
 
+
                         function editMajdClick(){
                             var majdMenu="<?= $majdSelect?>";
                             majdMenu+="<button type='submit' id='submitMajd' onclick='ajaxMajd()'>Submit</button>" ;
                             $("#majdArea").html(majdMenu) ;
                         }
 
-                        function ajaxMajd(){
-                            var newMajd= $("#selectedMajd").val() || [];
+                        function ajaxMajd() {
+                            var newMajd = $("#selectedMajd").val() || [];
                             $.ajax({
                                 method: "POST",
                                 url: "ajax.php",
-                                data: { majd: newMajd, char_id: "<?= $char_id?>", fx: "updateAdvant", type: "majd" }
+                                data: {majd: newMajd, char_id: "<?= $char_id?>", fx: "updateAdvant", type: "majd"}
                             })
-                                .done(function( msg ) {
+                                .done(function (msg) {
                                     //alert( "Data Saved: " + msg );
-                                    newHtml="<div class='d-inline p-2'  >Major Disadvantages: </div><div class='d-inline p-2'  id='majdInput'>"+newMajd+"</div><div class='d-inline p-2' ><button type='submit' id='editMajd' onclick='editMajdClick()'>Edit</button>" ;
+                                    newHtml = "<div class='d-inline p-2'  >Major Disadvantages: </div><div class='d-inline p-2'  id='majdInput'>" + newMajd + "</div><div class='d-inline p-2' ><button type='submit' id='editMajd' onclick='editMajdClick()'>Edit</button>";
                                     $("#majdArea").html(newHtml);
                                 });
+                        }
+                        function editMinaClick(){
+                          var minaMenu="<?= $minaSelect?>"; 
+                          minaMenu+="<button type='submit' id='submitMina' onclick='ajaxMina()'>Submit</button>" ;
+                          $("#minaArea").html(minaMenu) ;
+                        }
+
+                        function ajaxMina(){
+                          var newMina= $("#selectedMina").val() || [];
+                          $.ajax({
+                            method: "POST",
+                            url: "ajax.php",
+                            data: { mina: newMina, char_id: "<?= $char_id?>", fx: "updateAdvant", type: "mina" }
+                          })
+                          .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Minor Advantages: </div><div class='d-inline p-2'  id='minaInput'>"+newMina+"</div><div class='d-inline p-2' ><button type='submit' id='editMina' onclick='editMinaClick()'>Edit</button>" ;
+        $("#minaArea").html(newHtml);
+      });
+                        }
+                        
+                        function editMindClick(){
+                          var mindMenu="<?= $mindSelect?>"; 
+                          mindMenu+="<button type='submit' id='submitMind' onclick='ajaxMind()'>Submit</button>" ;
+                          $("#mindArea").html(mindMenu) ;
+                        }
+
+                        function ajaxMind(){
+                          var newMind= $("#selectedMind").val() || [];
+                          $.ajax({
+                            method: "POST",
+                            url: "ajax.php",
+                            data: { mind: newMind, char_id: "<?= $char_id?>", fx: "updateAdvant", type: "mind" }
+                          })
+                          .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Minor Disadvantages: </div><div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' id='editMind' onclick='editMindClick()'>Edit</button>" ;
+        $("#mindArea").html(newHtml);
+      });
+
                         }
 
 
