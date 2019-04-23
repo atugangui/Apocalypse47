@@ -155,7 +155,7 @@ function updatePron($id, $pron){
     }
   }
 
-    function updateAdvant($id, $maja, $type){
+    function updateAdvant($id, $advant, $type){
     $conn = $this->conn ;
     try {
       $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv where char_id=:id");
