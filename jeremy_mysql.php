@@ -103,5 +103,45 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
+
+  function updateMent($id, $ment){
+    $conn = $this->conn ;
+    try {
+      $stmt = $conn->prepare("update character_mental_skills set skill_name=:ment where char_id=:id");
+      $stmt->execute(array(":id"=>$id, ":ment"=>$ment));
+      $count = $stmt->rowCount();
+      if($count =='0'){
+          return false;
+      }
+      else{
+          return true;
+      }
+      //var_dump($rows);
+    }
+    catch (Exception $e) {
+      echo $e;
+    }
+  }
+
+  function updateSpirit($id, $spirit){
+    $conn = $this->conn ;
+    try {
+      $stmt = $conn->prepare("update character_spirit_skills set skill_name=:spirit where char_id=:id");
+      $stmt->execute(array(":id"=>$id, ":spirit"=>$spirit));
+      $count = $stmt->rowCount();
+      if($count =='0'){
+          return false;
+      }
+      else{
+          return true;
+      }
+      //var_dump($rows);
+    }
+    catch (Exception $e) {
+      echo $e;
+    }
+  }
+
+
 }
  ?>

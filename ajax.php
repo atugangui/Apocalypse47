@@ -70,12 +70,34 @@ function updatePhys($mysql){
 	$id=$_POST["char_id"];
 	$phys = $_POST["phys"] ;
 	console.log($phys) ;
-	$phys.forEach(function(skill) {
+	foreach($phys as $skill){
 		if($mysql->updatePhys($id, $skill)){
         echo "success";
     }
     else{echo "fail";}
-
-	}
 }
+
+
+function updateMent($mysql){
+	$id=$_POST["char_id"];
+	$ment = $_POST["ment"] ;
+	console.log($ment) ;
+	foreach($ment as $skill){
+		if($mysql->updateMent($id, $skill)){
+        echo "success";
+    }
+    else{echo "fail";}
+}
+
+function updateSpirit($mysql){
+	$id=$_POST["char_id"];
+	$ment = $_POST["spirit"] ;
+	console.log($spirit) ;
+	foreach($spirit as $skill){
+		if($mysql->updateSpirit($id, $skill)){
+        echo "success";
+    }
+    else{echo "fail";}
+}
+
 ?>
