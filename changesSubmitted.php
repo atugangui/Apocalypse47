@@ -84,19 +84,6 @@ if ($errors==0) {
     //Insert into database
     include("sqlQueries.php") ;
     include("charactersheet.php") ;
-} else {
-    ?><script language="javascript" type="text/javascript">
-        alert("You messed up " +
-            <?php foreach ($errors as $error) {
-                ?> <?= $error ?> " +"
-            <?php } ?>
-
-            );
-        </script>
-        <script language="javascript" type="text/javascript">
-            history.go(-1);
-        </script>
-
-    <?php }
+}
 
     ?>
