@@ -36,7 +36,7 @@ switch($fx){
   updateSpirit($mysql) ;
   break ;
   case "updateAdvant":
-  updateMaja($mysql, $type) ;
+  updateAdvant($mysql, $type) ;
   break ;
 }
 
