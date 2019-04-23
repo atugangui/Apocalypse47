@@ -169,6 +169,7 @@ $spiritSelect.="</select>" ;
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
                       <script>
+                        
                         function editNameClick(){
                           var name=$("#nameInput").text();
                           var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' id='submitName' onclick='ajaxName()'>Submit</button>";
@@ -236,7 +237,7 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxBg(){
-                          var newBg=$("#selectedBg option:selected" ).text();
+                          var newBg=$("#selectedBg option:selected").text();
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
@@ -256,7 +257,7 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxPhys(){
-                          var newPhys= $("#selectedPhys").val() ;
+                          var newPhys= $("#selectedPhys option:selected").val() ;
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
@@ -276,7 +277,7 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxMent(){
-                          var newMent= $("#selectedMent").val() ;
+                          var newMent= $("#selectedMent option:selected").val() ;
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
@@ -285,7 +286,7 @@ $spiritSelect.="</select>" ;
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
         newHtml="<div class='d-inline p-2'  >Mental Skills: </div><div class='d-inline p-2'  id='mentInput'>"+newMent+"</div><div class='d-inline p-2' ><button type='submit' id='editMent' onclick='editMentClick()'>Edit</button>" ;
-        $("#MentArea").html(newHtml);
+        $("#mentArea").html(newHtml);
       });
                         }
 
@@ -296,7 +297,7 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxSpirit(){
-                          var newSpirit= $("#selectedSpirit").val() ;
+                          var newSpirit= $("#selectedSpirit option:selected").val() ;
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",

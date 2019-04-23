@@ -28,10 +28,10 @@ switch($fx){
   case "updatePhys":
   updatePhys($mysql) ;
   break ;
-  case "updateMent"
+  case "updateMent":
   updateMent($mysql) ;
   break ;
-  case "updateSpirit"
+  case "updateSpirit":
   updateSpirit($mysql) ;
   break ;
 }
@@ -81,6 +81,7 @@ function updatePhys($mysql){
         echo "success";
     }
     else{echo "fail";}
+	}
 }
 
 
@@ -93,6 +94,7 @@ function updateMent($mysql){
         echo "success";
     }
     else{echo "fail";}
+	}
 }
 
 function updateSpirit($mysql){
@@ -104,6 +106,7 @@ function updateSpirit($mysql){
         echo "success";
     }
     else{echo "fail";}
+	}
 }
 
 ?>
