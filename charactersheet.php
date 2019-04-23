@@ -1,3 +1,44 @@
+<?php
+include ("getCharacterOptions.php") ;
+        $raceSelect = "<select id='selectedRace' name='race'>" ;
+        foreach($races as $race){
+            $race = explode(",", $race) ;
+            $r = $race[0] ;
+            $raceSelect.="<option value='$r'>$r</option>" ;
+          }
+    $raceSelect.="</select>" ;
+
+    $bgSelect = "<select id='selectedBg' name='bg'>" ;
+            foreach($bgs as $bg){
+                $bg = explode(",", $bg) ;
+                $background = $bg[0] ;
+                $race = $bg[1] ;
+                $bgSelect.="<option value='$background'>$background,$race</option>";
+              }
+                $bgSelect.="</select>" ;
+
+    $physSelect = "<select multiple='multiple' id='selectedPhys' name='phys'>" ;
+            foreach($phys_skills as $phys){
+              $phys = explode(",", $phys) ;
+              $skill = $phys[0] ;
+              $requirement = $phys[1] ;
+              $cost = $phys[2] ;
+              $training = $phys[3] ;
+              $physSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+            }
+    $physSelect.="</select>" ;
+
+    /*$mentSelect = "<select multiple='multiple' id='selectedment' name='ment'>" ;
+            foreach($ment_skills as $ment){
+            $ment = explode(",", $ment) ;
+            $skill = $ment[0] ;
+            $requirement = $ment[1] ;
+            $cost = $ment[2] ;
+            $training = $ment[3] ;
+            $mentSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+            }
+    $mentSelect.="</select>" ;*/
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,80 +47,41 @@
       <meta charset="utf-8" />
 </head>
 <body>
-<?php
-include ("getCharacterOptions.php") ;
-?>
-<form action="changesSubmitted.php" method="post">
+
     <input type="hidden" name="char_id" value="<?= $char_id ?>">
-    <fieldset>
+
     <h2>Name:</h2>
-    <button type="button" onclick = "edit_char(0)">Edit</button>
-    <div id="nameInput" class="dropdown-content">
-        <input type="text" name="name" /><br />
+    <p id="nameInput"><?=$cname ?></p>
+    <div id="nameArea">
+        <button type="submit" id="editName" onclick="editNameClick()">Edit</button>
     </div>
-    <p><?=$cname ?></p>
-    </fieldset>
 
     <h2>Pronouns:</h2>
-    <p><?=$cpronouns ?></p>
-    <button type="button" onclick = "edit_char(1)">Edit</button>
-    <div id="pronInput" class="dropdown-content">
-        <input type="text" name="pronouns" /><br />
+    <p id="pronInput"><?=$cpronouns ?></p>
+    <div id="pronArea">
+        <button type="submit" id="editPron" onclick="editPronClick()">Edit</button>
     </div>
-
+  
     <h2>Race:</h2>
-    <button type="button" onclick = "edit_char(2)">Edit</button>
-    <div id="raceDropdown" class="dropdown-content">
-    <select name="race" size = "5">
-        <?php
-        foreach($races as $race){
-            $race = explode(",", $race) ;
-            $r = $race[0] ;
-            ?>
-            <option value="<?= $r ?>"><?=$r ?></option>
-        <?php }?>
-    </select>
-    </div>
     <p><?=$crace ?></p>
+    <div id="raceArea">
+    <button type="submit" onclick="editRaceClick()">Edit</button>
+    </div>
 
     <h2>Background:</h2>
-    <button type="button" onclick = "edit_char(3)">Edit</button>
-    <div id="bgDropdown" class="dropdown-content">
-        <select name="background" size = "5">
-            <?php
-            foreach($bgs as $bg){
-                $bg = explode(",", $bg) ;
-                $background = $bg[0] ;
-                $race = $bg[1] ;
-                ?>
-                <option value="<?= $background ?>"><?=$background ?> , <?=$race?></option>
-            <?php }?>
-        </select>
-    </div>
     <p><?=$cbackground ?></p>
-	
-
+    <div id="bgArea">
+    <button type="submit" onclick="editBgClick()">Edit</button>
+    </div>
+  
     <h2>Physical Skills:</h2>
-      <button type="button" onclick = "edit_char(4)">Edit</button>
-
-		<div id="physDropdown" class="dropdown-content">
-                                       <select multiple="multiple" name="physical[]" size="5">
-   				<?php
-		foreach($phys_skills as $phys){
-			$phys = explode(",", $phys) ;
-			$skill = $phys[0] ;
-			$requirement = $phys[1] ;
-			$cost = $phys[2] ;
-			$training = $phys[3] ;
-			?>
-			<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
-		<?php }?>
-			</select>
-		</div>
     <?php foreach($cphys as $skill){
       ?><p><?=$skill ?></p>
       <br>
       <?php } ?>
+    <div id="physArea">
+    <button type="submit" onclick="editPhysClick()">Edit</button>
+    </div>
 
     <h2>Mental Skills</h2>
 <button type="button" onclick = "edit_char(5)">Edit</button>
@@ -173,7 +175,116 @@ include ("getCharacterOptions.php") ;
       <?php } ?>
 
 <input type="submit" name="submit"/>
-</form>
+  
+   <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script>
+  function editNameClick(){
+  var name=$("#nameInput").text();
+  var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' id='submitName' onclick='ajaxName()'>Submit</button>";
+  $("#nameArea").html(nameHtml);
+}
+
+function ajaxName(){
+  var newName=$("#editNameInput").val() ;
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { name: newName, char_id: "<?= $char_id?>", fx: "updateName" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Name: </div><div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editName' onclick='editNameClick()'>Edit</button></div>";
+        $("#nameArea").html(newHtml);
+      });
+}
+
+function editPronClick(){
+  var pron=$("#pronInput").text();
+  var pronHtml="<input type='text' id='editPronInput' value='"+pron+"'><button type='submit' id='submitPron' onclick='ajaxPron()'>Submit</button>";
+  $("#pronArea").html(pronHtml);
+}
+
+function ajaxPron(){
+  var newPron=$("#editPronInput").val() ;
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { pron: newPron, char_id: "<?= $char_id?>", fx: "updatePron" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Pronouns: </div><div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editPron' onclick='editPronClick()'>Edit</button></div>";
+        $("#pronArea").html(newHtml);
+      });
+}
+
+  function editRaceClick(){
+    var raceMenu="<?= $raceSelect?>"; 
+    raceMenu+="<button type='submit' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
+    $("#raceArea").html(raceMenu) 
+  }
+
+  function ajaxRace(){
+  var newRace=$("#selectedRace option:selected" ).text();
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { race: newRace, char_id: "<?= $char_id?>", fx: "updateRace" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Race: </div><div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
+        $("#raceArea").html(newHtml);
+      });
+}
+
+  function editBgClick(){
+    var bgMenu="<?= $bgSelect?>"; 
+    bgMenu+="<button type='submit' id='submitBg' onclick='ajaxBg()'>Submit</button>" ;
+    $("#bgArea").html(bgMenu) ;
+  }
+
+  function ajaxBg(){
+  var newBg=$("#selectedBg option:selected" ).text();
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { bg: newBg, char_id: "<?= $char_id?>", fx: "updateBg" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Background: </div><div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' id='editBg' onclick='editBgClick()'>Edit</button>" ;
+        $("#bgArea").html(newHtml);
+      });
+}
+
+function editPhysClick(){
+    var physMenu="<?= $physSelect?>"; 
+    physMenu+="<button type='submit' id='submitPhys' onclick='ajaxPhys()'>Submit</button>" ;
+    $("#physArea").html(physMenu) ;
+  }
+
+  function ajaxPhys(){
+  var newPhys= [] ;
+  $.each($("#selectedPhys option:selected"), function(){
+    newPhys.push($(this).text()) ;
+  }
+  alert("You have selected: " + newPhys.join(",")) ;
+  $.ajax({
+      method: "POST",
+      url: "ajax.php",
+      data: { phys: newPhys, char_id: "<?= $char_id?>", fx: "updatePhys" }
+    })
+      .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Physical Skills: </div><div class='d-inline p-2'  id='physInput'>"+newPhys+"</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
+        $("#physArea").html(newHtml);
+      });
+}
+
+</script>
 
 </body>
     <a href="welcome.php" class="btn-primary">Return to Home Page</a>

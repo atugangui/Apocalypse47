@@ -19,7 +19,7 @@ foreach($cment as $m){
 
 //Insert spiritual skills
 foreach($cspirit as $s){
-    $stmt= $conn->prepare("UPDATE character_mental_skills SET skill_name = :param_spirit WHERE char_id = :param_cid");
+    $stmt= $conn->prepare("UPDATE character_spiritual_skills SET skill_name = :param_spirit WHERE char_id = :param_cid");
     $stmt->execute(array(":param_cid"=>$cchar_id, ":param_spirit"=>$s)) ;
 }
 
