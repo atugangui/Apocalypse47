@@ -111,8 +111,12 @@ function updatePron($id, $pron){
   function updateMent($id, $ment){
     $conn = $this->conn ;
     try {
-      $stmt = $conn->prepare("update character_mental_skills set skill_name=:ment where char_id=:id");
-      $stmt->execute(array(":id"=>$id, ":ment"=>$ment));
+      $stmt = $conn->prepare("DELETE FROM character_mental_skills where char_id=:id");
+      $stmt->execute(array(":id"=>$id));
+      foreach($ment as $m){
+      $stmt = $conn->prepare("INSERT INTO character_mental_skills (char_id, skill_name) VALUES(:id, :ment)");
+      $stmt->execute(array(":id"=>$id, ":ment"=>$m)) ;
+      }
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;
@@ -127,11 +131,16 @@ function updatePron($id, $pron){
     }
   }
 
+
   function updateSpirit($id, $spirit){
     $conn = $this->conn ;
     try {
-      $stmt = $conn->prepare("update character_spirit_skills set skill_name=:spirit where char_id=:id");
-      $stmt->execute(array(":id"=>$id, ":spirit"=>$spirit));
+      $stmt = $conn->prepare("DELETE FROM character_spiritual_skills where char_id=:id");
+      $stmt->execute(array(":id"=>$id));
+      foreach($spirit as $s){
+      $stmt = $conn->prepare("INSERT INTO character_spiritual_skills (char_id, skill_name) VALUES(:id, :spirit)");
+      $stmt->execute(array(":id"=>$id, ":spirit"=>$s)) ;
+      }
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;
@@ -145,6 +154,7 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
+
 
 
 }

@@ -115,35 +115,25 @@ $spiritSelect.="</select>" ;
   </div>
 
         <h2>Advantages and Disadvantages</h2>
-        <button type="button" onclick = "edit_char(7)">Edit</button>
-        <div id="advDropdown" class="dropdown-content">
-          <select multiple="multiple" name="maj_adv[]" size="5">
-            <?php
-            foreach($major_advantages as $major_advantage){
-              $maj_adv = explode(",", $major_advantage) ;
-              $advantage = $maj_adv[1] ;
-              $weight = $maj_adv[2] ;
-              ?>
-              <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
-              <?php }?>
-            </select>
-          </div>
           <?php foreach($cmaj_adv as $maja){
             ?><p><?=$maja ?></p>
             <br>
-            <?php } ?>
-            <?php foreach($cmin_adv as $mina){
-              ?><p><?=$mina ?></p>
-              <br>
-              <?php } ?>
-              <?php foreach($cmaj_dis as $majd){
-                ?><p><?=$majd ?></p>
-                <br>
-                <?php } ?>
-                <?php foreach($cmin_dis as $mind){
-                  ?><p><?=$mind ?></p>
-                  <br>
-                  <?php } ?>
+          <?php } ?>
+          <?php foreach($cmin_adv as $mina){
+            ?><p><?=$mina ?></p>
+            <br>
+          <?php } ?>
+          <?php foreach($cmaj_dis as $majd){
+            ?><p><?=$majd ?></p>
+            <br>
+          <?php } ?>
+          <?php foreach($cmin_dis as $mind){
+            ?><p><?=$mind ?></p>
+            <br>
+          <?php } ?>
+          <div id="advantArea">
+            <button type="submit" onclick="editAdvantClick()">Edit</button>
+          </div>
 
                   <h2>Traits</h2>
                   <button type="button" onclick = "edit_char(8)">Edit</button>
@@ -309,6 +299,7 @@ $spiritSelect.="</select>" ;
         $("#spiritArea").html(newHtml);
       });
                         }
+
 
                       </script>
 

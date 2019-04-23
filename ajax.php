@@ -85,25 +85,19 @@ function updatePhys($mysql){
 function updateMent($mysql){
 	$id=$_POST["char_id"];
 	$ment = $_POST["ment"] ;
-	console.log($ment) ;
-	foreach($ment as $skill){
-		if($mysql->updateMent($id, $skill)){
+	if($mysql->updateMent($id, $ment)){
         echo "success";
     }
     else{echo "fail";}
 	}
-}
 
 function updateSpirit($mysql){
 	$id=$_POST["char_id"];
 	$ment = $_POST["spirit"] ;
-	console.log($spirit) ;
-	foreach($spirit as $skill){
-		if($mysql->updateSpirit($id, $skill)){
+	if($mysql->updateSpirit($id, $spirit)){
         echo "success";
     }
     else{echo "fail";}
 	}
-}
 
 ?>
