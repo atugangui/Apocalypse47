@@ -70,15 +70,19 @@ for ($i=0; $i < sizeof($cmin_dis); $i++) {
 $errors=0;
 if($advantage_disadvantage_weight!=0){
     $err[0] = "You need to balance your advantages properly.";
+    $errors++;
 }
 if($physical_cost + $mental_cost + $spiritual_cost > 50){
     $err[1] = "You have more than 50 total points. Do it better this time.";
+    $errors++;
 }
 if($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
     $err[2] = "You have to have one category with ten points and two with 20. None have less than 10. It's not that hard.";
+    $errors++;
 }
 if($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
     $err[3] = "No category can have more than 20 points. Try again.";
+    $errors++;
 }
 if ($errors==0) {
     //Insert into database
