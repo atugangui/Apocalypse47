@@ -257,9 +257,8 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxPhys(){
-                          var newPhys= $("#selectedPhys option:selected").val() ;
+                          var newPhys= $("#selectedPhys").val() || [] ;
                           console.log(newPhys) ;
-                          var_dump($newPhys) ;
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
