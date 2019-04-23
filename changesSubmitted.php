@@ -92,10 +92,11 @@ if ($errors==0) {
             <?php } ?>
 
             );
+        </script>
+        <script language="javascript" type="text/javascript">
+            history.go(-1);
+        </script>
 
-    <?php } ?>
-</script>
-<script language="javascript" type="text/javascript">
-    history.go(-1);
-</script>
-?>
+    <?php }
+
+    ?>
