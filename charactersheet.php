@@ -256,11 +256,7 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxPhys(){
-                          var newPhys= [] ;
-                          $.each($("#selectedPhys option:selected"), function(){
-                            newPhys.push($(this).text()) ;
-                          }
-                          alert("You have selected: " + newPhys.join(",")) ;
+                          var newPhys= $("#selectedPhys").val() ;
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
@@ -270,6 +266,46 @@ $spiritSelect.="</select>" ;
         //alert( "Data Saved: " + msg );
         newHtml="<div class='d-inline p-2'  >Physical Skills: </div><div class='d-inline p-2'  id='physInput'>"+newPhys+"</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
         $("#physArea").html(newHtml);
+      });
+                        }
+
+                        function editMentClick(){
+                          var mentMenu="<?= $mentSelect?>"; 
+                          mentMenu+="<button type='submit' id='submitMent' onclick='ajaxMent()'>Submit</button>" ;
+                          $("#mentArea").html(mentMenu) ;
+                        }
+
+                        function ajaxMent(){
+                          var newMent= $("#selectedMent").val() ;
+                          $.ajax({
+                            method: "POST",
+                            url: "ajax.php",
+                            data: { ment: newMent, char_id: "<?= $char_id?>", fx: "updateMent" }
+                          })
+                          .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Mental Skills: </div><div class='d-inline p-2'  id='mentInput'>"+newMent+"</div><div class='d-inline p-2' ><button type='submit' id='editMent' onclick='editMentClick()'>Edit</button>" ;
+        $("#MentArea").html(newHtml);
+      });
+                        }
+
+                        function editSpiritClick(){
+                          var spiritMenu="<?= $spiritSelect?>"; 
+                          spiritMenu+="<button type='submit' id='submitSpirit' onclick='ajaxSpirit()'>Submit</button>" ;
+                          $("#spiritArea").html(spiritMenu) ;
+                        }
+
+                        function ajaxSpirit(){
+                          var newSpirit= $("#selectedSpirit").val() ;
+                          $.ajax({
+                            method: "POST",
+                            url: "ajax.php",
+                            data: { spirit: newSpirit, char_id: "<?= $char_id?>", fx: "updateSpirit" }
+                          })
+                          .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Spiritual Skills: </div><div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
+        $("#spiritArea").html(newHtml);
       });
                         }
 
