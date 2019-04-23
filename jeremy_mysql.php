@@ -88,8 +88,10 @@ function updatePron($id, $pron){
   function updatePhys($id, $phys){
     $conn = $this->conn ;
     try {
-      $stmt = $conn->prepare("update character_physical_skills set skill_name=:phys where char_id=:id");
-      $stmt->execute(array(":id"=>$id, ":phys"=>$phys));
+      $stmt = $conn->prepare("DELETE FROM character_physical_skills where char_id=:id");
+      $stmt->execute(array(":id"=>$id));
+      $stmt = $conn->prepare("INSERT INTO character_physical_skills (char_id, skill_name) VALUES(:id, :phys)");
+      $stmt->execute(array(":id"=>$id, ":phys"=>$phys)) ;
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;
