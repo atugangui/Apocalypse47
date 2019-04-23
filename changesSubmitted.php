@@ -89,15 +89,17 @@ if($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
     $errors++;
     $i++;
 }
+
 if ($errors==0) {
     //Insert into database
     include("sqlQueries.php") ;
     include("charactersheet.php") ;
 } else {
+    foreach ($err as $error) {
+        $errort = $errort.$error;
+    }
     ?><script language="javascript" type="text/javascript">
-        var error = <?php foreach ($err as $error) { ?> 
-            <?= $error ?> + 
-        <?php } ?>
+        var error = <?= $errort ?>;
 
        alert("You messed up " + error );
         </script>
