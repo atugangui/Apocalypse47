@@ -91,7 +91,7 @@ if ($errors==0) {
                 ?> <?= $error ?> " +"
             <?php } ?>
 
-            )
+            );
 
     <?php } ?>
 </script>
