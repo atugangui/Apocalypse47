@@ -258,7 +258,6 @@ $spiritSelect.="</select>" ;
 
                         function ajaxPhys(){
                           var newPhys= $("#selectedPhys").val() || [] ;
-                          console.log(newPhys) ;
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
@@ -266,7 +265,7 @@ $spiritSelect.="</select>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Physical Skills: </div><div class='d-inline p-2'  id='physInput'>"+newPhys+"</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  >Physical Skills: </div><div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
         $("#physArea").html(newHtml);
       });
                         }
@@ -278,7 +277,7 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxMent(){
-                          var newMent= $("#selectedMent option:selected").val() ;
+                          var newMent= $("#selectedMent").val() || [] ;
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
@@ -286,7 +285,7 @@ $spiritSelect.="</select>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Mental Skills: </div><div class='d-inline p-2'  id='mentInput'>"+newMent+"</div><div class='d-inline p-2' ><button type='submit' id='editMent' onclick='editMentClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  >Mental Skills: </div><div class='d-inline p-2'  id='mentInput'>"+newMent+ "</div><div class='d-inline p-2' ><button type='submit' id='editMent' onclick='editMentClick()'>Edit</button>" ;
         $("#mentArea").html(newHtml);
       });
                         }
@@ -298,7 +297,7 @@ $spiritSelect.="</select>" ;
                         }
 
                         function ajaxSpirit(){
-                          var newSpirit= $("#selectedSpirit option:selected").val() ;
+                          var newSpirit= $("#selectedSpirit").val() || [];
                           $.ajax({
                             method: "POST",
                             url: "ajax.php",
@@ -306,7 +305,7 @@ $spiritSelect.="</select>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Spiritual Skills: </div><div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  >Spiritual Skills: </div><div class='d-inline p-2'  id='spiritInput'>"+newSpirit+ "</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
         $("#spiritArea").html(newHtml);
       });
                         }
