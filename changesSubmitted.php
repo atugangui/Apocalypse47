@@ -75,17 +75,17 @@ if($advantage_disadvantage_weight!=0){
     $i++;
 }
 if($physical_cost + $mental_cost + $spiritual_cost > 50){
-    $err[$i] = "You have more than 50 total points. Do it better this time.";
+    $err[$i] = json_encode("You have more than 50 total points. Do it better this time.");
     $errors++;
     $i++;
 }
 if($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
-    $err[$i] = "You have to have one category with ten points and two with 20. None have less than 10. It's not that hard.";
+    $err[$i] = json_encode("You have to have one category with ten points and two with 20. None have less than 10. It's not that hard.");
     $errors++;
     $i++;
 }
 if($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
-    $err[$i] = "No category can have more than 20 points. Try again.";
+    $err[$i] = json_encode("No category can have more than 20 points. Try again.");
     $errors++;
     $i++;
 }
@@ -95,9 +95,12 @@ if ($errors==0) {
     include("charactersheet.php") ;
 } else {
     ?><script language="javascript" type="text/javascript">
-    //error = "You messed up " + <?=$err[0] ?>;
-        alert(<?=$err[0] ?>);// + <?=$err[0] ?> );
-            // <?php foreach ($errors as $error) {
+        var error = <?php foreach ($err as $error) { ?> 
+            <?= $error ?> + 
+        <?php } ?>
+
+       alert("You messed up " + <?= $err[0] ?> );
+            // <?php foreach ($err as $error) {
             //     ?> <?= $error ?> +
             // <?php } ?>
 
