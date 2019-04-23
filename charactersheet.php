@@ -55,9 +55,8 @@ foreach($major_advantages as $major_advantage){
             $maj_adv = explode(",", $major_advantage) ;
             $advantage = $maj_adv[1] ;
             $weight = $maj_adv[2] ;
-            ?>
-            <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
-        <?php }?>
+            $majaSelect.="<option value='$advantage'>$advantage, Weight:$weight></option>" ;
+          }
 $majaSelect.="</select>" ;
 ?>
 
