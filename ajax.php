@@ -75,13 +75,11 @@ function updateBg($mysql) {
 function updatePhys($mysql){
 	$id=$_POST["char_id"];
 	$phys = $_POST["phys"] ;
-	foreach($phys as $skill){
-		if($mysql->updatePhys($id, $skill)){
+	if($mysql->updatePhys($id, $phys)){
         echo "success";
     }
     else{echo "fail";}
 	}
-}
 
 
 function updateMent($mysql){

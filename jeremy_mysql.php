@@ -90,8 +90,10 @@ function updatePron($id, $pron){
     try {
       $stmt = $conn->prepare("DELETE FROM character_physical_skills where char_id=:id");
       $stmt->execute(array(":id"=>$id));
+      foreach($phys as $p){
       $stmt = $conn->prepare("INSERT INTO character_physical_skills (char_id, skill_name) VALUES(:id, :phys)");
-      $stmt->execute(array(":id"=>$id, ":phys"=>$phys)) ;
+      $stmt->execute(array(":id"=>$id, ":phys"=>$p)) ;
+      }
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;
