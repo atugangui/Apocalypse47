@@ -160,12 +160,12 @@ function updatePron($id, $pron){
     try {
       $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv where char_id=:id");
       $stmt->execute(array(":id"=>$id));
-      if($type === "maja"){
+     // if($type === "maja"){
         foreach($maja as $advant){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
         $stmt->execute(array(":id"=>$id, ":advant"=>$advant, ":type"=>'major_advantage')) ;
         }
-    }
+  //  }
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;
