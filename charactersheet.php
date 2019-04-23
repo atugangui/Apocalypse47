@@ -50,6 +50,15 @@ foreach($spirit_skills as $spirit){
 }
 $spiritSelect.="</select>" ;
 
+$majaSelect = "<select multiple='multiple' id='selectedMaja' name='maja'>" ;
+foreach($major_advantages as $major_advantage){
+            $maj_adv = explode(",", $major_advantage) ;
+            $advantage = $maj_adv[1] ;
+            $weight = $maj_adv[2] ;
+            ?>
+            <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+        <?php }?>
+$majaSelect.="</select>" ;
 ?>
 
 <!DOCTYPE html>
@@ -119,6 +128,9 @@ $spiritSelect.="</select>" ;
             ?><p><?=$maja ?></p>
             <br>
           <?php } ?>
+          <div id="majaArea">
+            <button type="submit" onclick="editMajaClick()">Edit</button>
+          </div>
           <?php foreach($cmin_adv as $mina){
             ?><p><?=$mina ?></p>
             <br>
@@ -131,9 +143,7 @@ $spiritSelect.="</select>" ;
             ?><p><?=$mind ?></p>
             <br>
           <?php } ?>
-          <div id="advantArea">
-            <button type="submit" onclick="editAdvantClick()">Edit</button>
-          </div>
+          
 
                   <h2>Traits</h2>
                   <button type="button" onclick = "edit_char(8)">Edit</button>
@@ -297,6 +307,26 @@ $spiritSelect.="</select>" ;
         //alert( "Data Saved: " + msg );
         newHtml="<div class='d-inline p-2'  >Spiritual Skills: </div><div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
         $("#spiritArea").html(newHtml);
+      });
+                        }
+
+                        function editMajaClick(){
+                          var majaMenu="<?= $majaSelect?>"; 
+                          majaMenu+="<button type='submit' id='submitMaja' onclick='ajaxMaja()'>Submit</button>" ;
+                          $("#majaArea").html(majaMenu) ;
+                        }
+
+                        function ajaxMaja(){
+                          var newMaja= $("#selectedMaja").val() || [];
+                          $.ajax({
+                            method: "POST",
+                            url: "ajax.php",
+                            data: { maja: newMaja, char_id: "<?= $char_id?>", fx: "updateAdvant", type: "maja" }
+                          })
+                          .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Major Advantages: </div><div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
+        $("#majaArea").html(newHtml);
       });
                         }
 

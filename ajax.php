@@ -11,6 +11,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 } 
 $mysql = new mysqlFunctions();
 $fx=$_POST["fx"];
+$type=$_POST["type"] ;
 
 switch($fx){
   case "updateName":
@@ -33,6 +34,9 @@ switch($fx){
   break ;
   case "updateSpirit":
   updateSpirit($mysql) ;
+  break ;
+  case "updateMaja":
+  updateMaja($mysql, $type) ;
   break ;
 }
 
@@ -93,8 +97,17 @@ function updateMent($mysql){
 
 function updateSpirit($mysql){
 	$id=$_POST["char_id"];
-	$ment = $_POST["spirit"] ;
+	$spirit = $_POST["spirit"] ;
 	if($mysql->updateSpirit($id, $spirit)){
+        echo "success";
+    }
+    else{echo "fail";}
+	}
+
+function updateAdvant($mysql, $type){
+	$id=$_POST["char_id"];
+	$maja = $_POST["maja"] ;
+	if($mysql->updateAdvant($id, $maja, $type)){
         echo "success";
     }
     else{echo "fail";}
