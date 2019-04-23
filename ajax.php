@@ -111,8 +111,10 @@ function updateAdvant($mysql, $type){
 	if($mysql->updateAdvant($id, $maja, $type)){
         echo "success";
     }
-    if($mysql->updateAdvant($id, $majd, $type)){
-        echo "success";
+	if ($type == "majd") {
+        if ($mysql->updateAdvant($id, $majd, $type)) {
+            echo "success";
+        }
     }
     else{echo "fail";}
 	}

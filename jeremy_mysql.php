@@ -155,17 +155,23 @@ function updatePron($id, $pron){
     }
   }
 
-    function updateAdvant($id, $maja, $type){
+    function updateAdvant($id, $advant, $type){
     $conn = $this->conn ;
     try {
       $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv where char_id=:id");
       $stmt->execute(array(":id"=>$id));
-     // if($type === "maja"){
-        foreach($maja as $advant){
+      if($type === "maja"){
+        foreach($advant as $a){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
-        $stmt->execute(array(":id"=>$id, ":advant"=>$advant, ":type"=>'major_advantage')) ;
+        $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_advantage')) ;
         }
-  //  }
+     }
+        if($type === "majd"){
+            foreach($advant as $a){
+                $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
+                $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_disadvantage')) ;
+            }
+        }
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;
