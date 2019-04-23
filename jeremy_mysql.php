@@ -161,21 +161,21 @@ function updatePron($id, $pron){
       $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv where char_id=:id");
       $stmt->execute(array(":id"=>$id));
       if($type === "maja"){
-        foreach($maja as $advant){
+        foreach($advant as $a){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
-        $stmt->execute(array(":id"=>$id, ":advant"=>$advant, ":type"=>'major_advantage')) ;
+        $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_advantage')) ;
         }
     }
     if($type === "mina"){
-        foreach($mina as $advant){
+        foreach($advant as $a){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
-        $stmt->execute(array(":id"=>$id, ":advant"=>$advant, ":type"=>'minor_advantage')) ;
+        $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'minor_advantage')) ;
         }
     }
     if($type === "mind"){
-        foreach($mind as $advant){
+        foreach($advant as $a){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
-        $stmt->execute(array(":id"=>$id, ":advant"=>$advant, ":type"=>'minor_disadvantage')) ;
+        $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'minor_disadvantage')) ;
         }
     }
 
