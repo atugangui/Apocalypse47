@@ -305,7 +305,7 @@ $spiritSelect.="</select>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Spiritual Skills: </div><div class='d-inline p-2'  id='spiritInput'>"+newSpirit+ "</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  >Spiritual Skills: </div><div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
         $("#spiritArea").html(newHtml);
       });
                         }

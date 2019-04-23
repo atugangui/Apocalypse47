@@ -75,7 +75,7 @@ function updateBg($mysql) {
 function updatePhys($mysql){
 	$id=$_POST["char_id"];
 	$phys = $_POST["phys"] ;
-	console.log($phys) ;
+	echo $phys ;
 	foreach($phys as $skill){
 		if($mysql->updatePhys($id, $skill)){
         echo "success";
