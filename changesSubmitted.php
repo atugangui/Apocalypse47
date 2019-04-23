@@ -75,17 +75,17 @@ if($advantage_disadvantage_weight!=0){
     $i++;
 }
 if($physical_cost + $mental_cost + $spiritual_cost > 50){
-    $err[$i] = "You have more than 50 total points. Do it better this time.";
+    $err[$i] = "You have more than 50 total points.";
     $errors++;
     $i++;
 }
 if($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
-    $err[$i] = "You have to have one category with ten points and two with 20. None have less than 10. It's not that hard.";
+    $err[$i] = "You have to have one category with ten points and two with 20. None have less than 10.";
     $errors++;
     $i++;
 }
 if($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
-    $err[$i] = "No category can have more than 20 points. Try again.";
+    $err[$i] = "No category can have more than 20 points.";
     $errors++;
     $i++;
 }
@@ -103,7 +103,7 @@ if ($errors==0) {
     ?><script language="javascript" type="text/javascript">
         var error = <?= $errort ?>;
 
-       alert("You messed up: " + error );
+       alert("You messed up: " + error + "Do better; it's not that hard.");
         </script>
         <script language="javascript" type="text/javascript">
             history.go(-1);
