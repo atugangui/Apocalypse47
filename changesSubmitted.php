@@ -70,7 +70,7 @@ for ($i=0; $i < sizeof($cmin_dis); $i++) {
 $errors=0;
 $i = 0;
 if($advantage_disadvantage_weight!=0){
-    $err[$i] = "You need to balance your advantages properly.";
+    $err[$i] = json_encode("You need to balance your advantages properly.");
     $errors++;
     $i++;
 }
