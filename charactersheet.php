@@ -60,6 +60,17 @@ foreach($major_advantages as $major_advantage){
 $majaSelect.="</select>" ;
 ?>
 
+
+$majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
+    foreach($major_disadvantages as $major_disadvantage){
+    $maj_disadv = explode(",", $major_disadvantage) ;
+    $disadvantage = $maj_disadv[1] ;
+    $weight = $maj_disadv[2] ;
+    $majdSelect.="<option value='$disadvantage'>$disadvantage, Weight:$weight></option>" ;
+    }
+    $majdSelect.="</select>" ;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,10 +145,14 @@ $majaSelect.="</select>" ;
             ?><p><?=$mina ?></p>
             <br>
           <?php } ?>
+
           <?php foreach($cmaj_dis as $majd){
             ?><p><?=$majd ?></p>
             <br>
           <?php } ?>
+             <div id="majdArea">
+                <button type="submit" onclick="editMajdClick()">Edit</button>
+            </div>
           <?php foreach($cmin_dis as $mind){
             ?><p><?=$mind ?></p>
             <br>
@@ -327,6 +342,26 @@ $majaSelect.="</select>" ;
         newHtml="<div class='d-inline p-2'  >Major Advantages: </div><div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
         $("#majaArea").html(newHtml);
       });
+                        }
+
+                        function editMajdClick(){
+                            var majdMenu="<?= $majdSelect?>";
+                            majdMenu+="<button type='submit' id='submitMajd' onclick='ajaxMajd()'>Submit</button>" ;
+                            $("#majdArea").html(majdMenu) ;
+                        }
+
+                        function ajaxMajd(){
+                            var newMajd= $("#selectedMajd").val() || [];
+                            $.ajax({
+                                method: "POST",
+                                url: "ajax.php",
+                                data: { majd: newMajd, char_id: "<?= $char_id?>", fx: "updateAdvant", type: "majd" }
+                            })
+                                .done(function( msg ) {
+                                    //alert( "Data Saved: " + msg );
+                                    newHtml="<div class='d-inline p-2'  >Major Disadvantages: </div><div class='d-inline p-2'  id='majdInput'>"+newMajd+"</div><div class='d-inline p-2' ><button type='submit' id='editMajd' onclick='editMajdClick()'>Edit</button>" ;
+                                    $("#majdArea").html(newHtml);
+                                });
                         }
 
 
