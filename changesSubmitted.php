@@ -68,21 +68,26 @@ for ($i=0; $i < sizeof($cmin_dis); $i++) {
     }
 }
 $errors=0;
+$i = 0;
 if($advantage_disadvantage_weight!=0){
-    $err[0] = "You need to balance your advantages properly.";
+    $err[$i] = "You need to balance your advantages properly.";
     $errors++;
+    $i++;
 }
 if($physical_cost + $mental_cost + $spiritual_cost > 50){
-    $err[1] = "You have more than 50 total points. Do it better this time.";
+    $err[$i] = "You have more than 50 total points. Do it better this time.";
     $errors++;
+    $i++;
 }
 if($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
-    $err[2] = "You have to have one category with ten points and two with 20. None have less than 10. It's not that hard.";
+    $err[$i] = "You have to have one category with ten points and two with 20. None have less than 10. It's not that hard.";
     $errors++;
+    $i++;
 }
 if($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
-    $err[3] = "No category can have more than 20 points. Try again.";
+    $err[$i] = "No category can have more than 20 points. Try again.";
     $errors++;
+    $i++;
 }
 if ($errors==0) {
     //Insert into database
@@ -90,10 +95,10 @@ if ($errors==0) {
     include("charactersheet.php") ;
 } else {
     ?><script language="javascript" type="text/javascript">
-        alert("You messed up " +
-            <?php foreach ($errors as $error) {
-                ?> <?= $error ?> +
-            <?php } ?>
+        alert("You messed up " + <?= $err[0] ?>
+            // <?php foreach ($errors as $error) {
+            //     ?> <?= $error ?> +
+            // <?php } ?>
 
             );
         </script>
