@@ -106,7 +106,9 @@ $traits = explode("\r", $traits) ;
             $cost = $phys[2] ;
             $training = $phys[3] ;
             ?>
-        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required:  <?=$training?></option>
+
+        	<option value="<?= $skill ?>, <?= $cost ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required:  <?=$training?></option>
+
         		<?php }?>
           </select>
         </fieldset>
@@ -122,7 +124,9 @@ $traits = explode("\r", $traits) ;
             $cost = $ment[2] ;
             $training = $ment[3] ;
             ?>
-        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+
+        	<option value="<?= $skill?>, <?= $cost ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+
         		<?php }?>
           </select>
         </fieldset>
@@ -138,7 +142,9 @@ $traits = explode("\r", $traits) ;
         		$cost = $spirit[2] ;
         		$training = $spirit[3] ;
         		?>
-        	<option value="<?= $skill ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+
+        	<option value="<?= $skill ?>, <?= $cost ?>"><?=$skill ?> , Requirement: <?=$requirement?> , Cost: <?=$cost?> , Training Required: <?=$training?></option>
+
         		<?php }?>
         	</select>
         </fieldset>
@@ -161,7 +167,9 @@ $traits = explode("\r", $traits) ;
             $advantage = $maj_adv[1] ;
             $weight = $maj_adv[2] ;
             ?>
-          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
+          <option value="<?= $advantage ?>, <?= $weight ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
             <?php }?>
           </select>
         </fieldset>
@@ -175,7 +183,9 @@ $traits = explode("\r", $traits) ;
            	$advantage = $min_adv[1] ;
            	$weight = $min_adv[2] ;
            	?>
-          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
+          <option value="<?= $advantage ?>, <?= $weight ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
            	<?php }?>
           </select>
         </fieldset>
@@ -190,7 +200,9 @@ $traits = explode("\r", $traits) ;
             $advantage = $maj_dis[1] ;
             $weight = $maj_dis[2] ;
             ?>
-          <option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
+          <option value="<?= $advantage ?>, <?= $weight ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
             <?php }?>
           </select>
           </fieldset>
@@ -204,7 +216,9 @@ $traits = explode("\r", $traits) ;
            		$advantage = $min_dis[1] ;
            		$weight = $min_dis[2] ;
            		?>
-           	<option value="<?= $advantage ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
+           	<option value="<?= $advantage ?>, <?= $weight ?>"><?=$advantage ?> , Weight:<?=$weight ?></option>
+
            		<?php }?>
           </select>
         </fieldset>
