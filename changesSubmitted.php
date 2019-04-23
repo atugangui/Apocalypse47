@@ -78,12 +78,25 @@ if($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
     $err[2] = "You have to have one category with ten points and two with 20. None have less than 10. It's not that hard.";
 }
 if($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
-    $err[3]"No category can have more than 20 points. Try again.";
+    $err[3] = "No category can have more than 20 points. Try again.";
 }
 if ($errors==0) {
     //Insert into database
     include("sqlQueries.php") ;
     include("charactersheet.php") ;
-}
+} else {
+    ?><script language="javascript" type="text/javascript">
+        alert("You messed up " +
+            <?php foreach ($errors as $error) {
+                ?> <?= $error ?> " +"
+            <?php } ?>
+
+            );
+        </script>
+        <script language="javascript" type="text/javascript">
+            history.go(-1);
+        </script>
+
+    <?php }
 
     ?>
