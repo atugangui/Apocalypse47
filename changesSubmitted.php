@@ -97,13 +97,13 @@ if ($errors==0) {
 } else {
     $errort = "";
     foreach ($err as $error) {
-        $errort = $errort.$error;
+        $errort = $errort.$error."\n";
     }
     $errort = json_encode($errort);
     ?><script language="javascript" type="text/javascript">
         var error = <?= $errort ?>;
 
-       alert("You messed up " + error );
+       alert("You messed up: " + error );
         </script>
         <script language="javascript" type="text/javascript">
             history.go(-1);
