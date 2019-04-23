@@ -97,7 +97,7 @@ if ($errors==0) {
     ?><script language="javascript" type="text/javascript">
         var error = <?php foreach ($err as $error) { ?> 
             <?= $error ?> + 
-        <?php } ?>;
+        <?php } ?>
 
        alert("You messed up " + error );
         </script>
