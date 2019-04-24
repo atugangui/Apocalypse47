@@ -158,30 +158,34 @@ function updatePron($id, $pron){
     function updateAdvant($id, $advant, $type){
     $conn = $this->conn ;
     try {
-      $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv where char_id=:id");
-      $stmt->execute(array(":id"=>$id));
       if($type === "maja"){
+        $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv WHERE TYPE=:type AND char_id=:id");
+        $stmt->execute(array(":id"=>$id, ":type"=>'major_advantage'));
         foreach($advant as $a){
-        $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
-        $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_advantage')) ;
+          $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
+          $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_advantage')) ;
         }
      }
         if($type === "majd"){
+          $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv WHERE TYPE=:type AND char_id=:id");
+          $stmt->execute(array(":id"=>$id, ":type"=>'major_disadvantage'));
             foreach($advant as $a){
                 $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
                 $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_disadvantage')) ;
             }
         }
 
-
-
     if($type === "mina"){
+        $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv WHERE TYPE=:type AND char_id=:id");
+        $stmt->execute(array(":id"=>$id, ":type"=>'minor_advantage'));
         foreach($advant as $a){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
         $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'minor_advantage')) ;
         }
     }
     if($type === "mind"){
+        $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv WHERE TYPE=:type AND char_id=:id");
+        $stmt->execute(array(":id"=>$id, ":type"=>'minor_disadvantage'));
         foreach($advant as $a){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :advant, :type)");
         $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'minor_disadvantage')) ;
