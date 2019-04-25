@@ -3,12 +3,10 @@
 This file contains the class for the mysql connection and all its functions/interactions
 */
 class mysqlFunctions{
-
   function __construct() {
     include("mysql.php");
     $this->conn = $conn ;
   }
-
   function updateName($id, $name){
     $conn = $this->conn ;
     try {
@@ -27,7 +25,6 @@ class mysqlFunctions{
       echo $e;
     }
   }
-
 function updatePron($id, $pron){
     $conn = $this->conn ;
     try {
@@ -46,7 +43,6 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
-
   function updateRace($id, $race){
     $conn = $this->conn ;
     try {
@@ -65,7 +61,6 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
-
   function updateBg($id, $background){
     $conn = $this->conn ;
     try {
@@ -84,7 +79,6 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
-
   function updatePhys($id, $phys){
     $conn = $this->conn ;
     try {
@@ -107,7 +101,6 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
-
   function updateMent($id, $ment){
     $conn = $this->conn ;
     try {
@@ -130,8 +123,6 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
-
-
   function updateSpirit($id, $spirit){
     $conn = $this->conn ;
     try {
@@ -154,7 +145,6 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
-
     function updateAdvant($id, $advant, $type){
     $conn = $this->conn ;
     try {
@@ -174,7 +164,6 @@ function updatePron($id, $pron){
                 $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'major_disadvantage')) ;
             }
         }
-
     if($type === "mina"){
         $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv WHERE TYPE=:type AND char_id=:id");
         $stmt->execute(array(":id"=>$id, ":type"=>'minor_advantage'));
@@ -191,8 +180,14 @@ function updatePron($id, $pron){
         $stmt->execute(array(":id"=>$id, ":advant"=>$a, ":type"=>'minor_disadvantage')) ;
         }
     }
-
-
+    if($type === "trait"){
+        $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv WHERE TYPE=:type AND char_id=:id");
+        $stmt->execute(array(":id"=>$id, ":type"=>'trait'));
+        foreach($trait as $t){
+        $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :trait, :type)");
+        $stmt->execute(array(":id"=>$id, ":trait"=>$t, ":type"=>'trait')) ;
+        }
+    }
       $count = $stmt->rowCount();
       if($count =='0'){
           return false;
@@ -206,9 +201,5 @@ function updatePron($id, $pron){
       echo $e;
     }
   }
-
-
-
 }
-
  ?>

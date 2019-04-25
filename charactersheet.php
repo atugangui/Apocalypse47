@@ -7,7 +7,6 @@ foreach($races as $race){
   $raceSelect.="<option value='$r'>$r</option>" ;
 }
 $raceSelect.="</select>" ;
-
 $bgSelect = "<select id='selectedBg' name='bg'>" ;
 foreach($bgs as $bg){
   $bg = explode(",", $bg) ;
@@ -16,7 +15,6 @@ foreach($bgs as $bg){
   $bgSelect.="<option value='$background'>$background,$race</option>";
 }
 $bgSelect.="</select>" ;
-
 $physSelect = "<select multiple='multiple' id='selectedPhys' name='phys'>" ;
 foreach($phys_skills as $phys){
   $phys = explode(",", $phys) ;
@@ -24,10 +22,9 @@ foreach($phys_skills as $phys){
   $requirement = $phys[1] ;
   $cost = $phys[2] ;
   $training = $phys[3] ;
-  $physSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+  $physSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training</option>" ;
 }
 $physSelect.="</select>" ;
-
 $mentSelect = "<select multiple='multiple' id='selectedMent' name='ment'>" ;
 foreach($ment_skills as $ment){
   $ment = explode(",", $ment) ;
@@ -35,10 +32,9 @@ foreach($ment_skills as $ment){
   $requirement = $ment[1] ;
   $cost = $ment[2] ;
   $training = $ment[3] ;
-  $mentSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+  $mentSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training</option>" ;
 }
 $mentSelect.="</select>" ;
-
 $spiritSelect = "<select multiple='multiple' id='selectedSpirit' name='spirit'>" ;
 foreach($spirit_skills as $spirit){
   $spirit = explode(",", $spirit) ;
@@ -46,47 +42,49 @@ foreach($spirit_skills as $spirit){
   $requirement = $spirit[1] ;
   $cost = $spirit[2] ;
   $training = $spirit[3] ;
-  $spiritSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training></option>" ;
+  $spiritSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training</option>" ;
 }
 $spiritSelect.="</select>" ;
-
 $majaSelect = "<select multiple='multiple' id='selectedMaja' name='maja'>" ;
 foreach($major_advantages as $major_advantage){
             $maj_adv = explode(",", $major_advantage) ;
             $advantage = $maj_adv[1] ;
             $weight = $maj_adv[2] ;
-            $majaSelect.="<option value='$advantage'>$advantage, Weight:$weight></option>" ;
+            $majaSelect.="<option value='$advantage'>$advantage, Weight:$weight</option>" ;
           }
 $majaSelect.="</select>" ;
-
 $minaSelect = "<select multiple='multiple' id='selectedMina' name='mina'>" ;
 foreach($minor_advantages as $minor_advantage) {
             $min_adv = explode(",", $minor_advantage) ;
             $advantage = $min_adv[1] ;
             $weight = $min_adv[2] ;
-            $minaSelect.="<option value='$advantage'>$advantage, Weight:$weight></option>" ;
+            $minaSelect.="<option value='$advantage'>$advantage, Weight:$weight</option>" ;
           }
 $minaSelect.="</select>" ;
-
 $mindSelect = "<select multiple='multiple' id='selectedMind' name='mind'>" ;
 foreach ($major_disadvantages as $major_disadvantage){
             $maj_dis = explode(",", $major_disadvantage) ;
             $advantage = $maj_dis[1] ;
             $weight = $maj_dis[2] ;
-            $mindSelect.="<option value='$advantage'>$advantage, Weight:$weight></option>" ;
+            $mindSelect.="<option value='$advantage'>$advantage, Weight:$weight</option>" ;
           }
 $mindSelect.="</select>" ;
-
-
-
 $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
     foreach($major_disadvantages as $major_disadvantage){
     $maj_disadv = explode(",", $major_disadvantage) ;
     $disadvantage = $maj_disadv[1] ;
     $weight = $maj_disadv[2] ;
-    $majdSelect.="<option value='$disadvantage'>$disadvantage, Weight:$weight></option>" ;
+    $majdSelect.="<option value='$disadvantage'>$disadvantage, Weight:$weight</option>" ;
     }
     $majdSelect.="</select>" ;
+
+$traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
+    foreach ($traits as $trait){
+                        $traits = explode(",", $trait) ;
+                        $trait = $traits[1] ;
+                        $traitSelect.="<option value='$trait'>$trait</option>" ;
+                        }
+                        $traitSelect.="</select>" ;
 ?>
 
 <!DOCTYPE html>
@@ -183,22 +181,13 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
           
 
                   <h2>Traits</h2>
-                  <button type="button" onclick = "edit_char(8)">Edit</button>
-                  <div id="traitsDropdown" class="dropdown-content">
-                    <select multiple="multiple" name="traits[]" size="5">
-                      <?php
-                      foreach ($traits as $trait){
-                        $traits = explode(",", $trait) ;
-                        $trait = $traits[1] ;
-                        ?>
-                        <option value="<?= $trait ?>"><?=$trait ?></option>
-                        <?php }?>
-                      </select>
-                    </div>
                     <?php foreach($ctraits as $trait){
                       ?><p><?=$trait ?></p>
                       <br>
                       <?php } ?>
+                      <div id="traitArea">
+                        <button type="submit" onclick="editTraitClick()">Edit</button>
+                      </div>
 
                       <input type="submit" name="submit"/>
 
@@ -212,7 +201,6 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
                           var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' id='submitName' onclick='ajaxName()'>Submit</button>";
                           $("#nameArea").html(nameHtml);
                         }
-
                         function ajaxName(){
                           var newName=$("#editNameInput").val() ;
                           $.ajax({
@@ -226,13 +214,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#nameArea").html(newHtml);
       });
                         }
-
                         function editPronClick(){
                           var pron=$("#pronInput").text();
                           var pronHtml="<input type='text' id='editPronInput' value='"+pron+"'><button type='submit' id='submitPron' onclick='ajaxPron()'>Submit</button>";
                           $("#pronArea").html(pronHtml);
                         }
-
                         function ajaxPron(){
                           var newPron=$("#editPronInput").val() ;
                           $.ajax({
@@ -246,13 +232,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#pronArea").html(newHtml);
       });
                         }
-
                         function editRaceClick(){
                           var raceMenu="<?= $raceSelect?>"; 
                           raceMenu+="<button type='submit' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
                           $("#raceArea").html(raceMenu) 
                         }
-
                         function ajaxRace(){
                           var newRace=$("#selectedRace option:selected" ).text();
                           $.ajax({
@@ -266,13 +250,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#raceArea").html(newHtml);
       });
                         }
-
                         function editBgClick(){
                           var bgMenu="<?= $bgSelect?>"; 
                           bgMenu+="<button type='submit' id='submitBg' onclick='ajaxBg()'>Submit</button>" ;
                           $("#bgArea").html(bgMenu) ;
                         }
-
                         function ajaxBg(){
                           var newBg=$("#selectedBg option:selected").text();
                           $.ajax({
@@ -286,13 +268,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#bgArea").html(newHtml);
       });
                         }
-
                         function editPhysClick(){
                           var physMenu="<?= $physSelect?>"; 
                           physMenu+="<button type='submit' id='submitPhys' onclick='ajaxPhys()'>Submit</button>" ;
                           $("#physArea").html(physMenu) ;
                         }
-
                         function ajaxPhys(){
                           var newPhys= $("#selectedPhys").val() || [] ;
                           $.ajax({
@@ -306,13 +286,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#physArea").html(newHtml);
       });
                         }
-
                         function editMentClick(){
                           var mentMenu="<?= $mentSelect?>"; 
                           mentMenu+="<button type='submit' id='submitMent' onclick='ajaxMent()'>Submit</button>" ;
                           $("#mentArea").html(mentMenu) ;
                         }
-
                         function ajaxMent(){
                           var newMent= $("#selectedMent").val() || [] ;
                           $.ajax({
@@ -326,13 +304,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#mentArea").html(newHtml);
       });
                         }
-
                         function editSpiritClick(){
                           var spiritMenu="<?= $spiritSelect?>"; 
                           spiritMenu+="<button type='submit' id='submitSpirit' onclick='ajaxSpirit()'>Submit</button>" ;
                           $("#spiritArea").html(spiritMenu) ;
                         }
-
                         function ajaxSpirit(){
                           var newSpirit= $("#selectedSpirit").val() || [];
                           $.ajax({
@@ -346,13 +322,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#spiritArea").html(newHtml);
       });
                         }
-
                         function editMajaClick(){
                           var majaMenu="<?= $majaSelect?>"; 
                           majaMenu+="<button type='submit' id='submitMaja' onclick='ajaxMaja()'>Submit</button>" ;
                           $("#majaArea").html(majaMenu) ;
                         }
-
                         function ajaxMaja(){
                           var newMaja= $("#selectedMaja").val() || [];
                           $.ajax({
@@ -366,14 +340,11 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#majaArea").html(newHtml);
       });
                         }
-
-
                         function editMajdClick(){
                             var majdMenu="<?= $majdSelect?>";
                             majdMenu+="<button type='submit' id='submitMajd' onclick='ajaxMajd()'>Submit</button>" ;
                             $("#majdArea").html(majdMenu) ;
                         }
-
                         function ajaxMajd() {
                             var newMajd = $("#selectedMajd").val() || [];
                             $.ajax({
@@ -392,7 +363,6 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
                           minaMenu+="<button type='submit' id='submitMina' onclick='ajaxMina()'>Submit</button>" ;
                           $("#minaArea").html(minaMenu) ;
                         }
-
                         function ajaxMina(){
                           var newMina= $("#selectedMina").val() || [];
                           $.ajax({
@@ -412,7 +382,6 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
                           mindMenu+="<button type='submit' id='submitMind' onclick='ajaxMind()'>Submit</button>" ;
                           $("#mindArea").html(mindMenu) ;
                         }
-
                         function ajaxMind(){
                           var newMind= $("#selectedMind").val() || [];
                           $.ajax({
@@ -426,9 +395,24 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
         $("#mindArea").html(newHtml);
       });
 
+                          function editTraitClick(){
+                          var traitMenu="<?= $traitSelect?>"; 
+                          traitMenu+="<button type='submit' id='submitTrait' onclick='ajaxTrait()'>Submit</button>" ;
+                          $("#traitArea").html(traitMenu) ;
                         }
-
-
+                        function ajaxTrait(){
+                          var newTrait= $("#selectedTrait").val() || [];
+                          $.ajax({
+                            method: "POST",
+                            url: "ajax.php",
+                            data: { trait: newTrait, char_id: "<?= $char_id?>", fx: "updateAdvant", type: "trait" }
+                          })
+                          .done(function( msg ) {
+        //alert( "Data Saved: " + msg );
+        newHtml="<div class='d-inline p-2'  >Traits: </div><div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
+        $("#traitArea").html(newHtml);
+      });
+                        }
                       </script>
 
                     </body>
