@@ -102,25 +102,25 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <h2>Name:</h2>
   <p id="nameInput"><?=$cname ?></p>
   <div id="nameArea">
-    <button type="submit" id="editName" onclick="editNameClick()">Edit</button>
+    <button type="submit" class="button" id="editName" onclick="editNameClick()">Edit</button>
   </div>
 
   <h2>Pronouns:</h2>
   <p id="pronInput"><?=$cpronouns ?></p>
   <div id="pronArea">
-    <button type="submit" id="editPron" onclick="editPronClick()">Edit</button>
+    <button type="submit" class="button" id="editPron" onclick="editPronClick()">Edit</button>
   </div>
   
   <h2>Race:</h2>
   <p><?=$crace ?></p>
   <div id="raceArea">
-    <button type="submit" onclick="editRaceClick()">Edit</button>
+    <button type="submit" class="button" onclick="editRaceClick()">Edit</button>
   </div>
 
   <h2>Background:</h2>
   <p><?=$cbackground ?></p>
   <div id="bgArea">
-    <button type="submit" onclick="editBgClick()">Edit</button>
+    <button type="submit" class="button" onclick="editBgClick()">Edit</button>
   </div>
   
   <h2>Physical Skills:</h2>
@@ -129,7 +129,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
     <br>
   <?php } ?>
   <div id="physArea">
-    <button type="submit" onclick="editPhysClick()">Edit</button>
+    <button type="submit" class="button" onclick="editPhysClick()">Edit</button>
   </div>
 
   <h2>Mental Skills</h2>
@@ -138,7 +138,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
     <br>
   <?php } ?>
   <div id="mentArea">
-    <button type="submit" onclick="editMentClick()">Edit</button>
+    <button type="submit" class="button" onclick="editMentClick()">Edit</button>
   </div>
 
   <h2>Spiritual Skills</h2>
@@ -147,7 +147,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
     <br>
   <?php } ?>
   <div id="spiritArea">
-    <button type="submit" onclick="editSpiritClick()">Edit</button>
+    <button type="submit"  class="button" onclick="editSpiritClick()">Edit</button>
   </div>
 
         <h2>Advantages and Disadvantages</h2>
@@ -156,28 +156,28 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
             <br>
           <?php } ?>
           <div id="majaArea">
-            <button type="submit" onclick="editMajaClick()">Edit</button>
+            <button type="submit" class="button" onclick="editMajaClick()">Edit</button>
           </div>
           <?php foreach($cmin_adv as $mina){
             ?><p><?=$mina ?></p>
             <br>
           <?php } ?>
           <div id="minaArea">
-            <button type="submit" onclick="editMinaClick()">Edit</button>
+            <button type="submit" class="button" onclick="editMinaClick()">Edit</button>
           </div>
           <?php foreach($cmaj_dis as $majd){
             ?><p><?=$majd ?></p>
             <br>
           <?php } ?>
              <div id="majdArea">
-                <button type="submit" onclick="editMajdClick()">Edit</button>
+                <button type="submit" class="button" onclick="editMajdClick()">Edit</button>
             </div>
           <?php foreach($cmin_dis as $mind){
             ?><p><?=$mind ?></p>
             <br>
           <?php } ?>
           <div id="mindArea">
-            <button type="submit" onclick="editMindClick()">Edit</button>
+            <button type="submit" class="button" onclick="editMindClick()">Edit</button>
           </div>
           
 
@@ -187,7 +187,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                       <br>
                       <?php } ?>
                       <div id="traitArea">
-                        <button type="submit" onclick="editTraitClick()">Edit</button>
+                        <button type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
 
                       <input type="submit" name="submit"/>
@@ -199,7 +199,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         
                         function editNameClick(){
                           var name=$("#nameInput").text();
-                          var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' id='submitName' onclick='ajaxName()'>Submit</button>";
+                          var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' class='button' id='submitName' onclick='ajaxName()'>Submit</button>";
                           $("#nameArea").html(nameHtml);
                         }
                         function ajaxName(){
@@ -217,7 +217,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editPronClick(){
                           var pron=$("#pronInput").text();
-                          var pronHtml="<input type='text' id='editPronInput' value='"+pron+"'><button type='submit' id='submitPron' onclick='ajaxPron()'>Submit</button>";
+                          var pronHtml="<input type='text' id='editPronInput' value='"+pron+"'><button type='submit' class='button' id='submitPron' onclick='ajaxPron()'>Submit</button>";
                           $("#pronArea").html(pronHtml);
                         }
                         function ajaxPron(){
@@ -235,7 +235,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editRaceClick(){
                           var raceMenu="<?= $raceSelect?>"; 
-                          raceMenu+="<button type='submit' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
+                          raceMenu+="<button type='submit' class='button' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
                           $("#raceArea").html(raceMenu) 
                         }
                         function ajaxRace(){
@@ -253,7 +253,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editBgClick(){
                           var bgMenu="<?= $bgSelect?>"; 
-                          bgMenu+="<button type='submit' id='submitBg' onclick='ajaxBg()'>Submit</button>" ;
+                          bgMenu+="<button type='submit' class='button' id='submitBg' onclick='ajaxBg()'>Submit</button>" ;
                           $("#bgArea").html(bgMenu) ;
                         }
                         function ajaxBg(){
@@ -271,7 +271,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editPhysClick(){
                           var physMenu="<?= $physSelect?>"; 
-                          physMenu+="<button type='submit' id='submitPhys' onclick='ajaxPhys()'>Submit</button>" ;
+                          physMenu+="<button type='submit' class='button' id='submitPhys' onclick='ajaxPhys()'>Submit</button>" ;
                           $("#physArea").html(physMenu) ;
                         }
                         function ajaxPhys(){
@@ -289,7 +289,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editMentClick(){
                           var mentMenu="<?= $mentSelect?>"; 
-                          mentMenu+="<button type='submit' id='submitMent' onclick='ajaxMent()'>Submit</button>" ;
+                          mentMenu+="<button type='submit' class='button' id='submitMent' onclick='ajaxMent()'>Submit</button>" ;
                           $("#mentArea").html(mentMenu) ;
                         }
                         function ajaxMent(){
@@ -307,7 +307,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editSpiritClick(){
                           var spiritMenu="<?= $spiritSelect?>"; 
-                          spiritMenu+="<button type='submit' id='submitSpirit' onclick='ajaxSpirit()'>Submit</button>" ;
+                          spiritMenu+="<button type='submit' class='button' id='submitSpirit' onclick='ajaxSpirit()'>Submit</button>" ;
                           $("#spiritArea").html(spiritMenu) ;
                         }
                         function ajaxSpirit(){
@@ -325,7 +325,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editMajaClick(){
                           var majaMenu="<?= $majaSelect?>"; 
-                          majaMenu+="<button type='submit' id='submitMaja' onclick='ajaxMaja()'>Submit</button>" ;
+                          majaMenu+="<button type='submit' class='button' id='submitMaja' onclick='ajaxMaja()'>Submit</button>" ;
                           $("#majaArea").html(majaMenu) ;
                         }
                         function ajaxMaja(){
@@ -343,7 +343,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editMajdClick(){
                             var majdMenu="<?= $majdSelect?>";
-                            majdMenu+="<button type='submit' id='submitMajd' onclick='ajaxMajd()'>Submit</button>" ;
+                            majdMenu+="<button type='submit' class='button' id='submitMajd' onclick='ajaxMajd()'>Submit</button>" ;
                             $("#majdArea").html(majdMenu) ;
                         }
                         function ajaxMajd() {
@@ -361,7 +361,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                         function editMinaClick(){
                           var minaMenu="<?= $minaSelect?>"; 
-                          minaMenu+="<button type='submit' id='submitMina' onclick='ajaxMina()'>Submit</button>" ;
+                          minaMenu+="<button type='submit' class='button' id='submitMina' onclick='ajaxMina()'>Submit</button>" ;
                           $("#minaArea").html(minaMenu) ;
                         }
                         function ajaxMina(){
@@ -380,7 +380,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         
                         function editMindClick(){
                           var mindMenu="<?= $mindSelect?>"; 
-                          mindMenu+="<button type='submit' id='submitMind' onclick='ajaxMind()'>Submit</button>" ;
+                          mindMenu+="<button type='submit' class='button' id='submitMind' onclick='ajaxMind()'>Submit</button>" ;
                           $("#mindArea").html(mindMenu) ;
                         }
                         function ajaxMind(){
@@ -398,7 +398,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 }
                           function editTraitClick(){
                           var traitMenu="<?= $traitSelect?>"; 
-                          traitMenu+="<button type='submit' id='submitTrait' onclick='ajaxTrait()'>Submit</button>" ;
+                          traitMenu+="<button type='submit' class='button' id='submitTrait' onclick='ajaxTrait()'>Submit</button>" ;
                           $("#traitArea").html(traitMenu) ;
                         }
                         function ajaxTrait(){
