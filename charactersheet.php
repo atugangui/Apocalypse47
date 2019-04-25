@@ -394,7 +394,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
         newHtml="<div class='d-inline p-2'  >Minor Disadvantages: </div><div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' id='editMind' onclick='editMindClick()'>Edit</button>" ;
         $("#mindArea").html(newHtml);
       });
-
+}
                           function editTraitClick(){
                           var traitMenu="<?= $traitSelect?>"; 
                           traitMenu+="<button type='submit' id='submitTrait' onclick='ajaxTrait()'>Submit</button>" ;
