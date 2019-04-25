@@ -14,7 +14,6 @@ $cmin_adv = $_REQUEST["min_adv"] ;
 $cmaj_dis = $_REQUEST["maj_dis"] ;
 $cmin_dis = $_REQUEST["min_dis"] ;
 $ctraits = $_REQUEST["traits"] ;
-
 $physical_cost = 0;
 $mental_cost = 0;
 $spiritual_cost = 0;
@@ -68,22 +67,48 @@ for ($i=0; $i < sizeof($cmin_dis); $i++) {
         $advantage_disadvantage_weight = $advantage_disadvantage_weight + $minor_disadvantages[$i][1];
     }
 }
+$errors=0;
+$i = 0;
 if($advantage_disadvantage_weight!=0){
-    print("You need to balance your advantages properly.");
+    $err[$i] = "You need to balance your advantages properly.";
+    $errors++;
+    $i++;
 }
-else if($physical_cost + $mental_cost + $spiritual_cost > 50){
-	print("You messed up. You have more than 50 total points. Do it better this time.");
+if($physical_cost + $mental_cost + $spiritual_cost > 50){
+    $err[$i] = "You have more than 50 total points.";
+    $errors++;
+    $i++;
 }
-elseif($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
-		print("You messed up: you have to have one category with ten points and two with 20. None have less than 10. Try again.");
-	}
-elseif($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
-			print("Do it again. No category can have more than 20 points. Try again.");
-		}
-else {
-	//Insert into database
-	include("sqlQueries.php") ;
-	include("charactersheet.php") ;
+if($physical_cost > 10 && $mental_cost > 10 && $spiritual_cost > 10){
+    $err[$i] = "You have to have one category with ten points and two with 20. None have less than 10.";
+    $errors++;
+    $i++;
+}
+if($physical_cost > 20 || $mental_cost > 20 || $spiritual_cost > 20){
+    $err[$i] = "No category can have more than 20 points.";
+    $errors++;
+    $i++;
 }
 
-?>
+if ($errors==0) {
+    //Insert into database
+    include("sqlQueries.php") ;
+    include("charactersheet.php") ;
+} else {
+    $errort = "";
+    foreach ($err as $error) {
+        $errort = $errort.$error."\n";
+    }
+    $errort = json_encode($errort);
+    ?><script language="javascript" type="text/javascript">
+        var error = <?= $errort ?>;
+
+       alert("You messed up: " + error + "Do better next time; it's not that hard.");
+        </script>
+        <script language="javascript" type="text/javascript">
+            history.go(-1);
+        </script>
+
+    <?php }
+
+    ?>
