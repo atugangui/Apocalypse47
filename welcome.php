@@ -52,6 +52,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             foreach($rows as $name) {  ?>
                 <div class="container">
                     <div class="row">
+                        <div class="col-4">
                         <div class="card-deck mb-3 text-center">
                             <div class="card mb-4 box-shadow">
                                 <div class="card-header">
@@ -61,6 +62,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
