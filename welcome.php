@@ -48,10 +48,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         } else {
             ?>
             <ul></ul>
-            <?php
-            foreach($rows as $name) {  ?>
+
                 <div class="container">
                     <div class="row">
+                        <?php
+                            foreach($rows as $name) {  ?>
                         <div class="col-4">
                         <div class="card-deck mb-3 text-center">
                             <div class="card mb-4 box-shadow">
@@ -64,11 +65,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             </div>
                         </div>
                         </div>
+                                    <?php }
+                                    ?>
                     </div>
                 </div>
-            <?php }
-        }
-    ?>
+<?php } ?>
     <p>
         <a href="Creator.php" class="btn-primary">Make a new character</a>
     </p>
