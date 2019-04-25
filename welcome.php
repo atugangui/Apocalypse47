@@ -42,15 +42,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $sql = "SELECT race FROM character_table WHERE char_name = :name";
-        $rows = $sql->execute(array(":name"=>$name));
-        $crace = $rows[0]['race'] ;
-
-        $sql = "SELECT background FROM character_table WHERE char_name = :name";
-        $rows = $sql->execute(array(":name"=>$name));
-        $cbg = $rows[0]['background'] ;
-;
-
         if (sizeof($rows[0])==0) {
             ?>
             <p>You do not have any characters.</p>
@@ -69,6 +60,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 <div class="card-body">
                                     <h1 class="card-title pricing-card-title"><?php echo $name['char_name'] ?><small class="text-muted"></h1>
                                         <ul class="list-unstyled mt-3 mb-4">
+                                            <?php
+                                                $sql = "SELECT race FROM character_table WHERE char_name = :name";
+                                                $rows = $sql->execute(array(":name"=>$name));
+                                                $crace = $rows[0]['race'] ;
+
+                                                $sql = "SELECT background FROM character_table WHERE char_name = :name";
+                                                $rows = $sql->execute(array(":name"=>$name));
+                                                $cbg = $rows[0]['background'] ; 
+                                            ?>
                                             <li><?php echo $crace ?></li>
                                             <li><?php echo $cbg ?></li>
                                         </ul>
