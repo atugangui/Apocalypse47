@@ -22,10 +22,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <!-- Custom styles for this template -->
     <link href="pricing.css" rel="stylesheet">
-
-    <style type="text/css">
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
 </head>
 
 <body>
@@ -54,8 +50,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <ul></ul>
             <?php
             foreach($rows as $name) {  ?>
-                <input type="button" value="<?php echo $name['char_name'] ?>" onClick="window.location='displayCharacter.php?name=<?php echo $name['char_name'] ?>'">
-
                 <div class="container">
                     <div class="card-deck mb-3 text-center">
                         <div class="card mb-4 box-shadow">
