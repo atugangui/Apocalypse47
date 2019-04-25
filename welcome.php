@@ -62,11 +62,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                         <ul class="list-unstyled mt-3 mb-4">
                                             <?php
                                                 $sql = "SELECT race FROM character_table WHERE char_name = :name";
-                                                $rows = $sql->execute(array(":name"=>$name));
+                                                $stmt = $conn->prepare($sql);
+                                                $rows = $stmt->execute(array(":name"=>$name));
                                                 $crace = $rows[0]['race'] ;
 
                                                 $sql = "SELECT background FROM character_table WHERE char_name = :name";
-                                                $rows = $sql->execute(array(":name"=>$name));
+                                                $stmt = $conn->prepare($sql);
+                                                $rows = $stmt->execute(array(":name"=>$name));
                                                 $cbg = $rows[0]['background'] ; 
                                             ?>
                                             <li><?php echo $crace ?></li>
