@@ -91,6 +91,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 <html>
 <head>
   <link href="edit.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="charactersheet.css">
   <script src="edit.js" type="text/javascript"></script>
   <meta charset="utf-8" />
 </head>
