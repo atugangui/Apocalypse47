@@ -183,7 +183,7 @@ function updatePron($id, $pron){
     if($type === "trait"){
         $stmt = $conn->prepare("DELETE FROM character_adv_and_disadv WHERE TYPE=:type AND char_id=:id");
         $stmt->execute(array(":id"=>$id, ":type"=>'trait'));
-        foreach($trait as $t){
+        foreach($advant as $t){
         $stmt = $conn->prepare("INSERT INTO character_adv_and_disadv (char_id, NAME, TYPE) VALUES(:id, :trait, :type)");
         $stmt->execute(array(":id"=>$id, ":trait"=>$t, ":type"=>'trait')) ;
         }
