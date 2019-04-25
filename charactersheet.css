@@ -4,4 +4,13 @@ body {
 
 .button {
     border-radius: 8px;
+    font-size: 10px;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
 }
