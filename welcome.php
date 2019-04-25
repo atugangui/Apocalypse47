@@ -15,17 +15,30 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <title>Home</title>
+
+    <!-- Compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="pricing.css" rel="stylesheet">
+
     <style type="text/css">
         body{ font: 14px sans-serif; text-align: center; }
     </style>
 </head>
+
 <body>
-    <div class="page-header">
-        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
+        <a href="logout.php" class="btn btn-outline-primary">Sign Out of Your Account</a>
     </div>
-    <h2>These are your characters:</h2>
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Your Characters:</h1>
+    </div>
+
     <?php
         $name = htmlspecialchars($_SESSION["username"]);
         $sql = "SELECT char_name FROM character_table JOIN player_table ON player_table.player_id = character_table.player_id WHERE player_table.email = :name";
@@ -42,6 +55,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <?php
             foreach($rows as $name) {  ?>
                 <input type="button" value="<?php echo $name['char_name'] ?>" onClick="window.location='displayCharacter.php?name=<?php echo $name['char_name'] ?>'">
+
+                <div class="container">
+                    <div class="card-deck mb-3 text-center">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal"><?php echo $name['char_name'] ?></h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php }
         }
     ?>
@@ -61,9 +87,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             $stmt -> execute(array(":param_email" => $name, ":param_xp" => $xp, ":param_bap"=> $bap));
         } 
     ?>
-    <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-    </p>
+
+    <!-- JS file -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
 </body>
 </html>
