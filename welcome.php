@@ -56,10 +56,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <div class="col-4">
                         <div class="card-deck mb-3 text-center">
                             <div class="card mb-4 box-shadow">
-                                <div class="card-header">
-                                    <h4 class="my-0 font-weight-normal"><?php echo $name['char_name'] ?></h4>
-                                </div>
                                 <div class="card-body">
+                                    <h1 class="card-title pricing-card-title"><?php echo $name['char_name'] ?><small class="text-muted">/ mo</small></h1>
                                     <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
                                 </div>
                             </div>
