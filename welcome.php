@@ -51,13 +51,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <?php
             foreach($rows as $name) {  ?>
                 <div class="container">
-                    <div class="card-deck mb-3 text-center">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-header">
-                                <h4 class="my-0 font-weight-normal"><?php echo $name['char_name'] ?></h4>
-                            </div>
-                            <div class="card-body">
-                                <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
+                    <div class="row">
+                        <div class="card-deck mb-3 text-center">
+                            <div class="card mb-4 box-shadow">
+                                <div class="card-header">
+                                    <h4 class="my-0 font-weight-normal"><?php echo $name['char_name'] ?></h4>
+                                </div>
+                                <div class="card-body">
+                                    <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
+                                </div>
                             </div>
                         </div>
                     </div>
