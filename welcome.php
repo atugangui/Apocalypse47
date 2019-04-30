@@ -43,13 +43,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <div class="container">
         <div class="row">
+            <?php foreach ($rows[0] as $char) { ?>
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $name['char_name'] ?></h5>
+                        <h5 class="card-title"><?php echo $char['char_name'] ?></h5>
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div> 
     <?php } ?>
