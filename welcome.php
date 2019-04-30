@@ -85,10 +85,10 @@ $colNum = 3 ;
                             if($rowCount % $colNum == 0){
                                 echo '</div><div class="row">' ;
                             }
+                        }
                             ?>
                     </div>
                 </div>
-<?php } ?>
     <p>
         <a href="Creator.php" class="btn-primary">Make a new character</a>
     </p>
