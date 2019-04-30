@@ -60,7 +60,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <?php } ?>
 
         <p>
-        <a href="Creator.php" class="btn btn-primary">Make a new character</a>
+        <a href="Creator.php" class="btn btn-primary btn-block">Make a new character</a>
     </p>
 
     <?php 
