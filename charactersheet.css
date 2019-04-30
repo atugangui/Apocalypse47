@@ -8,10 +8,12 @@ h2 {
 
 #majaArea, #majdArea {
     float: left;
+    width: 25%;
 }
 
 
 #minaArea, #mindArea {
+    width: 25%;
     float: right;
 }
 
