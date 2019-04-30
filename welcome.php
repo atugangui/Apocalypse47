@@ -41,7 +41,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <?php
         } else {
             ?>
-            <ul></ul>
+            <!--<ul></ul>
                 <div class="container">
                     <div class="row">
                         <?php
@@ -70,16 +70,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     ?>
                     </div>
                 </div>
-<?php } ?>
-    <p>
-        <a href="Creator.php" class="btn-primary">Make a new character</a>
-    </p>
+<?php } ?> -->
+
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">hello</h5>
+                        <h5 class="card-title"><?php echo $name['char_name'] ?></h5>
                     </div>
                 </div>
             </div>
@@ -91,7 +89,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </div>
             </div>
         </div>
-    </div>
+    </div> <?php } ?>
+
+        <p>
+        <a href="Creator.php" class="btn-primary">Make a new character</a>
+    </p>
 
     <?php 
         $sql = "SELECT * FROM player_table WHERE player_table.email = :name";
