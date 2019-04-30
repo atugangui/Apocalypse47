@@ -55,7 +55,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	            	<div class="col-4">
 	            		<div class="card">
 	            			<div class="card-body">
-	            				<h1 class="card-title"><?php echo $rows[0]['char_name'] ?></h1>
+	            				<h1 class="card-title">hello!</h1>
 	            			</div>
 	            		</div>
 	            	</div>
