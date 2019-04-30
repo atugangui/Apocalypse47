@@ -6,6 +6,14 @@ h2 {
     font-family: "Arial";
 }
 
+#majaArea, #majdArea {
+    float: left;
+}
+
+
+#minaArea, #mindArea {
+    float: right;
+}
 .button {
     border-radius: 8px;
     font-size: 15px;
