@@ -95,7 +95,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <script src="edit.js" type="text/javascript"></script>
   <meta charset="utf-8" />
 </head>
-<body background="background-brick-close-up-1585710.jpg">
+<body>
 
   <input type="hidden" name="char_id" value="<?= $char_id ?>">
 
