@@ -19,7 +19,7 @@ h2 {
 }
 
 
-.button {
+.button, .btn {
     font-family: "Courier New";
     border-radius: 8px;
     font-size: 15px;
