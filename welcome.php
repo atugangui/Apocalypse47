@@ -43,22 +43,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <?php foreach($rows as $name) ?>
+            <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $rows[0]['char_name'] ?></h5>
+                        <h5 class="card-title"><?php echo $name['char_name'] ?></h5>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">goodbye</h5>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
-    </div> <?php } ?>
+    </div> 
+    <?php } ?>
 
         <p>
         <a href="Creator.php" class="btn-primary">Make a new character</a>
