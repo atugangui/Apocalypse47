@@ -1,6 +1,8 @@
 .card-body {
 	text-align: center ;
 }
-body{
-background-image: url("background-brick-close-up-1585710.jpg");
+
+.card {
+	margin-top: 0.25rem ;
+	margin-bottom: 0.25rem ;
 }
