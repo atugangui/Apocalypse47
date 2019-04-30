@@ -48,7 +48,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $char['char_name'] ?></h5>
-                        <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-dark">View Character</a>
+                        <a href="displayCharacter.php?name=<?php echo $char['char_name'] ?>" class="btn btn-dark">View Character</a>
                     </div>
                 </div>
             </div>
