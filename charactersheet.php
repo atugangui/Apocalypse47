@@ -184,11 +184,12 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
           
 
                   <h2>Traits</h2>
+                    <div id="traitArea">
                     <?php foreach($ctraits as $trait){
                       ?><p><?=$trait ?></p>
                       <br>
                       <?php } ?>
-                      <div id="traitArea">
+
                         <button type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
 

@@ -15,6 +15,7 @@ h2 {
     float: right;
 }
 .button {
+    font-family: "Courier New";
     border-radius: 8px;
     font-size: 15px;
     background-color: #f44336;
