@@ -50,7 +50,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             ?>
             <ul></ul>
 
-            
+            <div class="container">
+            	<div class="row">
+	            	<div class="col-4">
+	            		<div class="card">
+	            			<div class="card-body">
+	            				<h1 class="card-title"><?php echo $rows[0]['char_name'] ?></h1>
+	            			</div>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
 
     <p>
        <a href="Creator.php" class="btn-primary">Make a new character</a>
