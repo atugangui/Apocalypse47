@@ -2,6 +2,10 @@ body {
     font-family: "Courier New";
 }
 
+h2 {
+    font-family: "Arial";
+}
+
 .button {
     border-radius: 8px;
     font-size: 15px;
