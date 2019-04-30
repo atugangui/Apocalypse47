@@ -17,9 +17,7 @@ h2 {
     float: right;
 }
 
-#traitArea, #AdvantagesandDisadvantages {
-    display: block;
-}
+
 .button {
     font-family: "Courier New";
     border-radius: 8px;
