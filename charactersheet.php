@@ -412,6 +412,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
         newHtml="<div class='d-inline p-2'  >Traits: </div><div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
         $("#traitArea").html(newHtml);
       });
+                        }
                         function deleteClick(){
                           if(confirm("Are you sure you want to delete this character?")){
                             deleteCharacter() ;
