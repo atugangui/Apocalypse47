@@ -182,9 +182,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
             <button type="submit" class="button" onclick="editMindClick()">Edit</button>
           </div>
 
-                    <div id="traitArea">
-                  <h2>Traits</h2>
 
+                  <h2>Traits</h2>
+                    <div id="traitArea">
                     <?php foreach($ctraits as $trait){
                       ?><p><?=$trait ?></p>
                       <br>
