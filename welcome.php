@@ -41,7 +41,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":name"=>$name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         if (sizeof($rows[0])==0) {
             ?>
             <p>You do not have any characters.</p>
@@ -56,29 +55,28 @@ $colNum = 3 ;
                     <div class="row">
                         <?php foreach($rows as $name){ ?>
                         <div class="col-4">
-                        <div class="card-deck mb-3 text-center">
-                            <div class="card mb-4 box-shadow">
-                                <div class="card-body">
-                                    <h1 class="card-title pricing-card-title"><?php echo $name['char_name'] ?><small class="text-muted"></h1>
-                                        <ul class="list-unstyled mt-3 mb-4">
-                                            <?php
-                                                $sql = "SELECT race FROM character_table WHERE char_name = :name";
-                                                $stmt = $conn->prepare($sql);
-                                                $rows = $stmt->execute(array(":name"=>$name));
-                                                $crace = $rows[0]['race'] ;
-
-                                                $sql = "SELECT background FROM character_table WHERE char_name = :name";
-                                                $stmt = $conn->prepare($sql);
-                                                $rows = $stmt->execute(array(":name"=>$name));
-                                                $cbg = $rows[0]['background'] ; 
-                                            ?>
-                                            <li><?php echo $crace ?></li>
-                                            <li><?php echo $cbg ?></li>
-                                        </ul>
-                                    <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
-                                </div>
-                            </div>
-                        </div>
+	                        <div class="card-deck mb-3 text-center">
+	                            <div class="card mb-4 box-shadow">
+	                                <div class="card-body">
+	                                    <h1 class="card-title pricing-card-title"><?php echo $name['char_name'] ?><small class="text-muted"></h1>
+	                                        <ul class="list-unstyled mt-3 mb-4">
+	                                            <?php
+	                                                $sql = "SELECT race FROM character_table WHERE char_name = :name";
+	                                                $stmt = $conn->prepare($sql);
+	                                                $fetched = $stmt->execute(array(":name"=>$name));
+	                                                $crace = $fetched[0]['race'] ;
+	                                                $sql = "SELECT background FROM character_table WHERE char_name = :name";
+	                                                $stmt = $conn->prepare($sql);
+	                                                $fetched = $stmt->execute(array(":name"=>$name));
+	                                                $cbg = $fetched[0]['background'] ; 
+	                                            ?>
+	                                            <li><?php echo $crace ?></li>
+	                                            <li><?php echo $cbg ?></li>
+	                                        </ul>
+	                                    <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
+	                                </div>
+	                            </div>
+	                        </div>
                         </div>
                         <?php
                             $rowCount++ ;
