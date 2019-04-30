@@ -412,9 +412,25 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
         newHtml="<div class='d-inline p-2'  >Traits: </div><div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
         $("#traitArea").html(newHtml);
       });
+                        function deleteClick(){
+                          if(confirm("Are you sure you want to delete this character?")){
+                            deleteCharacter() ;
+                          }
+                          else{
+                          }
+                        }
+                          function deleteCharacter(){
+                          $.ajax({
+                            method: "POST",
+                            url: "deleteCharacter.php",
+                            data: { char_id: "<?= $char_id?>"}
+                          })
+                          .done(function( msg ) {
+                            window.location.replace("welcome.php");
+                          });
                         }
                       </script>
-
                     </body>
+                    <button onclick="deleteClick()">Delete Character</button>
                     <a href="welcome.php" class="btn-primary">Return to Home Page</a>
                     </html>
