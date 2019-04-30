@@ -79,7 +79,10 @@ $colNum = 3 ;
 	                        </div>
                         </div>
                         <?php
-                            
+                            $rowCount++ ;
+                            if($rowCount % $colNum == 0){
+                                echo '</div><div class="row">' ;
+                            }
                         }
                             ?>
                     </div>
