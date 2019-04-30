@@ -43,7 +43,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <div class="container">
         <div class="row">
-            <?php foreach($rows as $name) ?>
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
@@ -51,7 +50,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     </div>
                 </div>
             </div>
-            <?php } ?>
         </div>
     </div> 
     <?php } ?>
