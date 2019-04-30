@@ -423,8 +423,8 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           function deleteCharacter(){
                           $.ajax({
                             method: "POST",
-                            url: "deleteCharacter.php",
-                            data: { char_id: "<?= $char_id?>"}
+                            url: "ajax.php",
+                            data: { char_id: "<?= $char_id?>", fx: "deleteCharacter"}
                           })
                           .done(function( msg ) {
                             window.location.replace("welcome.php");
