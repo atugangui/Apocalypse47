@@ -150,7 +150,6 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
     <button type="submit"  class="button" onclick="editSpiritClick()">Edit</button>
   </div>
 
-        <div id ="AdvantagesandDisadvantages">
         <h2>Advantages and Disadvantages</h2>
             <div id="majaArea">
           <?php foreach($cmaj_adv as $maja){
@@ -182,11 +181,10 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
             <button type="submit" class="button" onclick="editMindClick()">Edit</button>
           </div>
-        </div>
 
-
-                  <h2>Traits</h2>
                     <div id="traitArea">
+                  <h2>Traits</h2>
+
                     <?php foreach($ctraits as $trait){
                       ?><p><?=$trait ?></p>
                       <br>
