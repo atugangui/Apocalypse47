@@ -49,11 +49,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         } else {
             ?>
             <ul></ul>
-
+<?php $rowCount = 0 ; 
+$colNum = 3 ;
+?>
                 <div class="container">
                     <div class="row">
-                        <?php
-                            foreach($rows as $name) {  ?>
+                        <?php foreach($rows as $name){ ?>
                         <div class="col-4">
                         <div class="card-deck mb-3 text-center">
                             <div class="card mb-4 box-shadow">
@@ -79,8 +80,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             </div>
                         </div>
                         </div>
-                                    <?php }
-                                    ?>
+                        <?php
+                            $rowCount++ ;
+                            if($rowCount % $colNum == 0){
+                                echo '</div><div class="row">' ;
+                            }
+                            ?>
                     </div>
                 </div>
 <?php } ?>
