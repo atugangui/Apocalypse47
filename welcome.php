@@ -56,12 +56,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <?php } ?>
         </div>
+            <p>
+                <a href="Creator.php" class="btn btn-primary btn-block">Make a new character</a>
+            </p>
     </div> 
     <?php } ?>
-
-        <p>
-        <a href="Creator.php" class="btn btn-primary btn-block">Make a new character</a>
-    </p>
 
     <?php 
         $sql = "SELECT * FROM player_table WHERE player_table.email = :name";
