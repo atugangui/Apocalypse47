@@ -95,7 +95,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <script src="edit.js" type="text/javascript"></script>
   <meta charset="utf-8" />
 </head>
-<body>
+<body background="background-brick-close-up-1585710.jpg">
 
   <input type="hidden" name="char_id" value="<?= $char_id ?>">
 
@@ -151,7 +151,6 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   </div>
 
         <h2>Advantages and Disadvantages</h2>
-  <div>
             <div id="majaArea">
           <?php foreach($cmaj_adv as $maja){
             ?><p><?=$maja ?></p>
@@ -182,9 +181,8 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
             <button type="submit" class="button" onclick="editMindClick()">Edit</button>
           </div>
-  </div>
 
-<div>
+<hr />
                   <h2>Traits</h2>
                     <div id="traitArea">
                     <?php foreach($ctraits as $trait){
@@ -194,7 +192,6 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
                         <button type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
-</div>
 
 
 
