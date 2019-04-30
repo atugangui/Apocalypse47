@@ -151,32 +151,34 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   </div>
 
         <h2>Advantages and Disadvantages</h2>
+            <div id="majaArea">
           <?php foreach($cmaj_adv as $maja){
             ?><p><?=$maja ?></p>
             <br>
           <?php } ?>
-          <div id="majaArea">
             <button type="submit" class="button" onclick="editMajaClick()">Edit</button>
           </div>
+            <div id="minaArea">
           <?php foreach($cmin_adv as $mina){
             ?><p><?=$mina ?></p>
             <br>
           <?php } ?>
-          <div id="minaArea">
             <button type="submit" class="button" onclick="editMinaClick()">Edit</button>
           </div>
+        <div id="majdArea">
           <?php foreach($cmaj_dis as $majd){
             ?><p><?=$majd ?></p>
             <br>
           <?php } ?>
-             <div id="majdArea">
+
                 <button type="submit" class="button" onclick="editMajdClick()">Edit</button>
             </div>
+        <div id="mindArea">
           <?php foreach($cmin_dis as $mind){
             ?><p><?=$mind ?></p>
             <br>
           <?php } ?>
-          <div id="mindArea">
+
             <button type="submit" class="button" onclick="editMindClick()">Edit</button>
           </div>
           
