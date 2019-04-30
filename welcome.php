@@ -50,37 +50,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             ?>
             <ul></ul>
 
-                <div class="container">
-                    <div class="row">
-                        <?php
-                            foreach($rows as $name) {  ?>
-                        <div class="col-4">
-	 
-	                                    <h1 class="card-title pricing-card-title"><?php echo $name['char_name'] ?>
-	                                    <small class="text-muted"></h1>
-	                                        <ul class="list-unstyled mt-3 mb-4">
-	                                            <?php
-	                                                $sql = "SELECT race FROM character_table WHERE char_name = :name";
-	                                                $stmt = $conn->prepare($sql);
-	                                                $rows = $stmt->execute(array(":name"=>$name));
-	                                                $crace = $rows[0]['race'] ;
+            <div class="container">
+            	<div class="row">
+	            	<div class="col-sm-4">
+	            		<div class="card">
+	            			<div class="card-body">
+	            				<h1 class="card-title"><?php echo $row[0]['char_name'] ?>
+	            			</div>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
 
-	                                                $sql = "SELECT background FROM character_table WHERE char_name = :name";
-	                                                $stmt = $conn->prepare($sql);
-	                                                $rows = $stmt->execute(array(":name"=>$name));
-	                                                $cbg = $rows[0]['background'] ; 
-	                                            ?>
-	                                            <li><?php echo $crace ?></li>
-	                                            <li><?php echo $cbg ?></li>
-	                                        </ul>
-	                                    <a href="displayCharacter.php?name=<?php echo $name['char_name'] ?>" class="btn btn-lg btn-block btn-outline-primary">View Character</a>
-	                                
-                        </div>
-                                    <?php }
-                                    ?>
-                    </div>
-                </div>
-<?php } ?>
+
+
     <p>
         <a href="Creator.php" class="btn-primary">Make a new character</a>
     </p>
