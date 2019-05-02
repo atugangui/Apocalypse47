@@ -67,13 +67,12 @@ $traits = explode("\r", $traits) ;
         	<h2>Name and Pronouns</h2>
           <div class="container">
         	<input type="text" value='name' name="name" /> <br />
-        	<input type="text" name="pronouns" /> <br />
+        	<input type="text" value='pronouns' name="pronouns" /> <br />
       </div>
 
        <!-- race and background -->
         <h2> Race and Background </h2>
         <div class="container">
-        <fieldset id="race">
           <select name="race" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
               <option value="">Select race</option>
               <?php
@@ -81,9 +80,7 @@ $traits = explode("\r", $traits) ;
                   ?>
                   <option value=<?=$race_names[$i] ?> > <?=$race_names[$i] ?></option>
               <?php } ?>
-          </select>
-        </fieldset>    
-        <fieldset id="background_one">
+          </select>    
           <script type="text/javascript" language="JavaScript">
                                 document.write('<select name="background" id="subcategory"><option value="">Please select background</option></select>')
           </script>
@@ -92,14 +89,12 @@ $traits = explode("\r", $traits) ;
                   <option value="">Select background</option>
               </select>
           </noscript>
-        </fieldset>
       </div>
 
        <!---------------------------------------------- skills ---------------------------->
         <h2>Skills</h2>
         <div class="container">
         <p> Each new character starts with 50 points to allot to skills: 10 points in one category and 20 points in the remaining two categories. <br> Remember to hold down control when selecting multiple options!</p>
-        <fieldset class="skill">
           <legend>Physical</legend>
           <select multiple="multiple" name="physical[]" size="10">
            	<?php
@@ -115,9 +110,7 @@ $traits = explode("\r", $traits) ;
 
         		<?php }?>
           </select>
-        </fieldset>
 
-        <fieldset class="skill">
           <legend>Mental</legend>
           <select multiple="multiple" name="mental[]" size="10">
            	<?php
@@ -133,9 +126,7 @@ $traits = explode("\r", $traits) ;
 
         		<?php }?>
           </select>
-        </fieldset>
 
-        <fieldset class="skill">
         	<legend>Spiritual</legend>
         	<select multiple="multiple" name="spiritual[]" size = "10">
         			<?php
@@ -151,7 +142,6 @@ $traits = explode("\r", $traits) ;
 
         		<?php }?>
         	</select>
-        </fieldset>
       </div>
       
       
@@ -160,7 +150,6 @@ $traits = explode("\r", $traits) ;
         <p> Each major trait is worth two minor traits, so make sure your advantages and disadvantages equal out!
           <br>
         For example, if you have two minor advantages you can select one major disadvantage or two minor disadvantages</p>
-        <fieldset>
           <legend>Major Advantages</legend>
           <select multiple="multiple" name="maj_adv[]" size="5">
 
@@ -176,9 +165,7 @@ $traits = explode("\r", $traits) ;
 
             <?php }?>
           </select>
-        </fieldset>
 
-        <fieldset>
           <legend>Minor Advantages</legend>
           <select multiple="multiple" name="min_adv[]" size="5">
            	<?php
@@ -192,9 +179,7 @@ $traits = explode("\r", $traits) ;
 
            	<?php }?>
           </select>
-        </fieldset>
 
-        <fieldset>
           <legend>Major Disadvantages</legend>
           <select multiple = "multiple" name="maj_dis[]" size="5">
             <?php
@@ -208,9 +193,7 @@ $traits = explode("\r", $traits) ;
 
             <?php }?>
           </select>
-          </fieldset>
 
-          <fieldset>
             <legend>Minor Disadvantages</legend>
            	<select multiple="multiple" name="min_dis[]" size="5">
            		<?php
@@ -224,7 +207,6 @@ $traits = explode("\r", $traits) ;
 
            		<?php }?>
           </select>
-        </fieldset>
 
       </div>
       
