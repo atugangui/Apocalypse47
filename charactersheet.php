@@ -103,27 +103,33 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
   <div id="nameEdit">
     <p id="nameInput"><?=$cname ?></p>
-    <button type="submit" class="button" id="editName" onclick="editNameClick()">Edit</button>
+    <button type="submit" class="btn btn-light" id="editName" onclick="editNameClick()">Edit</button>
   </div>
 </div>
 
   <h2>Pronouns:</h2>
+  <div class="container">
     <div id="pronEdit">
     <p id="pronInput"><?=$cpronouns ?></p>
     <button type="submit" class="btn btn-light" id="editPron" onclick="editPronClick()">Edit</button>
   </div>
+</div>
   
   <h2>Race:</h2>
+  <div class="container">
   <div id="raceEdit">
   <p><?=$crace ?></p>
     <button type="submit" class="btn btn-light" onclick="editRaceClick()">Edit</button>
   </div>
+</div>
 
   <h2>Background:</h2>
+  <div class="container">
   <div id="bgEdit">
   <p><?=$cbackground ?></p>
     <button type="submit" class="btn btn-light" onclick="editBgClick()">Edit</button>
   </div>
+</div>
 
   <h2>Skills</h2>
 
