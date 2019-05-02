@@ -66,8 +66,8 @@ $traits = explode("\r", $traits) ;
         <!-- name and pronouns -->
         	<h2>Name and Pronouns</h2>
           <div class="container">
-        	<input type="text" value='name' name="name" /> <br />
-        	<input type="text" value='pronouns' name="pronouns" /> <br />
+        	<input type="text" value='name' name="name" />
+        	<input type="text" value='pronouns' name="pronouns" />
       </div>
 
        <!-- race and background -->
@@ -94,7 +94,7 @@ $traits = explode("\r", $traits) ;
        <!---------------------------------------------- skills ---------------------------->
         <h2>Skills</h2>
         <div class="container">
-        <p> Each new character starts with 50 points to allot to skills: 10 points in one category and 20 points in the remaining two categories. <br> Remember to hold down control when selecting multiple options!</p>
+        <p> Each new character starts with 50 points to allot to skills: 10 points in one category and 20 points in the remaining two categories. <br> Remember to hold down the 'ctrl' button when selecting multiple options!</p>
           <legend>Physical</legend>
           <select multiple="multiple" name="physical[]" size="10">
            	<?php
