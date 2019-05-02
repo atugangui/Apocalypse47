@@ -23,7 +23,6 @@ for ($i=0; $i < sizeof($backgrounds); $i++) {
     }
 }
 $background = json_encode($background);
-
 $phys_skills = file_get_contents("physical_skills_available.csv") ;
 $phys_skills = explode("\r", $phys_skills);
 $ment_skills = file_get_contents("mental_skills_available.csv") ;
@@ -48,7 +47,11 @@ $traits = explode("\r", $traits) ;
         <title>Create Character</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script language="javascript" type="text/javascript">
+        <!-- Compiled and minified CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Custom CSS for Creator.php -->
+        <link href="charactersheet.css" rel="stylesheet">
         var races = <?= $js_array ?>;
         var backgrounds = <?= $background ?> ;
         </script>
@@ -58,17 +61,16 @@ $traits = explode("\r", $traits) ;
     <body>
     <form action="changesSubmitted.php" method="post">
       <h1>Create your Character </h1>
-      <h2> Name your character and assign pronouns</h2>
-      <fieldset id="name_pronoun">  <!--------------------------------- name and pronouns ---------------------->
-        	<legend>Name and Pronouns</legend>
+
+      <div class="container">  <!-- name and pronouns -->
+        	<h2>Name and Pronouns</h2>
         	<input type="text" name="name" /> <br />
         	<input type="text" name="pronouns" /> <br />
-      </fieldset>
-      <h2> Choose your character's race and background</h2>
-      <fieldset id = "race_background"> <!----------------------------- race and background ------------------->
-        <legend> Race and Background </legend>
+      </div>
+
+      <div class="container"> <!-- race and background -->
+        <h2> Race and Background </h2>
         <fieldset id="race">
-          <p> Select the race of your character: </p>
           <select name="race" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
               <option value="">Select race</option>
               <?php
@@ -79,7 +81,6 @@ $traits = explode("\r", $traits) ;
           </select>
         </fieldset>    
         <fieldset id="background_one">
-          <p> Select the background of your character: </p>
           <script type="text/javascript" language="JavaScript">
                                 document.write('<select name="background" id="subcategory"><option value="">Please select background</option></select>')
           </script>
@@ -89,11 +90,10 @@ $traits = explode("\r", $traits) ;
               </select>
           </noscript>
         </fieldset>
-      </fieldset>
+      </div>
 
-      <h2> Choose your skills</h2>
-      <fieldset id="skills">  <!---------------------------------------------- skills ---------------------------->
-        <legend>Skills</legend>
+      <div class="container">  <!---------------------------------------------- skills ---------------------------->
+        <h2>Skills</h2>
         <p> Each new character starts with 50 points to allot to skills: 10 points in one category and 20 points in the remaining two categories. <br> Remember to hold down control when selecting multiple options!</p>
         <fieldset class="skill">
           <legend>Physical</legend>
@@ -148,11 +148,10 @@ $traits = explode("\r", $traits) ;
         		<?php }?>
         	</select>
         </fieldset>
-      </fieldset>
+      </div>
       
-      <h2>Choose your advantages and disadvantages</h2>
-      <fieldset> <!------------------------- Adavantages and Disadvantages --------------------------->
-        <legend>Advantages</legend>
+      <div class="container">
+        <h2>Advantages</h2>
         <p> Each major trait is worth two minor traits, so make sure your advantages and disadvantages equal out!
           <br>
         For example, if you have two minor advantages you can select one major disadvantage or two minor disadvantages</p>
@@ -194,7 +193,6 @@ $traits = explode("\r", $traits) ;
           <legend>Major Disadvantages</legend>
           <select multiple = "multiple" name="maj_dis[]" size="5">
             <?php
-
           foreach ($major_disadvantages as $major_disadvantage){
             $maj_dis = explode(",", $major_disadvantage) ;
             $advantage = $maj_dis[1] ;
@@ -223,11 +221,10 @@ $traits = explode("\r", $traits) ;
           </select>
         </fieldset>
 
-      </fieldset>
+      </div>
       
-      <h2> Choose your traits </h2>
-      <fieldset id="traits"> <!---------------------------- Traits -------------------------------------------->
-        <legend>Traits</legend>
+      <div class="container"> <!-- Traits -->
+        <h2>Traits</h2>
         <p>You can pick as many traits as you like</p>
         <select multiple="multiple" name="traits[]" size="5">
           <?php
@@ -238,7 +235,7 @@ $traits = explode("\r", $traits) ;
         <option value="<?= $trait ?>"><?=$trait ?></option>
           <?php }?>
         </select>
-      </fieldset>
+      </div>
 
 
     <input type="submit" name="submit"/>
