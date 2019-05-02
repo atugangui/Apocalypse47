@@ -420,5 +420,5 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                       </script>
 
                     </body>
-                    <a href="welcome.php" class="btn-primary">Return to Home Page</a>
+                    <a href="welcome.php" class="btn btn-primary">Return to Home Page</a>
                     </html>
