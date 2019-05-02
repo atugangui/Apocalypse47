@@ -96,12 +96,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
     <!-- Custom CSS for charactersheet.php -->
     <link href="charactersheet.css" rel="stylesheet">
+
   <meta charset="utf-8" />
 </head>
 <body>
 
   <input type="hidden" name="char_id" value="<?= $char_id ?>">
 
+<div class="container page-container">
   <h2>Name:</h2>
   <div class="container">
   <div id="nameEdit">
@@ -250,6 +252,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                       
                         <button class="btn btn-light" type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
+                    </div>
 
 
 
