@@ -108,7 +108,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
   <div id="nameEdit">
     <p id="nameInput"><?=$cname ?></p>
-    <button type="submit" class="btn btn-light" id="editName" onclick="editNameClick()">Edit</button>
+    <button type="submit" class="btn btn-dark" id="editName" onclick="editNameClick()">Edit</button>
   </div>
 </div>
 
@@ -116,7 +116,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
     <div id="pronEdit">
     <p id="pronInput"><?=$cpronouns ?></p>
-    <button type="submit" class="btn btn-light" id="editPron" onclick="editPronClick()">Edit</button>
+    <button type="submit" class="btn btn-dark" id="editPron" onclick="editPronClick()">Edit</button>
   </div>
 </div>
   
@@ -124,7 +124,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
   <div id="raceEdit">
   <p><?=$crace ?></p>
-    <button type="submit" class="btn btn-light" onclick="editRaceClick()">Edit</button>
+    <button type="submit" class="btn btn-dark" onclick="editRaceClick()">Edit</button>
   </div>
 </div>
 
@@ -132,7 +132,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
   <div id="bgEdit">
   <p><?=$cbackground ?></p>
-    <button type="submit" class="btn btn-light" onclick="editBgClick()">Edit</button>
+    <button type="submit" class="btn btn-dark" onclick="editBgClick()">Edit</button>
   </div>
 </div>
 
@@ -149,7 +149,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button class="btn btn-light" type="submit" onclick="editPhysClick()">Edit</button>
+                  <button class="btn btn-dark" type="submit" onclick="editPhysClick()">Edit</button>
               </div>
             </div>
       </div>
@@ -164,7 +164,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button class="btn btn-light" type="submit" onclick="editMentClick()">Edit</button>
+                  <button class="btn btn-dark" type="submit" onclick="editMentClick()">Edit</button>
               </div>
             </div>
       </div>
@@ -179,7 +179,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button class="btn btn-light" type="submit" onclick="editSpiritClick()">Edit</button>
+                  <button class="btn btn-dark" type="submit" onclick="editSpiritClick()">Edit</button>
               </div>
             </div>
       </div>
@@ -198,7 +198,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button class="btn btn-light" type="submit" onclick="editMajaClick()">Edit</button>
+                  <button class="btn btn-dark" type="submit" onclick="editMajaClick()">Edit</button>
               </div>
           </div>
 
@@ -211,7 +211,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button class="btn btn-light" type="submit" onclick="editMinaClick()">Edit</button>
+                  <button class="btn btn-dark" type="submit" onclick="editMinaClick()">Edit</button>
               </div>
           </div>
       </div>
@@ -226,7 +226,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button class="btn btn-light" type="submit" onclick="editMajdClick()">Edit</button>
+                  <button class="btn btn-dark" type="submit" onclick="editMajdClick()">Edit</button>
               </div>
           </div>
 
@@ -238,7 +238,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   ?><p><?=$mind ?></p>
                   <br>
               <?php } ?>
-                  <button class="btn btn-light" type="submit" onclick="editMindClick()">Edit</button>
+                  <button class="btn btn-dark" type="submit" onclick="editMindClick()">Edit</button>
               </div>
           </div>
       </div>
@@ -250,7 +250,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                       <br>
                       <?php } ?>
                       
-                        <button class="btn btn-light" type="submit" class="button" onclick="editTraitClick()">Edit</button>
+                        <button class="btn btn-dark" type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
                     </div>
 
@@ -272,7 +272,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editName' onclick='editNameClick()'>Edit</button></div>";
+        newHtml="<div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editName' onclick='editNameClick()'>Edit</button></div>";
         $("#nameEdit").html(newHtml);
       });
                         }
@@ -290,7 +290,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editPron' onclick='editPronClick()'>Edit</button></div>";
+        newHtml="<div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editPron' onclick='editPronClick()'>Edit</button></div>";
         $("#pronEdit").html(newHtml);
       });
                         }
@@ -308,7 +308,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
         $("#raceEdit").html(newHtml);
       });
                         }
@@ -326,7 +326,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editBg' onclick='editBgClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editBg' onclick='editBgClick()'>Edit</button>" ;
         $("#bgEdit").html(newHtml);
       });
                         }
@@ -344,7 +344,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
         $("#physEdit").html(newHtml);
       });
                         }
@@ -362,7 +362,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='mentInput'>"+newMent+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMent' onclick='editMentClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='mentInput'>"+newMent+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMent' onclick='editMentClick()'>Edit</button>" ;
         $("#mentEdit").html(newHtml);
       });
                         }
@@ -380,7 +380,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
         $("#spiritEdit").html(newHtml);
       });
                         }
@@ -398,7 +398,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
         $("#majaEdit").html(newHtml);
       });
                         }
@@ -416,7 +416,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                             })
                                 .done(function (msg) {
                                     //alert( "Data Saved: " + msg );
-                                    newHtml = "<div class='d-inline p-2'  id='majdInput'>" + newMajd + "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMajd' onclick='editMajdClick()'>Edit</button>";
+                                    newHtml = "<div class='d-inline p-2'  id='majdInput'>" + newMajd + "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMajd' onclick='editMajdClick()'>Edit</button>";
                                     $("#majdEdit").html(newHtml);
                                 });
                         }
@@ -434,7 +434,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='minaInput'>"+newMina+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMina' onclick='editMinaClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='minaInput'>"+newMina+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMina' onclick='editMinaClick()'>Edit</button>" ;
         $("#minaEdit").html(newHtml);
       });
                         }
@@ -453,7 +453,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMind' onclick='editMindClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMind' onclick='editMindClick()'>Edit</button>" ;
         $("#mindEdit").html(newHtml);
       });
 }
@@ -471,7 +471,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
         $("#traitEdit").html(newHtml);
       });
                         }
@@ -480,5 +480,5 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                     </body>
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                    <a href="welcome.php" class="btn btn-primary">Return to Home Page</a>
+                    <a href="welcome.php" class="btn btn-dark">Return to Home Page</a>
                     </html>

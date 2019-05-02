@@ -229,7 +229,7 @@ $traits = explode("\r", $traits) ;
 
 
     <input type="submit" name="submit"/>
-    <a href="welcome.php" class="btn btn-primary">Return to Home Page</a>
+    <a href="welcome.php" class="btn btn-dark">Return to Home Page</a>
   </div>
     </form>
     </body>
