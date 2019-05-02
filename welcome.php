@@ -24,7 +24,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 </head>
 <body>
-    <div class="md-row-reverse p-3 px-md-4 mb-3 bg-white border-bottom box-shadow bg-secondary">
+    <div class="md-row-reverse p-3 px-md-4 mb-3 border-bottom box-shadow bg-secondary">
             <a href="reset-password.php" class="btn btn-danger">Reset Password</a>
             <a href="logout.php" class="btn btn-outline-primary">Sign Out</a>
     </div>
