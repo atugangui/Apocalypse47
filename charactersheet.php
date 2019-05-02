@@ -90,9 +90,8 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="edit.css" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="charactersheet.css">
-  <script src="edit.js" type="text/javascript"></script>
+    <!-- Compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta charset="utf-8" />
 </head>
 <body>
@@ -122,66 +121,99 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div id="bgArea">
     <button type="submit" class="button" onclick="editBgClick()">Edit</button>
   </div>
-  
-  <h2>Physical Skills:</h2>
-  <?php foreach($cphys as $skill){
-    ?><p><?=$skill ?></p>
-    <br>
-  <?php } ?>
-  <div id="physArea">
-    <button type="submit" class="button" onclick="editPhysClick()">Edit</button>
-  </div>
 
-  <h2>Mental Skills</h2>
-  <?php foreach($cment as $skill){
-    ?><p><?=$skill ?></p>
-    <br>
-  <?php } ?>
-  <div id="mentArea">
-    <button type="submit" class="button" onclick="editMentClick()">Edit</button>
-  </div>
+  <h2>Skills</h2>
 
-  <h2>Spiritual Skills</h2>
-  <?php foreach($cspirit as $skill){
-    ?><p><?=$skill ?></p>
-    <br>
-  <?php } ?>
-  <div id="spiritArea">
-    <button type="submit"  class="button" onclick="editSpiritClick()">Edit</button>
-  </div>
-
-        <h2>Advantages and Disadvantages</h2>
-            <div id="majaArea">
-          <?php foreach($cmaj_adv as $maja){
-            ?><p><?=$maja ?></p>
-            <br>
-          <?php } ?>
-            <button type="submit" class="button" onclick="editMajaClick()">Edit</button>
-          </div>
-            <div id="minaArea">
-          <?php foreach($cmin_adv as $mina){
-            ?><p><?=$mina ?></p>
-            <br>
-          <?php } ?>
-            <button type="submit" class="button" onclick="editMinaClick()">Edit</button>
-          </div>
-        <div id="majdArea">
-          <?php foreach($cmaj_dis as $majd){
-            ?><p><?=$majd ?></p>
-            <br>
-          <?php } ?>
-
-                <button type="submit" class="button" onclick="editMajdClick()">Edit</button>
-            </div>
-        <div id="mindArea">
-          <?php foreach($cmin_dis as $mind){
-            ?><p><?=$mind ?></p>
-            <br>
-          <?php } ?>
-
-            <button type="submit" class="button" onclick="editMindClick()">Edit</button>
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-4">
+              <h2>Physical Skills:</h2>
+              <?php foreach($cphys as $skill){
+                  ?><p><?=$skill ?></p>
+                  <br>
+              <?php } ?>
+              <div id="physEdit">
+                  <button type="submit" onclick="editPhysClick()">Edit</button>
+              </div>
           </div>
 
+          <div class="col-sm-4">
+              <h2>Mental Skills</h2>
+              <?php foreach($cment as $skill){
+                  ?><p><?=$skill ?></p>
+                  <br>
+              <?php } ?>
+              <div id="mentEdit">
+                  <button type="submit" onclick="editMentClick()">Edit</button>
+              </div>
+          </div>
+
+          <div id="col-sm-4">
+              <h2>Spiritual Skills</h2>
+              <?php foreach($cspirit as $skill){
+                  ?><p><?=$skill ?></p>
+                  <br>
+              <?php } ?>
+              <div id="spiritEdit">
+                  <button type="submit" onclick="editSpiritClick()">Edit</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <h2>Advantages and Disadvantages</h2>
+
+  <div class="container">
+      <div class="row">
+          <div id="col-sm-6">
+              <h3>Major Advantages</h3>
+              <?php foreach($cmaj_adv as $maja){
+                  ?><p><?=$maja ?></p>
+                  <br>
+              <?php } ?>
+              <div id="majaEdit">
+                  <button type="submit" onclick="editMajaClick()">Edit</button>
+              </div>
+          </div>
+
+          <div id="col-sm-6">
+              <h3>Minor Advantages</h3>
+              <?php foreach($cmin_adv as $mina){
+                  ?><p><?=$mina ?></p>
+                  <br>
+              <?php } ?>
+              <div id="minaEdit">
+                  <button type="submit" onclick="editMinaClick()">Edit</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="container">
+      <div class="row">
+          <div id="col-sm-6">
+              <h3>Major Disadvantages</h3>
+              <?php foreach($cmaj_dis as $majd){
+                  ?><p><?=$majd ?></p>
+                  <br>
+              <?php } ?>
+              <div id="majdEdit">
+                  <button type="submit" onclick="editMajdClick()">Edit</button>
+              </div>
+          </div>
+
+          <div id="col-sm-6">
+              <h3>Minor Disadvantages</h3>
+              <?php foreach($cmin_dis as $mind){
+                  ?><p><?=$mind ?></p>
+                  <br>
+              <?php } ?>
+              <div id="mindEdit">
+                  <button type="submit" onclick="editMindClick()">Edit</button>
+              </div>
+          </div>
+      </div>
+  </div>
 <hr />
                   <h2>Traits</h2>
                     <div id="traitArea">
@@ -194,9 +226,6 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                       </div>
 
 
-
-                      <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-                      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
                       <script>
                         
@@ -420,5 +449,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                       </script>
 
                     </body>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
                     <a href="welcome.php" class="btn btn-primary">Return to Home Page</a>
                     </html>
