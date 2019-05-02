@@ -9,11 +9,6 @@ h2 {
     font-family: "Arial";
 }
 
-.container {
-    background-color: red ;
-    opacity: .75 ;
-}
-
 #majaArea, #majdArea {
     float: left;
     width: 25%;

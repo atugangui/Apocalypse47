@@ -64,6 +64,7 @@ $traits = explode("\r", $traits) ;
       <h1>Create your Character </h1>
 
         <!-- name and pronouns -->
+      <div class="container">
         	<h2>Name and Pronouns</h2>
           <div class="container">
         	<input type="text" value='name' name="name" />
@@ -228,6 +229,7 @@ $traits = explode("\r", $traits) ;
 
     <input type="submit" name="submit"/>
     <a href="welcome.php" class="btn btn-primary">Return to Home Page</a>
+  </div>
     </form>
     </body>
 
