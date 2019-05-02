@@ -1,15 +1,22 @@
 body{
 background-image: url("background-brick-close-up-1585710.jpg") ;
 background-size: 100% 100% ;
+font-family: "Ariel", sans-serif;
+}
+
+h1{
+	font-family: "courier", serif;
 }
 
 	.card-body {
 	text-align: center ;
+
 }
 
 .card {
 	margin-top: .5rem ;
 	margin-bottom: .5rem ;
+	color: #A1A0A0 ;
 }
 
 .newBtnChar {
