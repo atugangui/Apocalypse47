@@ -9,5 +9,6 @@ body{
 }
 .wrapper{ 
 	width: 350px; padding: 20px; 
-	opacity: 100%;
+	opacity: 1;
+	background-color: white;
 }
