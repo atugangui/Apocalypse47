@@ -7,14 +7,8 @@ font-family: "Ariel", sans-serif;
 h1{
 	font-family: "courier", serif;
 	color: white;
-	font-weight: bolder ;
-	font-size: 50pt;
-
 }
 
-#header {
-	background-color: #8D8D8D ;
-}
 
 .card-body {
 	text-align: center ;
@@ -23,7 +17,7 @@ h1{
 
 .card-title {
 	font-weight: bold;
-	font-size: 30pt;
+	font-size: 22pt;
 }
 
 .card {
