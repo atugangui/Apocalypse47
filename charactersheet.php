@@ -100,26 +100,26 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <input type="hidden" name="char_id" value="<?= $char_id ?>">
 
   <h2>Name:</h2>
-  <p id="nameInput"><?=$cname ?></p>
   <div id="nameEdit">
+    <p id="nameInput"><?=$cname ?></p>
     <button type="submit" class="button" id="editName" onclick="editNameClick()">Edit</button>
   </div>
 
   <h2>Pronouns:</h2>
-  <p id="pronInput"><?=$cpronouns ?></p>
-  <div id="pronEdit">
+    <div id="pronEdit">
+    <p id="pronInput"><?=$cpronouns ?></p>
     <button type="submit" class="button" id="editPron" onclick="editPronClick()">Edit</button>
   </div>
   
   <h2>Race:</h2>
-  <p><?=$crace ?></p>
   <div id="raceEdit">
+  <p><?=$crace ?></p>
     <button type="submit" class="button" onclick="editRaceClick()">Edit</button>
   </div>
 
   <h2>Background:</h2>
-  <p><?=$cbackground ?></p>
   <div id="bgEdit">
+  <p><?=$cbackground ?></p>
     <button type="submit" class="button" onclick="editBgClick()">Edit</button>
   </div>
 
@@ -127,34 +127,37 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
   <div class="container">
       <div class="row">
+        <div id="physEdit">
               <h3>Physical Skills:</h3>
               <?php foreach($cphys as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
               <?php } ?>
-              <div id="physEdit">
+              
                   <button type="submit" onclick="editPhysClick()">Edit</button>
               </div>
       </div>
 
       <div class="row">
+        <div id="mentEdit">
               <h3>Mental Skills</h3>
               <?php foreach($cment as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
               <?php } ?>
-              <div id="mentEdit">
+              
                   <button type="submit" onclick="editMentClick()">Edit</button>
               </div>
       </div>
 
       <div class="row">
+        <div id="spiritEdit">
               <h3>Spiritual Skills</h3>
               <?php foreach($cspirit as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
               <?php } ?>
-              <div id="spiritEdit">
+              
                   <button type="submit" onclick="editSpiritClick()">Edit</button>
               </div>
       </div>
@@ -165,23 +168,25 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
       <div class="row">
           <div id="col-sm-6">
+            <div id="majaEdit">
               <h3>Major Advantages</h3>
               <?php foreach($cmaj_adv as $maja){
                   ?><p><?=$maja ?></p>
                   <br>
               <?php } ?>
-              <div id="majaEdit">
+              
                   <button type="submit" onclick="editMajaClick()">Edit</button>
               </div>
           </div>
 
           <div id="col-sm-6">
+            <div id="minaEdit">
               <h3>Minor Advantages</h3>
               <?php foreach($cmin_adv as $mina){
                   ?><p><?=$mina ?></p>
                   <br>
               <?php } ?>
-              <div id="minaEdit">
+              
                   <button type="submit" onclick="editMinaClick()">Edit</button>
               </div>
           </div>
@@ -191,35 +196,36 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
       <div class="row">
           <div id="col-sm-6">
+            <div id="majdEdit">
               <h3>Major Disadvantages</h3>
               <?php foreach($cmaj_dis as $majd){
                   ?><p><?=$majd ?></p>
                   <br>
               <?php } ?>
-              <div id="majdEdit">
+              
                   <button type="submit" onclick="editMajdClick()">Edit</button>
               </div>
           </div>
 
           <div id="col-sm-6">
+            <div id="mindEdit">
               <h3>Minor Disadvantages</h3>
               <?php foreach($cmin_dis as $mind){
                   ?><p><?=$mind ?></p>
                   <br>
               <?php } ?>
-              <div id="mindEdit">
                   <button type="submit" onclick="editMindClick()">Edit</button>
               </div>
           </div>
       </div>
   </div>
                   <h2>Traits</h2>
-                    
+                    <div id="traitEdit">
                     <?php foreach($ctraits as $trait){
                       ?><p><?=$trait ?></p>
                       <br>
                       <?php } ?>
-                      <div id="traitEdit">
+                      
                         <button type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
 
