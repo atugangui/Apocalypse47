@@ -56,9 +56,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <?php } ?>
         </div>
-            <div class="newBtnChar">
-                <a href="Creator.php" class="btn btn-primary btn-block">Make a new character</a>
-            </div>
     </div> 
     <?php } ?>
 
@@ -75,6 +72,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             $stmt -> execute(array(":param_email" => $name, ":param_xp" => $xp, ":param_bap"=> $bap));
         } 
     ?>
+ <div class="newBtnChar">
+                <a href="Creator.php" class="btn btn-primary btn-block">Make a new character</a>
+            </div>
     <!-- JS file -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 </body>
