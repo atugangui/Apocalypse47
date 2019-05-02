@@ -1,18 +1,17 @@
 body{
-background-image: url("background-brick-close-up-1585710.jpg") ;
-background-size: 100% 100% ;
-font-family: "Ariel", sans-serif;
+	background-image: url("background-brick-close-up-1585710.jpg") ;
+	background-size: 100% 100% ;
+	font-family: "courier", serif;
 }
 
 h1{
-	font-family: "courier", serif;
+	font-family: "Ariel", sans-serif;
 	color: white;
 }
 
 
 .card-body {
 	text-align: center ;
-
 }
 
 .card-title {
