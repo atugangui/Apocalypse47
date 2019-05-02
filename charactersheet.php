@@ -12,9 +12,10 @@ foreach($bgs as $bg){
   $bg = explode(",", $bg) ;
   $background = $bg[0] ;
   $race = $bg[1] ;
-  $bgSelect.="<option value='$background'>$background,$race</option>";
+  $bgSelect.="<option value='$background'>$background, $race</option>";
 }
 $bgSelect.="</select>" ;
+
 $physSelect = "<select multiple='multiple' id='selectedPhys' name='phys'>" ;
 foreach($phys_skills as $phys){
   $phys = explode(",", $phys) ;
@@ -25,6 +26,7 @@ foreach($phys_skills as $phys){
   $physSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training</option>" ;
 }
 $physSelect.="</select>" ;
+
 $mentSelect = "<select multiple='multiple' id='selectedMent' name='ment'>" ;
 foreach($ment_skills as $ment){
   $ment = explode(",", $ment) ;
@@ -77,7 +79,6 @@ $majdSelect = "<select multiple='multiple' id='selectedMajd' name='majd'>" ;
     $majdSelect.="<option value='$disadvantage'>$disadvantage, Weight:$weight</option>" ;
     }
     $majdSelect.="</select>" ;
-
 $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
     foreach ($traits as $trait){
                         $traits = explode(",", $trait) ;
@@ -90,116 +91,177 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="edit.css" type="text/css" rel="stylesheet"/>
-  <script src="edit.js" type="text/javascript"></script>
+    <!-- Compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom CSS for charactersheet.php -->
+    <link href="charactersheet.css" rel="stylesheet">
+
   <meta charset="utf-8" />
 </head>
 <body>
 
   <input type="hidden" name="char_id" value="<?= $char_id ?>">
 
+<div class="container page-container">
   <h2>Name:</h2>
-  <p id="nameInput"><?=$cname ?></p>
-  <div id="nameArea">
-    <button type="submit" id="editName" onclick="editNameClick()">Edit</button>
+  <div class="container">
+  <div id="nameEdit">
+    <p id="nameInput"><?=$cname ?></p>
+    <button type="submit" class="btn btn-dark" id="editName" onclick="editNameClick()">Edit</button>
   </div>
+</div>
 
   <h2>Pronouns:</h2>
-  <p id="pronInput"><?=$cpronouns ?></p>
-  <div id="pronArea">
-    <button type="submit" id="editPron" onclick="editPronClick()">Edit</button>
+  <div class="container">
+    <div id="pronEdit">
+    <p id="pronInput"><?=$cpronouns ?></p>
+    <button type="submit" class="btn btn-dark" id="editPron" onclick="editPronClick()">Edit</button>
   </div>
+</div>
   
   <h2>Race:</h2>
+  <div class="container">
+  <div id="raceEdit">
   <p><?=$crace ?></p>
-  <div id="raceArea">
-    <button type="submit" onclick="editRaceClick()">Edit</button>
+    <button type="submit" class="btn btn-dark" onclick="editRaceClick()">Edit</button>
   </div>
+</div>
 
   <h2>Background:</h2>
+  <div class="container">
+  <div id="bgEdit">
   <p><?=$cbackground ?></p>
-  <div id="bgArea">
-    <button type="submit" onclick="editBgClick()">Edit</button>
+    <button type="submit" class="btn btn-dark" onclick="editBgClick()">Edit</button>
   </div>
-  
-  <h2>Physical Skills:</h2>
-  <?php foreach($cphys as $skill){
-    ?><p><?=$skill ?></p>
-    <br>
-  <?php } ?>
-  <div id="physArea">
-    <button type="submit" onclick="editPhysClick()">Edit</button>
-  </div>
+</div>
 
-  <h2>Mental Skills</h2>
-  <?php foreach($cment as $skill){
-    ?><p><?=$skill ?></p>
-    <br>
-  <?php } ?>
-  <div id="mentArea">
-    <button type="submit" onclick="editMentClick()">Edit</button>
-  </div>
+  <h2>Skills</h2>
 
-  <h2>Spiritual Skills</h2>
-  <?php foreach($cspirit as $skill){
-    ?><p><?=$skill ?></p>
-    <br>
-  <?php } ?>
-  <div id="spiritArea">
-    <button type="submit" onclick="editSpiritClick()">Edit</button>
-  </div>
-
-        <h2>Advantages and Disadvantages</h2>
-          <?php foreach($cmaj_adv as $maja){
-            ?><p><?=$maja ?></p>
-            <br>
-          <?php } ?>
-          <div id="majaArea">
-            <button type="submit" onclick="editMajaClick()">Edit</button>
-          </div>
-          <?php foreach($cmin_adv as $mina){
-            ?><p><?=$mina ?></p>
-            <br>
-          <?php } ?>
-          <div id="minaArea">
-            <button type="submit" onclick="editMinaClick()">Edit</button>
-          </div>
-          <?php foreach($cmaj_dis as $majd){
-            ?><p><?=$majd ?></p>
-            <br>
-          <?php } ?>
-             <div id="majdArea">
-                <button type="submit" onclick="editMajdClick()">Edit</button>
+  <div class="container">
+      <div class="row">
+        
+              <h3>Physical Skills:</h3>
+              <div class="col-sm-12 col-md-12 col-lg-12">
+              <div id="physEdit">
+              <?php foreach($cphys as $skill){
+                  ?><p><?=$skill ?></p>
+                  <br>
+              <?php } ?>
+              
+                  <button class="btn btn-dark" type="submit" onclick="editPhysClick()">Edit</button>
+              </div>
             </div>
-          <?php foreach($cmin_dis as $mind){
-            ?><p><?=$mind ?></p>
-            <br>
-          <?php } ?>
-          <div id="mindArea">
-            <button type="submit" onclick="editMindClick()">Edit</button>
-          </div>
-          
+      </div>
 
+      <div class="row">
+        
+              <h3>Mental Skills</h3>
+              <div class="col-sm-12 col-md-12 col-lg-12">
+              <div id="mentEdit">
+              <?php foreach($cment as $skill){
+                  ?><p><?=$skill ?></p>
+                  <br>
+              <?php } ?>
+              
+                  <button class="btn btn-dark" type="submit" onclick="editMentClick()">Edit</button>
+              </div>
+            </div>
+      </div>
+
+      <div class="row">
+        
+              <h3>Spiritual Skills</h3>
+              <div class="col-sm-12 col-md-12 col-lg-12">
+              <div id="spiritEdit">
+              <?php foreach($cspirit as $skill){
+                  ?><p><?=$skill ?></p>
+                  <br>
+              <?php } ?>
+              
+                  <button class="btn btn-dark" type="submit" onclick="editSpiritClick()">Edit</button>
+              </div>
+            </div>
+      </div>
+  </div>
+
+  <h2>Advantages and Disadvantages</h2>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            
+              <h3>Major Advantages</h3>
+              <div id="majaEdit">
+              <?php foreach($cmaj_adv as $maja){
+                  ?><p><?=$maja ?></p>
+                  <br>
+              <?php } ?>
+              
+                  <button class="btn btn-dark" type="submit" onclick="editMajaClick()">Edit</button>
+              </div>
+          </div>
+
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            
+              <h3>Minor Advantages</h3>
+              <div id="minaEdit">
+              <?php foreach($cmin_adv as $mina){
+                  ?><p><?=$mina ?></p>
+                  <br>
+              <?php } ?>
+              
+                  <button class="btn btn-dark" type="submit" onclick="editMinaClick()">Edit</button>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            
+              <h3>Major Disadvantages</h3>
+              <div id="majdEdit">
+              <?php foreach($cmaj_dis as $majd){
+                  ?><p><?=$majd ?></p>
+                  <br>
+              <?php } ?>
+              
+                  <button class="btn btn-dark" type="submit" onclick="editMajdClick()">Edit</button>
+              </div>
+          </div>
+
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            
+              <h3>Minor Disadvantages</h3>
+              <div id="mindEdit">
+              <?php foreach($cmin_dis as $mind){
+                  ?><p><?=$mind ?></p>
+                  <br>
+              <?php } ?>
+                  <button class="btn btn-dark" type="submit" onclick="editMindClick()">Edit</button>
+              </div>
+          </div>
+      </div>
+  </div>
                   <h2>Traits</h2>
+                    <div id="traitEdit">
                     <?php foreach($ctraits as $trait){
                       ?><p><?=$trait ?></p>
                       <br>
                       <?php } ?>
-                      <div id="traitArea">
-                        <button type="submit" onclick="editTraitClick()">Edit</button>
+                      
+                        <button class="btn btn-dark" type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
+                    </div>
 
-                      <input type="submit" name="submit"/>
 
-                      <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-                      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
                       <script>
                         
                         function editNameClick(){
                           var name=$("#nameInput").text();
-                          var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' id='submitName' onclick='ajaxName()'>Submit</button>";
-                          $("#nameArea").html(nameHtml);
+                          var nameHtml="<input type='text' id='editNameInput' value='"+name+"'><button type='submit' class='button' id='submitName' onclick='ajaxName()'>Submit</button>";
+                          $("#nameEdit").html(nameHtml);
                         }
                         function ajaxName(){
                           var newName=$("#editNameInput").val() ;
@@ -210,14 +272,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Name: </div><div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editName' onclick='editNameClick()'>Edit</button></div>";
-        $("#nameArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editName' onclick='editNameClick()'>Edit</button></div>";
+        $("#nameEdit").html(newHtml);
       });
                         }
                         function editPronClick(){
                           var pron=$("#pronInput").text();
-                          var pronHtml="<input type='text' id='editPronInput' value='"+pron+"'><button type='submit' id='submitPron' onclick='ajaxPron()'>Submit</button>";
-                          $("#pronArea").html(pronHtml);
+                          var pronHtml="<input type='text' id='editPronInput' value='"+pron+"'><button type='submit' class='button' id='submitPron' onclick='ajaxPron()'>Submit</button>";
+                          $("#pronEdit").html(pronHtml);
                         }
                         function ajaxPron(){
                           var newPron=$("#editPronInput").val() ;
@@ -228,14 +290,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Pronouns: </div><div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editPron' onclick='editPronClick()'>Edit</button></div>";
-        $("#pronArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editPron' onclick='editPronClick()'>Edit</button></div>";
+        $("#pronEdit").html(newHtml);
       });
                         }
                         function editRaceClick(){
                           var raceMenu="<?= $raceSelect?>"; 
-                          raceMenu+="<button type='submit' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
-                          $("#raceArea").html(raceMenu) 
+                          raceMenu+="<button type='submit' class='button' id='submitRace' onclick='ajaxRace()'>Submit</button>" ;
+                          $("#raceEdit").html(raceMenu) 
                         }
                         function ajaxRace(){
                           var newRace=$("#selectedRace option:selected" ).text();
@@ -246,14 +308,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Race: </div><div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
-        $("#raceArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
+        $("#raceEdit").html(newHtml);
       });
                         }
                         function editBgClick(){
                           var bgMenu="<?= $bgSelect?>"; 
-                          bgMenu+="<button type='submit' id='submitBg' onclick='ajaxBg()'>Submit</button>" ;
-                          $("#bgArea").html(bgMenu) ;
+                          bgMenu+="<button type='submit' class='button' id='submitBg' onclick='ajaxBg()'>Submit</button>" ;
+                          $("#bgEdit").html(bgMenu) ;
                         }
                         function ajaxBg(){
                           var newBg=$("#selectedBg option:selected").text();
@@ -264,14 +326,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Background: </div><div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' id='editBg' onclick='editBgClick()'>Edit</button>" ;
-        $("#bgArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editBg' onclick='editBgClick()'>Edit</button>" ;
+        $("#bgEdit").html(newHtml);
       });
                         }
                         function editPhysClick(){
                           var physMenu="<?= $physSelect?>"; 
-                          physMenu+="<button type='submit' id='submitPhys' onclick='ajaxPhys()'>Submit</button>" ;
-                          $("#physArea").html(physMenu) ;
+                          physMenu+="<button type='submit' class='button' id='submitPhys' onclick='ajaxPhys()'>Submit</button>" ;
+                          $("#physEdit").html(physMenu) ;
                         }
                         function ajaxPhys(){
                           var newPhys= $("#selectedPhys").val() || [] ;
@@ -282,14 +344,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Physical Skills: </div><div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
-        $("#physArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
+        $("#physEdit").html(newHtml);
       });
                         }
                         function editMentClick(){
                           var mentMenu="<?= $mentSelect?>"; 
-                          mentMenu+="<button type='submit' id='submitMent' onclick='ajaxMent()'>Submit</button>" ;
-                          $("#mentArea").html(mentMenu) ;
+                          mentMenu+="<button type='submit' class='button' id='submitMent' onclick='ajaxMent()'>Submit</button>" ;
+                          $("#mentEdit").html(mentMenu) ;
                         }
                         function ajaxMent(){
                           var newMent= $("#selectedMent").val() || [] ;
@@ -300,14 +362,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Mental Skills: </div><div class='d-inline p-2'  id='mentInput'>"+newMent+ "</div><div class='d-inline p-2' ><button type='submit' id='editMent' onclick='editMentClick()'>Edit</button>" ;
-        $("#mentArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='mentInput'>"+newMent+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMent' onclick='editMentClick()'>Edit</button>" ;
+        $("#mentEdit").html(newHtml);
       });
                         }
                         function editSpiritClick(){
                           var spiritMenu="<?= $spiritSelect?>"; 
-                          spiritMenu+="<button type='submit' id='submitSpirit' onclick='ajaxSpirit()'>Submit</button>" ;
-                          $("#spiritArea").html(spiritMenu) ;
+                          spiritMenu+="<button type='submit' class='button' id='submitSpirit' onclick='ajaxSpirit()'>Submit</button>" ;
+                          $("#spiritEdit").html(spiritMenu) ;
                         }
                         function ajaxSpirit(){
                           var newSpirit= $("#selectedSpirit").val() || [];
@@ -318,14 +380,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Spiritual Skills: </div><div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
-        $("#spiritArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
+        $("#spiritEdit").html(newHtml);
       });
                         }
                         function editMajaClick(){
                           var majaMenu="<?= $majaSelect?>"; 
-                          majaMenu+="<button type='submit' id='submitMaja' onclick='ajaxMaja()'>Submit</button>" ;
-                          $("#majaArea").html(majaMenu) ;
+                          majaMenu+="<button type='submit' class='button' id='submitMaja' onclick='ajaxMaja()'>Submit</button>" ;
+                          $("#majaEdit").html(majaMenu) ;
                         }
                         function ajaxMaja(){
                           var newMaja= $("#selectedMaja").val() || [];
@@ -336,14 +398,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Major Advantages: </div><div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
-        $("#majaArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
+        $("#majaEdit").html(newHtml);
       });
                         }
                         function editMajdClick(){
                             var majdMenu="<?= $majdSelect?>";
-                            majdMenu+="<button type='submit' id='submitMajd' onclick='ajaxMajd()'>Submit</button>" ;
-                            $("#majdArea").html(majdMenu) ;
+                            majdMenu+="<button type='submit' class='button' id='submitMajd' onclick='ajaxMajd()'>Submit</button>" ;
+                            $("#majdEdit").html(majdMenu) ;
                         }
                         function ajaxMajd() {
                             var newMajd = $("#selectedMajd").val() || [];
@@ -354,14 +416,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                             })
                                 .done(function (msg) {
                                     //alert( "Data Saved: " + msg );
-                                    newHtml = "<div class='d-inline p-2'  >Major Disadvantages: </div><div class='d-inline p-2'  id='majdInput'>" + newMajd + "</div><div class='d-inline p-2' ><button type='submit' id='editMajd' onclick='editMajdClick()'>Edit</button>";
-                                    $("#majdArea").html(newHtml);
+                                    newHtml = "<div class='d-inline p-2'  id='majdInput'>" + newMajd + "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMajd' onclick='editMajdClick()'>Edit</button>";
+                                    $("#majdEdit").html(newHtml);
                                 });
                         }
                         function editMinaClick(){
                           var minaMenu="<?= $minaSelect?>"; 
-                          minaMenu+="<button type='submit' id='submitMina' onclick='ajaxMina()'>Submit</button>" ;
-                          $("#minaArea").html(minaMenu) ;
+                          minaMenu+="<button type='submit' class='button' id='submitMina' onclick='ajaxMina()'>Submit</button>" ;
+                          $("#minaEdit").html(minaMenu) ;
                         }
                         function ajaxMina(){
                           var newMina= $("#selectedMina").val() || [];
@@ -372,15 +434,15 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Minor Advantages: </div><div class='d-inline p-2'  id='minaInput'>"+newMina+"</div><div class='d-inline p-2' ><button type='submit' id='editMina' onclick='editMinaClick()'>Edit</button>" ;
-        $("#minaArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='minaInput'>"+newMina+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMina' onclick='editMinaClick()'>Edit</button>" ;
+        $("#minaEdit").html(newHtml);
       });
                         }
                         
                         function editMindClick(){
                           var mindMenu="<?= $mindSelect?>"; 
-                          mindMenu+="<button type='submit' id='submitMind' onclick='ajaxMind()'>Submit</button>" ;
-                          $("#mindArea").html(mindMenu) ;
+                          mindMenu+="<button type='submit' class='button' id='submitMind' onclick='ajaxMind()'>Submit</button>" ;
+                          $("#mindEdit").html(mindMenu) ;
                         }
                         function ajaxMind(){
                           var newMind= $("#selectedMind").val() || [];
@@ -391,14 +453,14 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Minor Disadvantages: </div><div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' id='editMind' onclick='editMindClick()'>Edit</button>" ;
-        $("#mindArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editMind' onclick='editMindClick()'>Edit</button>" ;
+        $("#mindEdit").html(newHtml);
       });
 }
                           function editTraitClick(){
                           var traitMenu="<?= $traitSelect?>"; 
-                          traitMenu+="<button type='submit' id='submitTrait' onclick='ajaxTrait()'>Submit</button>" ;
-                          $("#traitArea").html(traitMenu) ;
+                          traitMenu+="<button type='submit' class='button' id='submitTrait' onclick='ajaxTrait()'>Submit</button>" ;
+                          $("#traitEdit").html(traitMenu) ;
                         }
                         function ajaxTrait(){
                           var newTrait= $("#selectedTrait").val() || [];
@@ -409,8 +471,8 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Traits: </div><div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
-        $("#traitArea").html(newHtml);
+        newHtml="<div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-dark' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
+        $("#traitEdit").html(newHtml);
       });
                         }
                         function deleteClick(){
@@ -432,6 +494,12 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                         }
                       </script>
                     </body>
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                    
+
                     <button onclick="deleteClick()">Delete Character</button>
-                    <a href="welcome.php" class="btn-primary">Return to Home Page</a>
+                    <a href="welcome.php" class="btn btn-dark">Return to Home Page</a>
+
                     </html>

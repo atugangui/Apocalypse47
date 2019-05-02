@@ -1,0 +1,49 @@
+body {
+    font-family: "Courier New";
+    background-image: url("background-brick-close-up-1585710.jpg");
+    background-size: 100% 100%;
+    color: black ;
+}
+
+h2 {
+    font-family: "Arial";
+}
+
+#title{
+    color: white ;
+}
+.page-container {
+    background-color: rgba(255, 255, 255, .75);
+}
+
+#majaArea, #majdArea {
+    float: left;
+    width: 25%;
+}
+
+
+#minaArea, #mindArea {
+    width: 25%;
+    float: right;
+
+}
+
+
+button {
+    font-family: "Courier New";
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+
+}
+
+hr {
+    visibility: hidden;
+}

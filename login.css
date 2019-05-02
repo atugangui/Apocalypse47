@@ -1,0 +1,18 @@
+h2 {
+	font-family: "Arial"
+}
+
+body{
+	font-family: "Courier New";
+	background-image: url("background-brick-close-up-1585710.jpg");
+	background-size: 100% 100%;
+}
+.wrapper {
+    width: 400px;
+    padding: 20px;
+    opacity: 1;
+    background-color: white;
+    margin-top: 60px;
+    margin-left: 60px;
+	border-radius: 10px;
+}
