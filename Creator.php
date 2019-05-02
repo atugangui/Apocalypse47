@@ -64,7 +64,8 @@ $traits = explode("\r", $traits) ;
       <h1>Create your Character </h1>
 
         <!-- name and pronouns -->
-      <div class="container">
+      <div id="page-container">
+
         	<h2>Name and Pronouns</h2>
           <div class="container">
         	<input type="text" value='name' name="name" />

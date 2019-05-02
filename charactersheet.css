@@ -9,6 +9,10 @@ h2 {
     font-family: "Arial";
 }
 
+#page-container {
+    background-color: rgba(255, 255, 255, .75);
+}
+
 #majaArea, #majdArea {
     float: left;
     width: 25%;
