@@ -127,8 +127,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
   <div class="container">
       <div class="row">
-        <div id="physEdit">
+        
               <h3>Physical Skills:</h3>
+              <div id="physEdit">
               <?php foreach($cphys as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
@@ -139,8 +140,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
       </div>
 
       <div class="row">
-        <div id="mentEdit">
+        
               <h3>Mental Skills</h3>
+              <div id="mentEdit">
               <?php foreach($cment as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
@@ -151,8 +153,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
       </div>
 
       <div class="row">
-        <div id="spiritEdit">
+        
               <h3>Spiritual Skills</h3>
+              <div id="spiritEdit">
               <?php foreach($cspirit as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
@@ -168,8 +171,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
       <div class="row">
           <div id="col-sm-6">
-            <div id="majaEdit">
+            
               <h3>Major Advantages</h3>
+              <div id="majaEdit">
               <?php foreach($cmaj_adv as $maja){
                   ?><p><?=$maja ?></p>
                   <br>
@@ -180,8 +184,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
           </div>
 
           <div id="col-sm-6">
-            <div id="minaEdit">
+            
               <h3>Minor Advantages</h3>
+              <div id="minaEdit">
               <?php foreach($cmin_adv as $mina){
                   ?><p><?=$mina ?></p>
                   <br>
@@ -196,8 +201,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <div class="container">
       <div class="row">
           <div id="col-sm-6">
-            <div id="majdEdit">
+            
               <h3>Major Disadvantages</h3>
+              <div id="majdEdit">
               <?php foreach($cmaj_dis as $majd){
                   ?><p><?=$majd ?></p>
                   <br>
@@ -208,8 +214,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
           </div>
 
           <div id="col-sm-6">
-            <div id="mindEdit">
+            
               <h3>Minor Disadvantages</h3>
+              <div id="mindEdit">
               <?php foreach($cmin_dis as $mind){
                   ?><p><?=$mind ?></p>
                   <br>
