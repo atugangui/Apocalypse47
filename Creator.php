@@ -98,7 +98,7 @@ $traits = explode("\r", $traits) ;
         <div class="container">
         <p> Each new character starts with 50 points to allot to skills: 10 points in one category and 20 points in the remaining two categories. <br> Remember to hold down the 'ctrl' button when selecting multiple options!</p>
           <legend>Physical</legend>
-          <select multiple="multiple" class="form-control" name="physical[]" size="10">
+          <select multiple="multiple" name="physical[]" size="10">
            	<?php
             foreach($phys_skills as $phys){
             $phys = explode(",", $phys) ;
@@ -114,7 +114,7 @@ $traits = explode("\r", $traits) ;
           </select>
 
           <legend>Mental</legend>
-          <select multiple="multiple" class="form-control" name="mental[]" size="10">
+          <select multiple="multiple" name="mental[]" size="10">
            	<?php
             foreach($ment_skills as $ment){
             $ment = explode(",", $ment) ;
@@ -130,7 +130,7 @@ $traits = explode("\r", $traits) ;
           </select>
 
         	<legend>Spiritual</legend>
-        	<select multiple="multiple" class="form-control" name="spiritual[]" size = "10">
+        	<select multiple="multiple" name="spiritual[]" size = "10">
         			<?php
         	foreach($spirit_skills as $spirit){
         		$spirit = explode(",", $spirit) ;
