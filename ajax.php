@@ -37,6 +37,9 @@ switch($fx){
   case "updateAdvant":
   updateAdvant($mysql, $type) ;
   break ;
+  case "deleteCharacter":
+  deleteCharacter($mysql) ;
+  break ;
 }
 
 function updateName($mysql){
@@ -129,5 +132,14 @@ function updateAdvant($mysql, $type)
         }
     }
 }
+
+function deleteCharacter($mysql){
+  $id=$_POST["char_id"];
+
+  if($mysql->deleteCharacter($id)){
+        echo "success";
+    }
+    else{echo "fail";}
+  }
 
 ?>

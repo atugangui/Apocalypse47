@@ -475,10 +475,31 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
         $("#traitEdit").html(newHtml);
       });
                         }
+                        function deleteClick(){
+                          if(confirm("Are you sure you want to delete this character?")){
+                            deleteCharacter() ;
+                          }
+                          else{
+                          }
+                        }
+                          function deleteCharacter(){
+                          $.ajax({
+                            method: "POST",
+                            url: "ajax.php",
+                            data: { char_id: "<?= $char_id?>", fx: "deleteCharacter"}
+                          })
+                          .done(function( msg ) {
+                            window.location.replace("welcome.php");
+                          });
+                        }
                       </script>
-
                     </body>
+
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                    
+
+                    <button onclick="deleteClick()">Delete Character</button>
                     <a href="welcome.php" class="btn btn-dark">Return to Home Page</a>
+
                     </html>
