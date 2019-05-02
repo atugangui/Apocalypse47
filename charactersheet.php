@@ -170,7 +170,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
   <div class="container">
       <div class="row">
-          <div id="col-sm-6">
+          <div id="col-sm-6 col-md-6 col-lg-6">
             
               <h3>Major Advantages</h3>
               <div id="majaEdit">
@@ -183,7 +183,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               </div>
           </div>
 
-          <div id="col-sm-6">
+          <div id="col-sm-6 col-md-6 col-lg-6">
             
               <h3>Minor Advantages</h3>
               <div id="minaEdit">
@@ -198,7 +198,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
       </div>
 
       <div class="row">
-          <div id="col-sm-6">
+          <div id="col-sm-6 col-md-6 col-lg-6">
             
               <h3>Major Disadvantages</h3>
               <div id="majdEdit">
@@ -211,7 +211,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               </div>
           </div>
 
-          <div id="col-sm-6">
+          <div id="col-sm-6 col-md-6 col-lg-6">
             
               <h3>Minor Disadvantages</h3>
               <div id="mindEdit">
