@@ -52,6 +52,7 @@ $traits = explode("\r", $traits) ;
 
         <!-- Custom CSS for Creator.php -->
         <link href="charactersheet.css" rel="stylesheet">
+        <script>
         var races = <?= $js_array ?>;
         var backgrounds = <?= $background ?> ;
         </script>
@@ -62,14 +63,16 @@ $traits = explode("\r", $traits) ;
     <form action="changesSubmitted.php" method="post">
       <h1>Create your Character </h1>
 
-      <div class="container">  <!-- name and pronouns -->
+        <!-- name and pronouns -->
         	<h2>Name and Pronouns</h2>
+          <div class="container">
         	<input type="text" name="name" /> <br />
         	<input type="text" name="pronouns" /> <br />
       </div>
 
-      <div class="container"> <!-- race and background -->
+       <!-- race and background -->
         <h2> Race and Background </h2>
+        <div class="container">
         <fieldset id="race">
           <select name="race" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
               <option value="">Select race</option>
@@ -92,8 +95,9 @@ $traits = explode("\r", $traits) ;
         </fieldset>
       </div>
 
-      <div class="container">  <!---------------------------------------------- skills ---------------------------->
+       <!---------------------------------------------- skills ---------------------------->
         <h2>Skills</h2>
+        <div class="container">
         <p> Each new character starts with 50 points to allot to skills: 10 points in one category and 20 points in the remaining two categories. <br> Remember to hold down control when selecting multiple options!</p>
         <fieldset class="skill">
           <legend>Physical</legend>
@@ -150,8 +154,9 @@ $traits = explode("\r", $traits) ;
         </fieldset>
       </div>
       
-      <div class="container">
+      
         <h2>Advantages</h2>
+        <div class="container">
         <p> Each major trait is worth two minor traits, so make sure your advantages and disadvantages equal out!
           <br>
         For example, if you have two minor advantages you can select one major disadvantage or two minor disadvantages</p>
@@ -223,8 +228,9 @@ $traits = explode("\r", $traits) ;
 
       </div>
       
-      <div class="container"> <!-- Traits -->
+       <!-- Traits -->
         <h2>Traits</h2>
+        <div class="container">
         <p>You can pick as many traits as you like</p>
         <select multiple="multiple" name="traits[]" size="5">
           <?php
