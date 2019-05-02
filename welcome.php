@@ -18,16 +18,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <title>Home</title>
     <!-- Compiled and minified CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="pricing.css" rel="stylesheet">
+
+    <!-- Custom CSS for Welcome Page -->
+    <link href="welcome.css" rel="stylesheet">
+
 </head>
 <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <a href="reset-password.php" class="btn btn-danger">Reset Password</a>
-        <a href="logout.php" class="btn btn-outline-primary">Sign Out</a>
+    <div class="md-row-reverse p-3 px-md-4 mb-3 border-bottom box-shadow bg-light">
+            <a href="reset-password.php" class="btn btn-danger">Reset Password</a>
+            <a href="logout.php" class="btn btn-outline-primary">Sign Out</a>
     </div>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Your Characters:</h1>
+        <h1 class="display-3">Your Characters:</h1>
     </div>
     <?php
         $name = htmlspecialchars($_SESSION["username"]);
@@ -54,12 +56,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <?php } ?>
         </div>
+            <div class="newBtnChar">
+                <a href="Creator.php" class="btn btn-primary btn-block">Make a new character</a>
+            </div>
     </div> 
     <?php } ?>
-
-        <p>
-        <a href="Creator.php" class="btn-primary">Make a new character</a>
-    </p>
 
     <?php 
         $sql = "SELECT * FROM player_table WHERE player_table.email = :name";
