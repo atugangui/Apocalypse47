@@ -228,7 +228,7 @@ $traits = explode("\r", $traits) ;
       </div>
 
 </div>
-    <input type="submit" name="submit"/>
+    <input class="btn btn-dark" type="submit" name="submit"/>
     <a href="welcome.php" class="btn btn-dark">Return to Home Page</a>
 
     </form>
