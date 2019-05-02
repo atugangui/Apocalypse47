@@ -158,7 +158,6 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <button type="submit" onclick="editSpiritClick()">Edit</button>
               </div>
       </div>
-      </div>
   </div>
 
   <h2>Advantages and Disadvantages</h2>
@@ -215,12 +214,12 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
       </div>
   </div>
                   <h2>Traits</h2>
-                    <div id="traitEdit">
+                    
                     <?php foreach($ctraits as $trait){
                       ?><p><?=$trait ?></p>
                       <br>
                       <?php } ?>
-
+                      <div id="traitEdit">
                         <button type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
 
