@@ -135,7 +135,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               <div id="physEdit">
                   <button type="submit" onclick="editPhysClick()">Edit</button>
               </div>
+      </div>
 
+      <div class="row">
               <h3>Mental Skills</h3>
               <?php foreach($cment as $skill){
                   ?><p><?=$skill ?></p>
@@ -144,7 +146,9 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               <div id="mentEdit">
                   <button type="submit" onclick="editMentClick()">Edit</button>
               </div>
+      </div>
 
+      <div class="row">
               <h3>Spiritual Skills</h3>
               <?php foreach($cspirit as $skill){
                   ?><p><?=$skill ?></p>
@@ -153,6 +157,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               <div id="spiritEdit">
                   <button type="submit" onclick="editSpiritClick()">Edit</button>
               </div>
+      </div>
       </div>
   </div>
 
@@ -209,7 +214,6 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
           </div>
       </div>
   </div>
-<hr />
                   <h2>Traits</h2>
                     <div id="traitEdit">
                     <?php foreach($ctraits as $trait){
