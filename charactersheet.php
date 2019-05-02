@@ -15,6 +15,7 @@ foreach($bgs as $bg){
   $bgSelect.="<option value='$background'>$background,$race</option>";
 }
 $bgSelect.="</select>" ;
+
 $physSelect = "<select multiple='multiple' id='selectedPhys' name='phys'>" ;
 foreach($phys_skills as $phys){
   $phys = explode(",", $phys) ;
@@ -25,6 +26,7 @@ foreach($phys_skills as $phys){
   $physSelect.="<option value='$skill'>$skill, Requirement: $requirement, Cost: $cost, Training Required: $training</option>" ;
 }
 $physSelect.="</select>" ;
+
 $mentSelect = "<select multiple='multiple' id='selectedMent' name='ment'>" ;
 foreach($ment_skills as $ment){
   $ment = explode(",", $ment) ;
@@ -125,8 +127,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
 
   <div class="container">
       <div class="row">
-          <div class="col-sm-4">
-              <h2>Physical Skills:</h2>
+              <h3>Physical Skills:</h3>
               <?php foreach($cphys as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
@@ -134,10 +135,8 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               <div id="physEdit">
                   <button type="submit" onclick="editPhysClick()">Edit</button>
               </div>
-          </div>
 
-          <div class="col-sm-4">
-              <h2>Mental Skills</h2>
+              <h3>Mental Skills</h3>
               <?php foreach($cment as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
@@ -145,10 +144,8 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               <div id="mentEdit">
                   <button type="submit" onclick="editMentClick()">Edit</button>
               </div>
-          </div>
 
-          <div id="col-sm-4">
-              <h2>Spiritual Skills</h2>
+              <h3>Spiritual Skills</h3>
               <?php foreach($cspirit as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
@@ -156,7 +153,6 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
               <div id="spiritEdit">
                   <button type="submit" onclick="editSpiritClick()">Edit</button>
               </div>
-          </div>
       </div>
   </div>
 
@@ -314,7 +310,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  >Physical Skills: </div><div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  >Physical Skills: <br></div><div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
         $("#physEdit").html(newHtml);
       });
                         }
