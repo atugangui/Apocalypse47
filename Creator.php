@@ -114,7 +114,7 @@ $traits = explode("\r", $traits) ;
           </select>
 
           <legend>Mental</legend>
-          <select multiple="multiple" name="mental[]" size="10">
+          <select multiple="multiple" class="form-control" name="mental[]" size="10">
            	<?php
             foreach($ment_skills as $ment){
             $ment = explode(",", $ment) ;
@@ -130,7 +130,7 @@ $traits = explode("\r", $traits) ;
           </select>
 
         	<legend>Spiritual</legend>
-        	<select multiple="multiple" name="spiritual[]" size = "10">
+        	<select multiple="multiple" class="form-control" name="spiritual[]" size = "10">
         			<?php
         	foreach($spirit_skills as $spirit){
         		$spirit = explode(",", $spirit) ;
