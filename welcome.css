@@ -8,11 +8,21 @@ h1{
 	font-family: "courier", serif;
 	color: white;
 	font-weight: bolder ;
+
+}
+
+.header {
+	background-color: #8D8D8D ;
 }
 
 .card-body {
 	text-align: center ;
 
+}
+
+.card-title {
+	font-weight: bold;
+	font-size: 30pt;
 }
 
 .card {
