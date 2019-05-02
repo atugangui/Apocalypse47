@@ -108,19 +108,19 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <h2>Pronouns:</h2>
     <div id="pronEdit">
     <p id="pronInput"><?=$cpronouns ?></p>
-    <button type="submit" class="button" id="editPron" onclick="editPronClick()">Edit</button>
+    <button type="submit" class="btn btn-light" id="editPron" onclick="editPronClick()">Edit</button>
   </div>
   
   <h2>Race:</h2>
   <div id="raceEdit">
   <p><?=$crace ?></p>
-    <button type="submit" class="button" onclick="editRaceClick()">Edit</button>
+    <button type="submit" class="btn btn-light" onclick="editRaceClick()">Edit</button>
   </div>
 
   <h2>Background:</h2>
   <div id="bgEdit">
   <p><?=$cbackground ?></p>
-    <button type="submit" class="button" onclick="editBgClick()">Edit</button>
+    <button type="submit" class="btn btn-light" onclick="editBgClick()">Edit</button>
   </div>
 
   <h2>Skills</h2>
@@ -129,40 +129,46 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
       <div class="row">
         
               <h3>Physical Skills:</h3>
+              <div class="col-sm-12 col-md-12 col-lg-12">
               <div id="physEdit">
               <?php foreach($cphys as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
               <?php } ?>
               
-                  <button type="submit" onclick="editPhysClick()">Edit</button>
+                  <button class="btn btn-light" type="submit" onclick="editPhysClick()">Edit</button>
               </div>
+            </div>
       </div>
 
       <div class="row">
         
               <h3>Mental Skills</h3>
+              <div class="col-sm-12 col-md-12 col-lg-12">
               <div id="mentEdit">
               <?php foreach($cment as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
               <?php } ?>
               
-                  <button type="submit" onclick="editMentClick()">Edit</button>
+                  <button class="btn btn-light" type="submit" onclick="editMentClick()">Edit</button>
               </div>
+            </div>
       </div>
 
       <div class="row">
         
               <h3>Spiritual Skills</h3>
+              <div class="col-sm-12 col-md-12 col-lg-12">
               <div id="spiritEdit">
               <?php foreach($cspirit as $skill){
                   ?><p><?=$skill ?></p>
                   <br>
               <?php } ?>
               
-                  <button type="submit" onclick="editSpiritClick()">Edit</button>
+                  <button class="btn btn-light" type="submit" onclick="editSpiritClick()">Edit</button>
               </div>
+            </div>
       </div>
   </div>
 
@@ -179,7 +185,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button type="submit" onclick="editMajaClick()">Edit</button>
+                  <button class="btn btn-light" type="submit" onclick="editMajaClick()">Edit</button>
               </div>
           </div>
 
@@ -192,7 +198,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button type="submit" onclick="editMinaClick()">Edit</button>
+                  <button class="btn btn-light" type="submit" onclick="editMinaClick()">Edit</button>
               </div>
           </div>
       </div>
@@ -207,7 +213,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   <br>
               <?php } ?>
               
-                  <button type="submit" onclick="editMajdClick()">Edit</button>
+                  <button class="btn btn-light" type="submit" onclick="editMajdClick()">Edit</button>
               </div>
           </div>
 
@@ -219,7 +225,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                   ?><p><?=$mind ?></p>
                   <br>
               <?php } ?>
-                  <button type="submit" onclick="editMindClick()">Edit</button>
+                  <button class="btn btn-light" type="submit" onclick="editMindClick()">Edit</button>
               </div>
           </div>
       </div>
@@ -231,7 +237,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                       <br>
                       <?php } ?>
                       
-                        <button type="submit" class="button" onclick="editTraitClick()">Edit</button>
+                        <button class="btn btn-light" type="submit" class="button" onclick="editTraitClick()">Edit</button>
                       </div>
 
 
