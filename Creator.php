@@ -66,7 +66,7 @@ $traits = explode("\r", $traits) ;
         <!-- name and pronouns -->
         	<h2>Name and Pronouns</h2>
           <div class="container">
-        	<input type="text" name="name" /> <br />
+        	<input type="text" value='name' name="name" /> <br />
         	<input type="text" name="pronouns" /> <br />
       </div>
 
