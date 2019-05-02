@@ -31,11 +31,9 @@ catch(Exception $e){
        echo $cchar_id;
        if (isset($cchar_id)) {
            include ("updateQueries.php");
-           echo "updated queries" ;
        }
        else {
            include ("creatorQueries.php");
-           echo "creator queries" ;
        }
 
 }catch(Exception $e){
