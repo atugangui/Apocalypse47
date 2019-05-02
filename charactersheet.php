@@ -100,10 +100,12 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
   <input type="hidden" name="char_id" value="<?= $char_id ?>">
 
   <h2>Name:</h2>
+  <div class="container">
   <div id="nameEdit">
     <p id="nameInput"><?=$cname ?></p>
     <button type="submit" class="button" id="editName" onclick="editNameClick()">Edit</button>
   </div>
+</div>
 
   <h2>Pronouns:</h2>
     <div id="pronEdit">
@@ -258,7 +260,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editName' onclick='editNameClick()'>Edit</button></div>";
+        newHtml="<div class='d-inline p-2'  id='nameInput'>"+newName+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editName' onclick='editNameClick()'>Edit</button></div>";
         $("#nameEdit").html(newHtml);
       });
                         }
@@ -276,7 +278,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-primary mb-1' id='editPron' onclick='editPronClick()'>Edit</button></div>";
+        newHtml="<div class='d-inline p-2'  id='pronInput'>"+newPron+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editPron' onclick='editPronClick()'>Edit</button></div>";
         $("#pronEdit").html(newHtml);
       });
                         }
@@ -294,7 +296,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='raceInput'>"+newRace+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editRace' onclick='editRaceClick()'>Edit</button>" ;
         $("#raceEdit").html(newHtml);
       });
                         }
@@ -312,7 +314,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' id='editBg' onclick='editBgClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='bgInput'>"+newBg+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editBg' onclick='editBgClick()'>Edit</button>" ;
         $("#bgEdit").html(newHtml);
       });
                         }
@@ -330,7 +332,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='physInput'>"+newPhys+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editPhys' onclick='editPhysClick()'>Edit</button>" ;
         $("#physEdit").html(newHtml);
       });
                         }
@@ -348,7 +350,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='mentInput'>"+newMent+ "</div><div class='d-inline p-2' ><button type='submit' id='editMent' onclick='editMentClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='mentInput'>"+newMent+ "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMent' onclick='editMentClick()'>Edit</button>" ;
         $("#mentEdit").html(newHtml);
       });
                         }
@@ -366,7 +368,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='spiritInput'>"+newSpirit+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editSpirit' onclick='editSpiritClick()'>Edit</button>" ;
         $("#spiritEdit").html(newHtml);
       });
                         }
@@ -384,7 +386,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='majaInput'>"+newMaja+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMaja' onclick='editMajaClick()'>Edit</button>" ;
         $("#majaEdit").html(newHtml);
       });
                         }
@@ -402,7 +404,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                             })
                                 .done(function (msg) {
                                     //alert( "Data Saved: " + msg );
-                                    newHtml = "<div class='d-inline p-2'  id='majdInput'>" + newMajd + "</div><div class='d-inline p-2' ><button type='submit' id='editMajd' onclick='editMajdClick()'>Edit</button>";
+                                    newHtml = "<div class='d-inline p-2'  id='majdInput'>" + newMajd + "</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMajd' onclick='editMajdClick()'>Edit</button>";
                                     $("#majdEdit").html(newHtml);
                                 });
                         }
@@ -420,7 +422,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='minaInput'>"+newMina+"</div><div class='d-inline p-2' ><button type='submit' id='editMina' onclick='editMinaClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='minaInput'>"+newMina+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMina' onclick='editMinaClick()'>Edit</button>" ;
         $("#minaEdit").html(newHtml);
       });
                         }
@@ -439,7 +441,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' id='editMind' onclick='editMindClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='mindInput'>"+newMind+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editMind' onclick='editMindClick()'>Edit</button>" ;
         $("#mindEdit").html(newHtml);
       });
 }
@@ -457,7 +459,7 @@ $traitSelect = "<select multiple='multiple' id='selectedTrait' name='trait'>" ;
                           })
                           .done(function( msg ) {
         //alert( "Data Saved: " + msg );
-        newHtml="<div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
+        newHtml="<div class='d-inline p-2'  id='traitInput'>"+newTrait+"</div><div class='d-inline p-2' ><button type='submit' class='btn btn-light' id='editTrait' onclick='editTraitClick()'>Edit</button>" ;
         $("#traitEdit").html(newHtml);
       });
                         }
